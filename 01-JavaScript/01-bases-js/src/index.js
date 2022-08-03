@@ -196,3 +196,15 @@ async function obtenerPersonajes() {
   }
 }
 obtenerPersonajes()
+
+// Ternarios y operadores condicionales
+const age = 18
+const mayorDeEdad = age >= 18 ? 'Si' : 'No'
+console.log(mayorDeEdad)
+
+// Null Checking and Undefined Checking
+const stark = {
+  nombre: 'Tony',
+  apellido: 'Stark',
+}
+console.log(stark.power ? stark.power : 'No tiene poderes el Sr. Stark')

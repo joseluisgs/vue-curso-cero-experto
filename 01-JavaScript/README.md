@@ -14,6 +14,8 @@ JavaScript es un lenguaje de programación que se utiliza en el desarrollo de ap
 - [Api Fetch](#api-fetch)
 - [Axios](#axios)
 - [Async / Await](#async--await)
+- [Ternarios y operadores condicionales](#ternarios-y-operadores-condicionales)
+- [Null checking](#null-checking)
 
 ## const, let y var
 JavaScript tiene dos tipos de definir variables:
@@ -231,4 +233,26 @@ async function obtenerPersonajes() {
   }
 }
 obtenerPersonajes()
+```
+
+## Ternarios y operadores condicionales
+Ternarios son una forma de escribir condicionales en una sola línea.
+
+```js
+const edad = 18
+const edadMinima = 18
+const esMayorDeEdad = edad >= edadMinima ? 'Es mayor de edad' : 'Es menor de edad'
+console.log(esMayorDeEdad)
+```
+
+## Null checking 
+Null checking es una forma de verificar si una variable es nula y es muy util para los campos de objetos.
+
+```js
+const persona = {
+  nombre: 'Tony',
+  apellido: 'Stark',
+}
+console.log(persona.power ? persona.power : "No tiene")
+
 ```
