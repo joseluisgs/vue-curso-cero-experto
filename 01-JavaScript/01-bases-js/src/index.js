@@ -118,4 +118,12 @@ const heroe = {
 const { id, name, power= 'No tiene' } = heroe
 console.log(id, name)
 
+// Destructuracion de arrays
+const numbers = [1, 2, 3, 4, 5]
+const [numero1, numero2, ...resto] = numbers
+console.log(numero1)
+console.log(numero2)
+console.log(resto)
+
+
 

@@ -8,6 +8,7 @@ JavaScript es un lenguaje de programación que se utiliza en el desarrollo de ap
 - [Arrays](#arrays)
 - [Funciones](#funciones)
 - [Desestructurar objetos](#desestructurar-objetos)
+- [Desestructurar arrays](#desestructurar-arrays)
 
 ## const, let y var
 JavaScript tiene dos tipos de definir variables:
@@ -141,3 +142,14 @@ const { nombre, apellido, edad, power= 'No tiene' } = persona
 console.log(nombre) 
 console.log(apellido)
 ```  
+
+## Desestructurar arrays
+Desestructurar arrays es una forma de extraer valores de un array.
+
+```js
+const numeros = [1, 2, 3, 4, 5]
+const [numero1, numero2, ...resto] = numeros
+console.log(numero1)
+console.log(numero2)
+console.log(resto)
+```js
