@@ -18,6 +18,13 @@ const app = Vue.createApp({
   data: () => ({
     message: 'Mi variable de mensaje :)',
   }),
+
+  // Mis metodos
+  methods: {
+    changeMessage() {
+      this.message = 'Has pulsado el botón'
+    },
+  },
 })
 
 app.mount('#myApp')

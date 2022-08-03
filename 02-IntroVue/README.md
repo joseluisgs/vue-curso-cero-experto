@@ -6,8 +6,9 @@ En esta sección veremos las bases de Vue.js y como usarlo como sustituto a jQue
   - [Puntos interesantes](#puntos-interesantes)
   - [Instalación y montaje](#instalación-y-montaje)
   - [Representación declarativa](#representación-declarativa)
-  - [Estilos de uso](#estilos-de-uso)
-  - [Representación del estado y reactividad](#representación-del-estado-y-reactividad)
+  - [Estilos de uso: Options vs Composition](#estilos-de-uso-options-vs-composition)
+  - [Representación del estado: data](#representación-del-estado-data)
+  - [Introducción a los eventos: Métodos](#introducción-a-los-eventos-métodos)
 
 ## Puntos interesantes
 Algunos puntos de interes que podemos observar en Vue.js son:
@@ -27,10 +28,10 @@ Podemos hacer [interpolación de texto](https://vuejs.org/guide/essentials/templ
   <p>{{ message }}</p>
 ```
 
-## Estilos de uso
+## Estilos de uso: Options vs Composition
 Cuando usamos Vue.js tenemos [dos estilos](https://vuejs.org/guide/introduction.html#api-styles), Options API y Composition API. Cada una será más adecuada según el proyecto. Comenzaremos con Options API y poco a poco iremos al Composition API.
 
-## Representación del estado y reactividad 
+## Representación del estado: data
 Podemos representado un estado y reaccionar reactivamente bajo el objeto [data](https://vuejs.org/guide/essentials/reactivity-fundamentals.html#declaring-reactive-state)
 ```js
   data() {
@@ -38,4 +39,19 @@ Podemos representado un estado y reaccionar reactivamente bajo el objeto [data](
       message: "Hola Vue :)"
     }
   },
+```
+
+## Introducción a los eventos: Métodos
+Podemos usar [eventos](https://vuejs.org/guide/essentials/event-handling.html)  y reaccionar reactivamente.
+Los eventos se manejan con la directiva v-on:evento, pero se puede simplificar usando @evento
+```js
+  methods: {
+    onClick() {
+      this.message = "Has pulsado el botón :)"
+    }
+  }
+```
+```html
+  <button v-on:click="handleClick">Click me!</button>
+  <button @click="handleClick">Click me!</button>
 ```
