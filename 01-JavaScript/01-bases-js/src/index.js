@@ -126,9 +126,14 @@ console.log(numero2)
 console.log(resto)
 
 // Importaciones y exportaciones
-import { heroes as heroesList, owners } from './data/heroes.js'
+import { heroes as heroesList, owners, getHeroById, heroByOwner } from './data/heroes.js'
 console.log(heroesList)
 console.log(owners)
 
+// getHeroById
+// const getHeroById = (id) => heroesList.find(heroe => heroe.id === id)
+// const heroByOwner = (owner) => heroesList.filter(heroe => heroe.owner === owner)
+console.log(getHeroById(2))
+console.log(heroByOwner('DC'))
 
 

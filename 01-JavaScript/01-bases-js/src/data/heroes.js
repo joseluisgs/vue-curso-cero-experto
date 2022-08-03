@@ -28,4 +28,7 @@ const heroes = [
 
 const owners = ['DC', 'Marvel'];
 
-export { heroes, owners };
+const getHeroById = (id) => heroes.find((heroe) => heroe.id === id)
+const heroByOwner = (owner) => heroes.filter((heroe) => heroe.owner === owner)
+
+export { heroes, owners, getHeroById, heroByOwner };
