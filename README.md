@@ -27,6 +27,8 @@ Este repositorio recoge apuntes, proyectos y anotaciones del curso de Vue.js de 
 El contenido del curso se divide en las siguientes secciones: 
 - [00: Herramientas](00-Herramientas/README.md). Herramientas, extensiones y configuración inicial.
 - [01: JavaScript](01-JavaScript/README.md). JavaScript avanzando.
+- [02: Vue.js](02-IntroVue//README.md). Vue.js avanzando.
+- [03: Vue y SFC]
 
 ## Licencia
 Puedes encontrar mi plantilla de licencia en: [LICENSE](#licencia-de-uso).
