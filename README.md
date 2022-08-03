@@ -1,4 +1,4 @@
-# Curso de Vue.js 
+# Curso de Vue.js de Cero a Experto
 Apuntes y proyectos para el curso de Vue.js
 
 [![Vue Ready](https://img.shields.io/badge/Code-Vue.js-%2342b983)](https://es.vuejs.org/)
@@ -10,7 +10,7 @@ Apuntes y proyectos para el curso de Vue.js
   width='600px' borderRadius='1rem' boxShadow = '0 5px 18px rgba(0,0,0,0.3)'></a>
 </p>
 
-- [Curso de Vue.js](#curso-de-vuejs)
+- [Curso de Vue.js de Cero a Experto](#curso-de-vuejs-de-cero-a-experto)
   - [Acerca de](#acerca-de)
   - [Contenido](#contenido)
   - [Licencia](#licencia)
