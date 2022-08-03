@@ -33,6 +33,7 @@ El contenido del curso se divide en las siguientes secciones:
 - [01: JavaScript](01-JavaScript/README.md). JavaScript avanzando.
 - [02: Vue.js](02-IntroVue//README.md). Vue.js avanzando.
 - [03: Vue y SFC](03-SFC/README.md). Creación de proyectos avanzados basados en componentes con SFC. 
+- [04: Introducción al Test](04-IntroTest/README.md). Nos iniciaremos al test unitario y de integración.
 
 ## Licencia
 
