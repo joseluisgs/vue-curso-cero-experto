@@ -1,0 +1,8 @@
+
+*, html, body {
+    background: linear-gradient(179deg, rgba(63,187,133,1) 0%, rgba(0,58,93,1) 85%);
+    font-family: 'Courier New', Courier, monospace;
+    height: 100vh;
+    margin: 0;
+    width: 100vw;
+}
