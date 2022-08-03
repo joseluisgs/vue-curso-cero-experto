@@ -37,6 +37,8 @@
           {{index+1}}: {{ heroe.name }}
         </li>
       </ul>
+      <p>Nuevo Heroe: {{newHero}}</p>
+      <input type=text" v-model.trim="newHero" @keyup.enter="addHero" />
     </div>
     <p>Fuera del control de Vue.js</p>
 

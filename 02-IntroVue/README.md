@@ -10,6 +10,7 @@ En esta sección veremos las bases de Vue.js y como usarlo como sustituto a jQue
   - [Representación del estado: data](#representación-del-estado-data)
   - [Introducción a los eventos: métodos y v-on](#introducción-a-los-eventos-métodos-y-v-on)
   - [Renderizado de listas o repeticiones: v-for](#renderizado-de-listas-o-repeticiones-v-for)
+  - [Enlazando reactividad con formularios: v-model](#enlazando-reactividad-con-formularios-v-model)
 
 ## Puntos interesantes
 Algunos puntos de interes que podemos observar en Vue.js son:
@@ -63,4 +64,9 @@ Podemos renderizar una lista de elementos con la directiva [v-for](https://vuejs
   <ul>
     <li v-for="item in items">{{ item }}</li>
   </ul>
+```
+## Enlazando reactividad con formularios: v-model 
+Podemos enlazar reactividad con formularios con la directiva [v-model](https://vuejs.org/api/built-in-directives.html#v-model).
+```html
+  <input type="text" v-model="message">
 ```

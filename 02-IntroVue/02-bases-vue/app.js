@@ -31,6 +31,7 @@ const app = Vue.createApp({
         name: 'Hulk',
       },
     ],
+    newHero: '',
   }),
 
   // Mis metodos
@@ -38,6 +39,12 @@ const app = Vue.createApp({
     changeMessage() {
       this.message = 'Has pulsado el botón'
     },
+    addHero() {  
+      this.heroes.push({
+        id: this.heroes.length + 1,
+        name: this.newHero,
+      })
+    }
   },
 })
 
