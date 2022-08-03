@@ -12,6 +12,7 @@ JavaScript es un lenguaje de programación que se utiliza en el desarrollo de ap
 - [Importaciones y exportaciones](#importaciones-y-exportaciones)
 - [Promesas](#promesas)
 - [Api Fetch](#api-fetch)
+- [Axios](#axios)
 
 ## const, let y var
 JavaScript tiene dos tipos de definir variables:
@@ -203,4 +204,14 @@ fetch('https://rickandmortyapi.com/api/character/')
     .then((data) => console.log(data)) // finalmente obtenemos los datos de la promesa anterior
     .catch((error) => console.log(error))
 
+```
+## Axios
+[Axios](https://axios-http.com/) es una librería que nos permite hacer peticiones a una api web.
+Se debe instalar el paquete axios en el proyecto.
+
+```js
+import axios from 'axios'
+axios.get('https://rickandmortyapi.com/api/character/')
+    .then((response) => console.log(response.data))
+    .catch((error) => console.log(error))
 ```
