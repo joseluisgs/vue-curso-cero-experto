@@ -8,7 +8,8 @@ En esta sección veremos las bases de Vue.js y como usarlo como sustituto a jQue
   - [Representación declarativa](#representación-declarativa)
   - [Estilos de uso: Options vs Composition](#estilos-de-uso-options-vs-composition)
   - [Representación del estado: data](#representación-del-estado-data)
-  - [Introducción a los eventos: Métodos](#introducción-a-los-eventos-métodos)
+  - [Introducción a los eventos: métodos y v-on](#introducción-a-los-eventos-métodos-y-v-on)
+  - [Renderizado de listas o repeticiones: v-for](#renderizado-de-listas-o-repeticiones-v-for)
 
 ## Puntos interesantes
 Algunos puntos de interes que podemos observar en Vue.js son:
@@ -41,7 +42,7 @@ Podemos representado un estado y reaccionar reactivamente bajo el objeto [data](
   },
 ```
 
-## Introducción a los eventos: Métodos
+## Introducción a los eventos: métodos y v-on 
 Podemos usar [eventos](https://vuejs.org/guide/essentials/event-handling.html)  y reaccionar reactivamente.
 Los eventos se manejan con la directiva v-on:evento, pero se puede simplificar usando @evento
 ```js
@@ -54,4 +55,12 @@ Los eventos se manejan con la directiva v-on:evento, pero se puede simplificar u
 ```html
   <button v-on:click="handleClick">Click me!</button>
   <button @click="handleClick">Click me!</button>
+```
+
+## Renderizado de listas o repeticiones: v-for
+Podemos renderizar una lista de elementos con la directiva [v-for](https://vuejs.org/api/built-in-directives.html#v-for):
+```html
+  <ul>
+    <li v-for="item in items">{{ item }}</li>
+  </ul>
 ```

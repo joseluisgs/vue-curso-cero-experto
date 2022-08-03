@@ -17,6 +17,20 @@ const app = Vue.createApp({
   // Función que maneja nuestro estado y este es reactivo
   data: () => ({
     message: 'Mi variable de mensaje :)',
+    heroes: [
+      {
+        id: 1,
+        name: 'Ironman',
+      },
+      {
+        id: 2,
+        name: 'Capitan America',
+      },
+      {
+        id: 3,
+        name: 'Hulk',
+      },
+    ],
   }),
 
   // Mis metodos

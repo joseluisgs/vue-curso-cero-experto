@@ -16,11 +16,27 @@
     <p>Esto es una zona normal, sin control de Vue.js</p>
     <!-- Vamos a decirle donde queremos que Vue controle nuestra web, en este caso este DIV -->
     <div id="myApp">
-      <p> Bajo el control de Vue.js</p>
+      <p>Bajo el control de Vue.js</p>
       <!-- Todo lo que esté dentro del div lo maneja Vue.js, para eso no debe tener template!!!  -->
-      <p> {{ 1 + 1 }}</p>
-      <p> {{ message }}</p>
+      <p>{{ 1 + 1 }}</p>
+      <p>{{ message }}</p>
+
       <button @click="changeMessage">Cambiar mensaje</button>
+
+      <h1>Mis heroes</h1>
+      <ul>
+        <li v-for="heroe in heroes">{{ heroe }}</li>
+      </ul>
+
+      <h1>Mis heroes más pro :)</h1>
+      <ul>
+        <li
+          v-for="heroe in heroes"
+          :key="heroe.id"
+        >
+          {{ heroe.name }}
+        </li>
+      </ul>
     </div>
     <p>Fuera del control de Vue.js</p>
 
