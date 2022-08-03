@@ -8,7 +8,12 @@
     >
       +1
     </button>
-    <button @click="decrement()">-1</button>
+    <button
+      data-testid="decrement"
+      @click="decrement()"
+    >
+      -1
+    </button>
   </div>
 </template>
 

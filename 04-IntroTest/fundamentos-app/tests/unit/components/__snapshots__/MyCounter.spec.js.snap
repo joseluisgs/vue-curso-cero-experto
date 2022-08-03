@@ -3,5 +3,5 @@
 exports[`Component -> MyCounter > Debe hacer match con el snapshot 1`] = `
 "<h2 data-v-0352012b=\\"\\">Contador</h2>
 <p class=\\"my-style\\" data-v-0352012b=\\"\\">0 <sup data-v-0352012b=\\"\\">2</sup> = 0</p>
-<div data-v-0352012b=\\"\\"><button data-testid=\\"increment\\" data-v-0352012b=\\"\\"> +1 </button><button data-v-0352012b=\\"\\">-1</button></div>"
+<div data-v-0352012b=\\"\\"><button data-testid=\\"increment\\" data-v-0352012b=\\"\\"> +1 </button><button data-testid=\\"decrement\\" data-v-0352012b=\\"\\"> -1 </button></div>"
 `;

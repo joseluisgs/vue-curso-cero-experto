@@ -14,6 +14,7 @@ Veremos cómo crear nuestros primeros [test](https://vuejs.org/guide/scaling-up/
     - [Strings](#strings)
   - [Snapshot](#snapshot)
   - [Buscar elementos](#buscar-elementos)
+  - [Simular eventos](#simular-eventos)
 
 ## Vitest
 Vitest es una suite de test que se monta sobre Vite que tiene amplia compatibilidad con [Jest](https://jestjs.io/), Mocha, Jasmine, etc. De hecho podemos usarla como alternativa a la misma.
@@ -73,4 +74,7 @@ Podemos acceder a cada elemento del componente usando la función find y usando 
 En nuestro caso usaremos la propiedad de vue [:data-testid](https://kentcdodds.com/blog/making-your-ui-tests-resilient-to-change) para nombrar inequícamente los elementos que queramos/usaremos para testear y referenciarlos con el selector CSS (wrapper.find('[data-testid="xxx"]').
 
 FinAll devuelve todos los elementos que coincidan con el selector.
+
+## Simular eventos
+Podemos simular eventos con la función trigger. Cuidado que debes testearlo con async/await.
 
