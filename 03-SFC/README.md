@@ -13,6 +13,7 @@ Veremos como crear aplicaciones de mayor envergadura y trabajar con componentes 
     - [Lint with ESLint](#lint-with-eslint)
   - [Estructura de un fichero vue SFC](#estructura-de-un-fichero-vue-sfc)
   - [Primer componente](#primer-componente)
+  - [Vue Developer Tools](#vue-developer-tools)
 
 ## Iniciando el proyecto
 
@@ -121,3 +122,6 @@ export default {
 }
 </script>
 ```
+
+## Vue Developer Tools
+Nos ayudará a depurar nuestra app y cada uno de sus componentes: https://devtools.vuejs.org
