@@ -15,7 +15,12 @@
   <body>
     <p>Esto es una zona normal, sin control de Vue.js</p>
     <!-- Vamos a decirle donde queremos que Vue controle nuestra web, en este caso este DIV -->
-    <div id="myApp"></div>
+    <div id="myApp">
+      <p> Bajo el control de Vue.js</p>
+      <!-- Todo lo que esté dentro del div lo maneja Vue.js, para eso no debe tener template!!!  -->
+      <p> {{ 1 + 1 }}</p>
+      <p> {{ message }}</p>
+    </div>
     <p>Fuera del control de Vue.js</p>
 
     <!-- Cargamos Vue -->
