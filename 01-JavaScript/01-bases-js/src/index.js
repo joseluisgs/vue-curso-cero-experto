@@ -125,5 +125,10 @@ console.log(numero1)
 console.log(numero2)
 console.log(resto)
 
+// Importaciones y exportaciones
+import { heroes as heroesList, owners } from './data/heroes.js'
+console.log(heroesList)
+console.log(owners)
+
 
 

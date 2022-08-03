@@ -153,3 +153,23 @@ console.log(numero1)
 console.log(numero2)
 console.log(resto)
 ```js
+
+## Importaciones y exportaciones
+Importaciones y exportaciones son una forma de importar y exportar funciones, clases, variables, etc.
+Podemos exportar varias funciones o clases en un solo archivo con export y usar import para importar lo que queremos.
+Podemos tener una exportación por defecto con export default.
+```js
+// Exportar
+const nombre = 'Tony'
+const apellido = 'Stark'
+const lista = [1, 2, 3, 4, 5]
+export { nombre, apellido }
+export default lista
+// Importaciones
+import { nombre, apellido } from './persona.js'
+import lista from './persona.js'
+console.log(nombre)
+console.log(apellido)
+console.log(lista)
+```
+
