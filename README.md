@@ -1,4 +1,5 @@
 # Curso de Vue.js de Cero a Experto
+
 Apuntes y proyectos para el curso de Vue.js
 
 [![Vue Ready](https://img.shields.io/badge/Code-Vue.js-%2342b983)](https://es.vuejs.org/)
@@ -21,16 +22,20 @@ Apuntes y proyectos para el curso de Vue.js
       - [Agradecimientos](#agradecimientos)
 
 ## Acerca de
+
 Este repositorio recoge apuntes, proyectos y anotaciones del curso de Vue.js de Cero a Experto.
 
 ## Contenido
-El contenido del curso se divide en las siguientes secciones: 
+
+El contenido del curso se divide en las siguientes secciones:
+
 - [00: Herramientas](00-Herramientas/README.md). Herramientas, extensiones y configuración inicial.
 - [01: JavaScript](01-JavaScript/README.md). JavaScript avanzando.
 - [02: Vue.js](02-IntroVue//README.md). Vue.js avanzando.
-- [03: Vue y SFC]
+- [03: Vue y SFC](03-SFC/README.md)
 
 ## Licencia
+
 Puedes encontrar mi plantilla de licencia en: [LICENSE](#licencia-de-uso).
 
 ## Autor
@@ -41,6 +46,7 @@ Codificado con :sparkling_heart: por [José Luis González Sánchez](https://twi
 [![GitHub](https://img.shields.io/github/followers/joseluisgs?style=social)](https://github.com/joseluisgs)
 
 ### Contacto
+
 <p>
   Cualquier cosa que necesites házmelo saber por si puedo ayudarte 💬.
 </p>
@@ -72,6 +78,7 @@ Codificado con :sparkling_heart: por [José Luis González Sánchez](https://twi
 </p>
 
 ### ¿Un café?
+
 <p><a href="https://www.buymeacoffee.com/joseluisgs"> <img align="left" src="https://cdn.buymeacoffee.com/buttons/v2/default-blue.png" height="48" alt="joseluisgs" /></a></p><br><br><br>
 
 ## Licencia de uso
