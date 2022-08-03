@@ -46,4 +46,38 @@ persona2 = structuredClone(persona)
 persona2.nombre = 'Peter'
 console.log(persona2)
 
+// Arrays o listas
+const numeros = [1, 2, 3, 4, 5] // o new Array(1, 2, 3, 4, 5)
+numeros.push(6)
+console.log(numeros)
+console.log(numeros[0])
+
+// Operaciones con colecciones
+// for
+for (let i = 0; i < numeros.length; i++) {
+  console.log(numeros[i])
+}
+// for in
+for (const key in numeros) {
+  console.log(numeros[key])
+}
+// foreach
+numeros.forEach(numero => console.log(numero))
+// find - busca el primer elemento que cumpla la condicion
+const numero = numeros.find(numero => numero === 3)
+console.log(numero)
+// Copiar un array
+const numeros2 = [...numeros]
+// map
+const numeros3 = numeros.map(numero => numero * 2)
+// filter
+const numeros4 = numeros.filter(numero => numero > 2)
+// reduce
+const numeros5 = numeros.reduce((acumulador, numero) => acumulador + numero, 0)
+// some - busca algun elemento que cumpla la condicion
+const numeros6 = numeros.some(numero => numero > 2)
+// every - busca que todos los elementos cumplan la condicion
+const numeros7 = numeros.every(numero => numero > 2)
+// findIndex - busca el indice del primer elemento que cumpla la condicion
+const numeros8 = numeros.findIndex(numero => numero > 2)
 
