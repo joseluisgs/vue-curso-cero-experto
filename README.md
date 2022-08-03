@@ -12,6 +12,7 @@ Apuntes y proyectos para el curso de Vue.js
 
 - [Curso de Vue.js](#curso-de-vuejs)
   - [Acerca de](#acerca-de)
+  - [Contenido](#contenido)
   - [Licencia](#licencia)
   - [Autor](#autor)
     - [Contacto](#contacto)
@@ -21,6 +22,11 @@ Apuntes y proyectos para el curso de Vue.js
 
 ## Acerca de
 Este repositorio recoge apuntes, proyectos y anotaciones del curso de Vue.js de cero a Experto.
+
+## Contenido
+El contenido del curso se divide en las siguientes secciones: 
+- [00: Herramientas](00-Herramientas/README.md). Herramientas, extensiones y configuración inicial.
+- [01: JavaScript](01-JavaScript/README.md). JavaScript avanzando.
 
 ## Licencia
 Puedes encontrar mi plantilla de licencia en: [LICENSE](#licencia-de-uso).
