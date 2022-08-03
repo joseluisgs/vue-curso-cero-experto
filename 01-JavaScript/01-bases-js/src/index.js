@@ -105,4 +105,17 @@ const heroes = [
 const findById = (id) => heroes.find(heroe => heroe.id === id)
 console.log(findById(2))
 
+// destructuracion de objetos
+const heroe = {
+  id: 1,
+  name: 'Goku'
+}
+// sin destructuracion
+//const id = heroe.id
+//const name = heroe.name
+//console.log(id, nombre)
+// con destructuracion
+const { id, name, power= 'No tiene' } = heroe
+console.log(id, name)
+
 
