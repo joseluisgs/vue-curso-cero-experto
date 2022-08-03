@@ -6,6 +6,11 @@ import MyCounter from '@/components/MyCounter.vue'
 // Suite para describir
 describe('Component -> MyCounter', () => {
   // cada una de las pruebas o test
+  test('Debe hacer match con el snapshot', () => {
+    const wrapper = shallowMount(MyCounter)
+    expect(wrapper.html()).toMatchSnapshot() // snapshot es una imagen de la vista y podemos usar .element tambien o html()
+  })
+
   test('renders properly', () => {
     // Montamos el componente y le pasamos las propiedades
     const wrapper = shallowMount(MyCounter, { props: { titulo: 'Hello Vitest', started: '3' } })

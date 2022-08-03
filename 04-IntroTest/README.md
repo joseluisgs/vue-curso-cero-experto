@@ -12,6 +12,7 @@ Veremos cómo crear nuestros primeros [test](https://vuejs.org/guide/scaling-up/
     - [Boolean, Nulos y Undefined](#boolean-nulos-y-undefined)
     - [Arrays y contenido](#arrays-y-contenido)
     - [Strings](#strings)
+  - [Snapshot](#snapshot)
 
 ## Vitest
 Vitest es una suite de test que se monta sobre Vite que tiene amplia compatibilidad con [Jest](https://jestjs.io/), Mocha, Jasmine, etc. De hecho podemos usarla como alternativa a la misma.
@@ -56,3 +57,6 @@ El objeto wrapper nos permite probar todos los aspectos del HTML generado por el
   - .toMatch: Comprueba que un texto coincide con una expresión regular
   - .toHaveLength: Comprueba la longitud.
   - Podemos usar otros anteriores
+
+## Snapshot
+Snapshot es una herramienta que nos permite guardar una versión del HTML generado por un componente Vue y comprobar que no se ha modificado.
