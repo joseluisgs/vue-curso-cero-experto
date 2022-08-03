@@ -17,7 +17,7 @@
     </h3>
   </div>
 </template>
-
+<!-- Ahora mismo está usando Composition API -->
 <script setup>
   defineProps({
     msg: {
