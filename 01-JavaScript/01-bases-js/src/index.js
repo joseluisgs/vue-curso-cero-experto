@@ -14,6 +14,16 @@ if (true) {
   console.log(nombre + ' ' + edad)
 }
 
+// Concatenando
+let nombreCompleto = nombre + ' ' + apellido
+console.log(nombreCompleto)
+
+// templete string
+nombreCompleto = `${nombre} ${apellido} (${edad})`
+console.log(nombreCompleto)
+
+console.log(`Resultado: ${1 + 1}`)
+
 
 
 
