@@ -31,10 +31,10 @@
       <h1>Mis heroes más pro :)</h1>
       <ul>
         <li
-          v-for="heroe in heroes"
+          v-for="(heroe, index) in heroes"
           :key="heroe.id"
         >
-          {{ heroe.name }}
+          {{index+1}}: {{ heroe.name }}
         </li>
       </ul>
     </div>
