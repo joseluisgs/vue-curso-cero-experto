@@ -1,6 +1,11 @@
 <template>
   <p>Init</p>
-  <MyCounter />
+  <!-- Si ponemos los dos puntos estamos haciendo el binding y nos coge los tipos -->
+  <MyCounter :started="1" />
+  <MyCounter
+    titulo="Otro contador"
+    started="3"
+  />
 </template>
 
 <!-- lo pasamos a Options API -->

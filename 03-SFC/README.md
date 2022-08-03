@@ -15,6 +15,7 @@ Veremos como crear aplicaciones de mayor envergadura y trabajar con componentes 
   - [Primer componente](#primer-componente)
   - [Vue Developer Tools](#vue-developer-tools)
   - [Propiedades computadas](#propiedades-computadas)
+  - [Propiedades](#propiedades)
 
 ## Iniciando el proyecto
 
@@ -130,12 +131,38 @@ Nos ayudará a depurar nuestra app y cada uno de sus componentes: https://devtoo
 
 ## Propiedades computadas
 
-las [propiedades computadas](https://vuejs.org/guide/essentials/computed.html#computed-properties) son propiedades que se calculan en base a otras propiedades y su valor está cacheado en el componente. Al contrario que los métodos que siempre se ejecutan, las computed properties solo se ejecutan si detectan un cambio en el estado que les afectan, por ejemplo, si se cambia el valor de una propiedad. Muy útil para optimizar el rendimiento de nuestra app.
+Las [propiedades computadas](https://vuejs.org/guide/essentials/computed.html#computed-properties) son propiedades que se calculan en base a otras propiedades y su valor está cacheado en el componente. Al contrario que los métodos que siempre se ejecutan, las computed properties solo se ejecutan si detectan un cambio en el estado que les afectan, por ejemplo, si se cambia el valor de una propiedad. Muy útil para optimizar el rendimiento de nuestra app.
 
 ```js
 computed: {
       counterSquare() {
         return this.counter * this.counter
+      },
+    },
+```
+
+## Propiedades
+
+Las [propiedades](https://vuejs.org/guide/components/props.html#props) son las variables que se le pasan al componente. De esta manera podemos parametrizarlo para reutilizarlo. Pueden ser requeridas o no, además podemos tiparlas o darles un valor por defecto. también podemos validarlas.
+
+```js
+// Mis propiedades
+    // Mis propiedades
+    props: {
+      // count: Number, podemos definirla en una sola linea o con más opciones...
+      titulo: {
+        type: String, // Tipo de dato
+        default: 'Contador', // valor por defecto (opcional)
+        required: true, // es obligatorio pasarselo (opcional)
+      },
+      started: {
+        type: Number,
+        default: 0,
+        required: true,
+        // Validaro es opcional
+        validator(value) {
+          return value >= 2
+        },
       },
     },
 ```

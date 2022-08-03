@@ -1,5 +1,5 @@
 <template>
-  <h2>Counter</h2>
+  <h2>{{ titulo || 'alternativo' }}</h2>
   <p class="my-style">{{ counter }} <sup>2</sup> = {{ counterSquare }}</p>
   <div>
     <button @click="increment()">+1</button>
@@ -11,10 +11,31 @@
   export default {
     name: 'MyCounter',
 
-    // Mi estado reactivo
-    data: () => ({
-      counter: 5,
-    }),
+    // Mis propiedades
+    props: {
+      // count: Number, podemos definirla en una sola linea o con más opciones...
+      titulo: {
+        type: String, // Tipo de dato
+        default: 'Contador', // valor por defecto (opcional)
+        required: true, // es obligatorio pasarselo (opcional)
+      },
+      started: {
+        type: Number,
+        default: 0,
+        required: true,
+        // Validaro es opcional
+        validator(value) {
+          return value >= 2
+        },
+      },
+    },
+
+    // Mi estado reactivo, lo inicio según la propiedad!!
+    data() {
+      return {
+        counter: this.started,
+      }
+    },
 
     // Mis métodos
     methods: {
