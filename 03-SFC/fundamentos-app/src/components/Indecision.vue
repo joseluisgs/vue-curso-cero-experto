@@ -1,7 +1,9 @@
 import Indecision from '@/components/Indecision.vue';
 <template>
+  <!-- Hacemos binding con image -->
   <img
-    src="https://via.placeholder.com/250"
+    v-if="image"
+    :src="image"
     alt="bg"
   />
   <div class="bg-dark"></div>
@@ -13,8 +15,8 @@ import Indecision from '@/components/Indecision.vue';
     />
     <p>Recuerda terminar con un signo de interrogación (?)</p>
     <div>
-      <h2>{{ question }}</h2>
-      <h1>Si, No, .... pensando</h1>
+      <h2 v-if="isValidQuestion">{{ question }}</h2>
+      <h1>{{ answer }}</h1>
     </div>
   </div>
 </template>
@@ -26,18 +28,33 @@ import Indecision from '@/components/Indecision.vue';
     data() {
       return {
         question: '',
+        answer: null,
+        image: '',
+        isValidQuestion: false,
       }
+    },
+    // Mis métodos
+    methods: {
+      async getAnswer() {
+        this.answer = 'Pensando...'
+        // Obtenemos una respuesta y desestructuramos
+        const response = await fetch('https://yesno.wtf/api')
+        const { answer, image } = await response.json()
+        this.answer = answer === 'yes' ? 'Sí' : 'No'
+        this.image = image
+      },
     },
     // Mis watchers
     watch: {
       // Observamos question
-      question(newQuestion, oldQuestion) {
+      question(newQuestion) {
         // Si la pregunta cambia
         // console.log(oldQuestion, newQuestion)
-        // Si la pregunta termina con un signo de interrogación
-        if (newQuestion.endsWith('?')) {
-          // Respuesta aleatoria
-          console.log('Si tiene el signo de interrogación')
+        // Si la pregunta termina con un signo de interrogación y tiene más que eso :)
+        this.isValidQuestion = false
+        if (newQuestion.endsWith('?') && newQuestion.length > 1) {
+          this.isValidQuestion = true
+          this.getAnswer()
         }
       },
     },
@@ -70,6 +87,7 @@ import Indecision from '@/components/Indecision.vue';
     padding: 10px 15px;
     border-radius: 5px;
     border: none;
+    margin: 1rem;
   }
   input:focus {
     outline: none;
