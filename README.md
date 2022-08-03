@@ -32,7 +32,7 @@ El contenido del curso se divide en las siguientes secciones:
 - [00: Herramientas](00-Herramientas/README.md). Herramientas, extensiones y configuración inicial.
 - [01: JavaScript](01-JavaScript/README.md). JavaScript avanzando.
 - [02: Vue.js](02-IntroVue//README.md). Vue.js avanzando.
-- [03: Vue y SFC](03-SFC/README.md)
+- [03: Vue y SFC](03-SFC/README.md). Creación de proyectos avanzados basados en componentes con SFC. 
 
 ## Licencia
 
