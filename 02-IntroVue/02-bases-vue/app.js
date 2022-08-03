@@ -44,6 +44,7 @@ const app = Vue.createApp({
         id: this.heroes.length + 1,
         name: this.newHero,
       })
+      this.newHero = ''
     }
   },
 })

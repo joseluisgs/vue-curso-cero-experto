@@ -12,6 +12,7 @@ En esta sección veremos las bases de Vue.js y como usarlo como sustituto a jQue
   - [Renderizado de listas o repeticiones: v-for](#renderizado-de-listas-o-repeticiones-v-for)
   - [Enlazando reactividad con formularios: v-model](#enlazando-reactividad-con-formularios-v-model)
   - [Modificadores](#modificadores)
+  - [Renderizado condicional: v-if y v-else-if y v-show](#renderizado-condicional-v-if-y-v-else-if-y-v-show)
 
 ## Puntos interesantes
 Algunos puntos de interes que podemos observar en Vue.js son:
@@ -73,3 +74,20 @@ Podemos enlazar reactividad con formularios con la directiva [v-model](https://v
 ```
 ## Modificadores
 Podemos usar modificadores de [eventos](https://vuejs.org/guide/essentials/event-handling.html#event-modifiers), [teclas](https://vuejs.org/guide/essentials/event-handling.html#key-modifiers) o [ratón](https://vuejs.org/guide/essentials/event-handling.html#mouse-button-modifiers) para mejorar la lógica de nuestro código de una forma muy sencilla.
+```html
+  <input type="text" v-model.trim="message" @keyup.enter"addName" />
+```
+
+## Renderizado condicional: v-if y v-else-if y v-show
+Podemos renderizar un elemento condicional con la directiva [v-if](https://vuejs.org/api/built-in-directives.html#v-if) y [v-else-if](https://vuejs.org/api/built-in-directives.html#v-else) y [v-show](https://vuejs.org/api/built-in-directives.html#v-show).
+```html
+  <div v-if="isVisible">
+    <p>Esto sólo se muestra si isVisible es true</p>
+  </div>
+  <div v-else-if="!isVisible">
+    <p>Esto sólo se muestra si isVisible es false</p>
+  </div>
+  <div v-show="isVisible">
+    <p>Esto sólo se muestra si isVisible es true</p>
+  </div>
+```

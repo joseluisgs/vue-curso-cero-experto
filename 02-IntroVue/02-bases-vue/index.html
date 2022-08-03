@@ -39,6 +39,15 @@
       </ul>
       <p>Nuevo Heroe: {{newHero}}</p>
       <input type=text" v-model.trim="newHero" @keyup.enter="addHero" />
+
+      <p>Hay más de 5 héroes???</p>
+      <p v-if="heroes.length > 5">
+        <strong>Si</strong>
+      </p>
+      <p v-else>
+        <strong>No</strong>
+      </p>
+
     </div>
     <p>Fuera del control de Vue.js</p>
 
