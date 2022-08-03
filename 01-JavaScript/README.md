@@ -13,6 +13,7 @@ JavaScript es un lenguaje de programación que se utiliza en el desarrollo de ap
 - [Promesas](#promesas)
 - [Api Fetch](#api-fetch)
 - [Axios](#axios)
+- [Async / Await](#async--await)
 
 ## const, let y var
 JavaScript tiene dos tipos de definir variables:
@@ -214,4 +215,20 @@ import axios from 'axios'
 axios.get('https://rickandmortyapi.com/api/character/')
     .then((response) => console.log(response.data))
     .catch((error) => console.log(error))
+```
+
+## Async / Await
+Async / Await es una forma de escribir código asíncrono en una función. Es azúcar sintáctico para manejar promesas.
+
+```js
+async function obtenerPersonajes() {
+  try {
+    const response = await axios.get('https://rickandmortyapi.com/api/character/')
+    console.log('Mis datos de retorno')
+    console.log(response.data)
+  } catch (error) {
+    console.log(error)
+  }
+}
+obtenerPersonajes()
 ```

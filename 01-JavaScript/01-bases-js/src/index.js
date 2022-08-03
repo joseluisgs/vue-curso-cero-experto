@@ -170,16 +170,29 @@ getHeroByIdPromise(25)
   .then((heroe) => console.log(heroe))
   .catch((err) => console.log(err))
 
-  // API Fetch
+// API Fetch
 fetch('https://rickandmortyapi.com/api/character/')
   // https://developer.mozilla.org/es/docs/Web/API/Response
   .then((response) => response.json()) // Obtenemos la respuesta, pero esto es una promesa en sí, por eso hay otro then
   .then((data) => console.log(data)) // finalmente obtenemos los datos de la promesa anterior
   .catch((error) => console.log(error))
 
-  // API Axios
-  // https://axios-http.com/
+// API Axios
+// https://axios-http.com/
 import axios from 'axios'
-axios.get('https://rickandmortyapi.com/api/character/')
+axios
+  .get('https://rickandmortyapi.com/api/character/')
   .then((response) => console.log(response.data)) // Nos da el objeto completo
   .catch((error) => console.log(error))
+
+// Async / Await
+async function obtenerPersonajes() {
+  try {
+    const response = await axios.get('https://rickandmortyapi.com/api/character/')
+    console.log('Mis datos de retorno')
+    console.log(response.data)
+  } catch (error) {
+    console.log(error)
+  }
+}
+obtenerPersonajes()
