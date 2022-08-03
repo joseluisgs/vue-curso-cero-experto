@@ -14,6 +14,7 @@ Veremos como crear aplicaciones de mayor envergadura y trabajar con componentes 
   - [Estructura de un fichero vue SFC](#estructura-de-un-fichero-vue-sfc)
   - [Primer componente](#primer-componente)
   - [Vue Developer Tools](#vue-developer-tools)
+  - [Propiedades computadas](#propiedades-computadas)
 
 ## Iniciando el proyecto
 
@@ -124,4 +125,17 @@ export default {
 ```
 
 ## Vue Developer Tools
+
 Nos ayudará a depurar nuestra app y cada uno de sus componentes: https://devtools.vuejs.org
+
+## Propiedades computadas
+
+las [propiedades computadas](https://vuejs.org/guide/essentials/computed.html#computed-properties) son propiedades que se calculan en base a otras propiedades y su valor está cacheado en el componente. Al contrario que los métodos que siempre se ejecutan, las computed properties solo se ejecutan si detectan un cambio en el estado que les afectan, por ejemplo, si se cambia el valor de una propiedad. Muy útil para optimizar el rendimiento de nuestra app.
+
+```js
+computed: {
+      counterSquare() {
+        return this.counter * this.counter
+      },
+    },
+```
