@@ -9,14 +9,24 @@
     />
 
     <div class="wrapper">
+      <!-- Utilizamos un componente y le pasamos datos en base a propiedades -->
       <HelloWorld msg="Hola Vue!" />
     </div>
   </header>
 </template>
 
-<!-- Ahora mismo está usando Composition API -->
-<script setup>
+<!-- lo pasamos a Options API -->
+<script>
   import HelloWorld from '@/components/HelloWorld'
+  export default {
+    // Mi nombre
+    name: 'App',
+
+    // Los componentes que uso
+    components: {
+      HelloWorld,
+    },
+  }
 </script>
 
 <style scoped>

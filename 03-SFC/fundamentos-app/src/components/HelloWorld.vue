@@ -18,13 +18,16 @@
   </div>
 </template>
 <!-- Ahora mismo está usando Composition API -->
-<script setup>
-  defineProps({
-    msg: {
-      type: String,
-      required: true,
+<script>
+  export default {
+    // mi nombre
+    name: 'HelloWorld',
+
+    // Mis propiedades, es decir, parámetros que acepto, o como me pasa datos mi "padre"
+    props: {
+      msg: String,
     },
-  })
+  }
 </script>
 
 <style scoped>
