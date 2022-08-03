@@ -1,0 +1,2 @@
+## JavaScript avanzado
+JavaScript es un lenguaje de programación que se utiliza en el desarrollo de aplicaciones web y Node.js. en esta sección se explicaran algunas características avanzadas de JavaScript.
