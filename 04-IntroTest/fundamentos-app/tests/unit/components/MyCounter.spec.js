@@ -18,4 +18,10 @@ describe('Component -> MyCounter', () => {
     expect(wrapper.text()).toContain('3') // Comprobamos que el texto contiene el valor
     expect(wrapper.text()).toContain('9') // Comprobamos que el texto contiene el valor del cuadrado
   })
+
+  test('h2 debe tener un valor por defecto', () => {
+    const wrapper = shallowMount(MyCounter)
+    expect(wrapper.find('h2').exists()).toBeTruthy() // Comprobamos que el texto contiene el valor
+    expect(wrapper.find('h2').text()).toBe('Contador')
+  })
 })

@@ -13,6 +13,7 @@ Veremos cómo crear nuestros primeros [test](https://vuejs.org/guide/scaling-up/
     - [Arrays y contenido](#arrays-y-contenido)
     - [Strings](#strings)
   - [Snapshot](#snapshot)
+  - [Buscar elementos](#buscar-elementos)
 
 ## Vitest
 Vitest es una suite de test que se monta sobre Vite que tiene amplia compatibilidad con [Jest](https://jestjs.io/), Mocha, Jasmine, etc. De hecho podemos usarla como alternativa a la misma.
@@ -60,3 +61,14 @@ El objeto wrapper nos permite probar todos los aspectos del HTML generado por el
 
 ## Snapshot
 Snapshot es una herramienta que nos permite guardar una versión del HTML generado por un componente Vue y comprobar que no se ha modificado.
+
+## Buscar elementos
+Podemos acceder a cada elemento del componente usando la función find y usando el selectores de CSS:
+- tag selectors (div, foo, bar)
+- class selectors (.foo, .bar)
+- attribute selectors ([foo], [foo="bar"])
+- id selectors (#foo, #bar)
+- pseudo selectors (div:first-of-type)
+
+En nuestro caso usaremos la propiedad de vue [:data-testid](https://kentcdodds.com/blog/making-your-ui-tests-resilient-to-change) para nombrar inequícamente los elementos que queramos/usaremos para testear y referenciarlos con el selector CSS (wrapper.find('[data-testid="xxx"]');)
+
