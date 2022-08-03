@@ -81,3 +81,28 @@ const numeros7 = numeros.every(numero => numero > 2)
 // findIndex - busca el indice del primer elemento que cumpla la condicion
 const numeros8 = numeros.findIndex(numero => numero > 2)
 
+// Funciones
+function saludar(nombre) {
+  return `Hola ${nombre}`
+}
+console.log(saludar('Tony'))
+
+// funciones flecha (=>)
+const saludar2 = (nombre) => `Hola ${nombre}`
+console.log(saludar2('Tony'))
+
+const heroes = [
+  {
+    id: 1,
+    nombre: 'Aquaman'
+  },
+  {
+    id: 2,
+    nombre: 'Batman'
+  },
+]
+
+const findById = (id) => heroes.find(heroe => heroe.id === id)
+console.log(findById(2))
+
+

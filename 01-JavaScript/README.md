@@ -6,6 +6,7 @@ JavaScript es un lenguaje de programación que se utiliza en el desarrollo de ap
 - [Template literals](#template-literals)
 - [Objetos literales](#objetos-literales)
 - [Arrays](#arrays)
+- [Funciones](#funciones)
 
 ## const, let y var
 JavaScript tiene dos tipos de definir variables:
@@ -101,3 +102,23 @@ const numeros6 = numeros.some(numero => numero > 2)
 const numeros7 = numeros.every(numero => numero > 2)
 // findIndex - busca el indice del primer elemento que cumpla la condicion
 const numeros8 = numeros.findIndex(numero => numero > 2)
+```
+
+## Funciones
+Las funciones nos permiten definir fragmentos de código que podemos reutilizar.
+
+En JS las funciones son ciudadanos de primera clase, es decir, son un tipo.
+
+Las funciones flecha (arrow functions) Una expresión de función flecha es una alternativa compacta a una expresión de función tradicional. No vinculan su this con el del contexto en el que se invocan, , el objeto al que hace referencia el this en una función flecha siempre va a ser el mismo independientemente del lugar desde el que se invoque.
+
+```js
+// Funciones
+function saludar(nombre) {
+  return `Hola ${nombre}`
+}
+console.log(saludar('Tony'))
+
+// funciones flecha (=>)
+const saludar2 = (nombre) => `Hola ${nombre}`
+console.log(saludar2('Tony'))
+```
