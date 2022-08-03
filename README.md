@@ -3,7 +3,7 @@ Apuntes y proyectos para el curso de Vue.js
 
 [![Vue Ready](https://img.shields.io/badge/Code-Vue.js-%2342b983)](https://es.vuejs.org/)
 [![LICENSE](https://img.shields.io/badge/Lisence-CC-%23e64545)](https://joseluisgs.github.io/docs/license/)
-![GitHub](https://img.shields.io/github/last-commit/joseluisgs/readme-licese-template)
+![GitHub](https://img.shields.io/github/last-commit/joseluisgs/vue-curso-cero-experto)
 
 <p align="center">
   <a href="https://joseluisgs.github.io/" target="_blank"><img src="https://fernando-herrera.com/recursos-extra/wallpapers/vue-js.jpeg" 
