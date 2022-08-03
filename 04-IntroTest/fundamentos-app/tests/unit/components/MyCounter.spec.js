@@ -59,4 +59,12 @@ describe('Component -> MyCounter', () => {
     expect(wrapper.text()).toContain('2')
     expect(wrapper.text()).toContain('4')
   })
+
+  test('Debemos poder leer el valor de las propiedades', () => {
+    const wrapper = shallowMount(MyCounter, { props: { titulo: 'Titulo', started: '3' } })
+    expect(wrapper.props().titulo).toBe('Titulo')
+    expect(wrapper.props().started).toBe('3')
+    expect(wrapper.find('h2').text()).toBe('Titulo')
+     expect(wrapper.find('p').text()).contains('3')
+  })
 })

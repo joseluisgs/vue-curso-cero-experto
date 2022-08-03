@@ -15,6 +15,7 @@ Veremos cómo crear nuestros primeros [test](https://vuejs.org/guide/scaling-up/
   - [Snapshot](#snapshot)
   - [Buscar elementos](#buscar-elementos)
   - [Simular eventos](#simular-eventos)
+  - [Propiedades](#propiedades)
 
 ## Vitest
 Vitest es una suite de test que se monta sobre Vite que tiene amplia compatibilidad con [Jest](https://jestjs.io/), Mocha, Jasmine, etc. De hecho podemos usarla como alternativa a la misma.
@@ -78,3 +79,5 @@ FinAll devuelve todos los elementos que coincidan con el selector.
 ## Simular eventos
 Podemos simular eventos con la función trigger. Cuidado que debes testearlo con async/await.
 
+## Propiedades
+Podemos acceder a las propiedades de un componente usando la función props. También podemos pasarles prop al componente al montarlo con el wrapper en el objeto props.
