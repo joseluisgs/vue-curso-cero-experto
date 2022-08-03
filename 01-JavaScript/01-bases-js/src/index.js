@@ -24,6 +24,26 @@ console.log(nombreCompleto)
 
 console.log(`Resultado: ${1 + 1}`)
 
+// Objeto literal... dicionarios o expresiones de objetos
+const persona = {
+  nombre: 'Tony',
+  apellido: 'Stark',
+  edad: 45,
+  direccion: {
+    ciudad: 'New York',
+    pais: 'Estados Unidos'
+  }
+}
+console.log(persona)
+console.log(persona.nombre)
+console.log(persona.direccion.ciudad)
 
+// Clonando con spred, para copiar un objeto, pero no clona en profundidad
+let persona2 = { ...persona }
+
+// Clonando objetos con profundidad
+persona2 = structuredClone(persona)
+persona2.nombre = 'Peter'
+console.log(persona2)
 
 
