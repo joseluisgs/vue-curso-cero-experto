@@ -11,6 +11,7 @@ En esta sección veremos las bases de Vue.js y como usarlo como sustituto a jQue
   - [Introducción a los eventos: métodos y v-on](#introducción-a-los-eventos-métodos-y-v-on)
   - [Renderizado de listas o repeticiones: v-for](#renderizado-de-listas-o-repeticiones-v-for)
   - [Enlazando reactividad con formularios: v-model](#enlazando-reactividad-con-formularios-v-model)
+  - [Modificadores](#modificadores)
 
 ## Puntos interesantes
 Algunos puntos de interes que podemos observar en Vue.js son:
@@ -70,3 +71,5 @@ Podemos enlazar reactividad con formularios con la directiva [v-model](https://v
 ```html
   <input type="text" v-model="message">
 ```
+## Modificadores
+Podemos usar modificadores de [eventos](https://vuejs.org/guide/essentials/event-handling.html#event-modifiers), [teclas](https://vuejs.org/guide/essentials/event-handling.html#key-modifiers) o [ratón](https://vuejs.org/guide/essentials/event-handling.html#mouse-button-modifiers) para mejorar la lógica de nuestro código de una forma muy sencilla.
