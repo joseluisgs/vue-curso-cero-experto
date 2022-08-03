@@ -24,4 +24,16 @@ describe('Component -> MyCounter', () => {
     expect(wrapper.find('h2').exists()).toBeTruthy() // Comprobamos que el texto contiene el valor
     expect(wrapper.find('h2').text()).toBe('Contador')
   })
+
+  test('los botones tienen las etiquetas que corresponden', () => {
+    const wrapper = shallowMount(MyCounter)
+    // encontramos todos los parrafos
+    const buttons = wrapper.findAll('button')
+    expect(buttons.length).toBe(2) // Comprobamos que hay 2 botones
+    expect(buttons.at(0).text()).toContain('+') // Comprobamos que el texto del boton es +
+    expect(buttons.at(1).text()).toContain('-') // Comprobamos que el texto del boton es -
+    const increment = wrapper.find('[data-testid="increment"]')
+    expect(increment.exists()).toBeTruthy() // Comprobamos que el boton existe
+    expect(increment.text()).toContain('+') // Comprobamos que el texto del boton es +
+  })
 })

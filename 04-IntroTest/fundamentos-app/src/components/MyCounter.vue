@@ -2,7 +2,12 @@
   <h2>{{ titulo || 'alternativo' }}</h2>
   <p class="my-style">{{ counter }} <sup>2</sup> = {{ counterSquare }}</p>
   <div>
-    <button @click="increment()">+1</button>
+    <button
+      data-testid="increment"
+      @click="increment()"
+    >
+      +1
+    </button>
     <button @click="decrement()">-1</button>
   </div>
 </template>

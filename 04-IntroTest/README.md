@@ -19,7 +19,7 @@ Veremos cómo crear nuestros primeros [test](https://vuejs.org/guide/scaling-up/
 Vitest es una suite de test que se monta sobre Vite que tiene amplia compatibilidad con [Jest](https://jestjs.io/), Mocha, Jasmine, etc. De hecho podemos usarla como alternativa a la misma.
 
 ## Estructura de un test
-Te recomiendo que mires [este tutorial mío para saber cómo testear](https://github.com/joseluisgs/vue-weather-testing). Todo lo que se dice para jest, sirve para vitest.
+Te recomiendo que mires [este tutorial mío para saber cómo testear](https://github.com/joseluisgs/vue-weather-testing) y [este](https://github.com/joseluisgs/testing-js-jest). Todo lo que se dice para jest, sirve para vitest.
 
 ## Montando componentes
 - shallowMount: Nos permite cargar un componente de manera individual para testearlo, creando un wrapper pero sin componentes hijos.
@@ -70,5 +70,7 @@ Podemos acceder a cada elemento del componente usando la función find y usando 
 - id selectors (#foo, #bar)
 - pseudo selectors (div:first-of-type)
 
-En nuestro caso usaremos la propiedad de vue [:data-testid](https://kentcdodds.com/blog/making-your-ui-tests-resilient-to-change) para nombrar inequícamente los elementos que queramos/usaremos para testear y referenciarlos con el selector CSS (wrapper.find('[data-testid="xxx"]');)
+En nuestro caso usaremos la propiedad de vue [:data-testid](https://kentcdodds.com/blog/making-your-ui-tests-resilient-to-change) para nombrar inequícamente los elementos que queramos/usaremos para testear y referenciarlos con el selector CSS (wrapper.find('[data-testid="xxx"]').
+
+FinAll devuelve todos los elementos que coincidan con el selector.
 
