@@ -9,6 +9,8 @@ JavaScript es un lenguaje de programación que se utiliza en el desarrollo de ap
 - [Funciones](#funciones)
 - [Desestructurar objetos](#desestructurar-objetos)
 - [Desestructurar arrays](#desestructurar-arrays)
+- [Importaciones y exportaciones](#importaciones-y-exportaciones)
+- [Promesas](#promesas)
 
 ## const, let y var
 JavaScript tiene dos tipos de definir variables:
@@ -152,12 +154,13 @@ const [numero1, numero2, ...resto] = numeros
 console.log(numero1)
 console.log(numero2)
 console.log(resto)
-```js
+```
 
 ## Importaciones y exportaciones
 Importaciones y exportaciones son una forma de importar y exportar funciones, clases, variables, etc.
 Podemos exportar varias funciones o clases en un solo archivo con export y usar import para importar lo que queremos.
 Podemos tener una exportación por defecto con export default.
+
 ```js
 // Exportar
 const nombre = 'Tony'
@@ -173,3 +176,18 @@ console.log(apellido)
 console.log(lista)
 ```
 
+## Promesas
+Las promesas son una forma de definir una tarea que se va a realizar en el futuro (y nos sirven para gestionar código asíncrono).
+
+```js
+const promesa = new Promise((resolve, reject) => {
+  // Tarea asíncrona
+  if (true) {
+    resolve('Tarea finalizada')
+  } else {
+    reject('Tarea fallida')
+  }
+})
+promesa.then(resultado => console.log(resultado))
+promesa.catch(error => console.log(error))
+```js

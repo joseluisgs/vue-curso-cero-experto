@@ -31,8 +31,8 @@ const persona = {
   edad: 45,
   direccion: {
     ciudad: 'New York',
-    pais: 'Estados Unidos'
-  }
+    pais: 'Estados Unidos',
+  },
 }
 console.log(persona)
 console.log(persona.nombre)
@@ -62,24 +62,24 @@ for (const key in numeros) {
   console.log(numeros[key])
 }
 // foreach
-numeros.forEach(numero => console.log(numero))
+numeros.forEach((numero) => console.log(numero))
 // find - busca el primer elemento que cumpla la condicion
-const numero = numeros.find(numero => numero === 3)
+const numero = numeros.find((numero) => numero === 3)
 console.log(numero)
 // Copiar un array
 const numeros2 = [...numeros]
 // map
-const numeros3 = numeros.map(numero => numero * 2)
+const numeros3 = numeros.map((numero) => numero * 2)
 // filter
-const numeros4 = numeros.filter(numero => numero > 2)
+const numeros4 = numeros.filter((numero) => numero > 2)
 // reduce
 const numeros5 = numeros.reduce((acumulador, numero) => acumulador + numero, 0)
 // some - busca algun elemento que cumpla la condicion
-const numeros6 = numeros.some(numero => numero > 2)
+const numeros6 = numeros.some((numero) => numero > 2)
 // every - busca que todos los elementos cumplan la condicion
-const numeros7 = numeros.every(numero => numero > 2)
+const numeros7 = numeros.every((numero) => numero > 2)
 // findIndex - busca el indice del primer elemento que cumpla la condicion
-const numeros8 = numeros.findIndex(numero => numero > 2)
+const numeros8 = numeros.findIndex((numero) => numero > 2)
 
 // Funciones
 function saludar(nombre) {
@@ -94,28 +94,28 @@ console.log(saludar2('Tony'))
 const heroes = [
   {
     id: 1,
-    nombre: 'Aquaman'
+    nombre: 'Aquaman',
   },
   {
     id: 2,
-    nombre: 'Batman'
+    nombre: 'Batman',
   },
 ]
 
-const findById = (id) => heroes.find(heroe => heroe.id === id)
+const findById = (id) => heroes.find((heroe) => heroe.id === id)
 console.log(findById(2))
 
 // destructuracion de objetos
 const heroe = {
   id: 1,
-  name: 'Goku'
+  name: 'Goku',
 }
 // sin destructuracion
 //const id = heroe.id
 //const name = heroe.name
 //console.log(id, nombre)
 // con destructuracion
-const { id, name, power= 'No tiene' } = heroe
+const { id, name, power = 'No tiene' } = heroe
 console.log(id, name)
 
 // Destructuracion de arrays
@@ -136,4 +136,36 @@ console.log(owners)
 console.log(getHeroById(2))
 console.log(heroByOwner('DC'))
 
+// Promesas
+console.log('Inicio de la promesa')
+const promesa = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    console.log('Termino la promesa')
+    resolve('Promesa resuelta') // promesa resulta!!! // si le queremos mandar un resultado
+  }, 2000)
+})
+// recibimos el resultado en el parámetro....
+promesa.then((res) => console.log('Sí que ha terminado la promesa + ' + res))
+console.log('Fin de la promesa')
 
+// Promesas con argumentos
+const getHeroByIdPromise = (id) => {
+  return new Promise((resolve, reject) => {
+    // promesa que devuelve un heroe por id
+    setTimeout(() => {
+      const heroe = getHeroById(id)
+      if (heroe) {
+        resolve(heroe)
+      } else {
+        reject(`No se ha encontrado el heroe con id ${id}`)
+      }
+    }, 2000)
+  })
+}
+getHeroByIdPromise(2)
+  .then((heroe) => console.log(heroe))
+  .catch((err) => console.log(err))
+
+getHeroByIdPromise(25)
+  .then((heroe) => console.log(heroe))
+  .catch((err) => console.log(err))
