@@ -16,6 +16,7 @@ Veremos como crear aplicaciones de mayor envergadura y trabajar con componentes 
   - [Vue Developer Tools](#vue-developer-tools)
   - [Propiedades computadas](#propiedades-computadas)
   - [Propiedades](#propiedades)
+  - [Watchers](#watchers)
 
 ## Iniciando el proyecto
 
@@ -163,6 +164,32 @@ Las [propiedades](https://vuejs.org/guide/components/props.html#props) son las v
         validator(value) {
           return value >= 2
         },
+      },
+    },
+```
+
+## Watchers
+
+Los [watchers](https://vuejs.org/guide/essentials/watchers.html) son métodos que se ejecutan cuando se detecta un cambio en el estado de nuestra app. Es decir son observables que reaccionan a los cambios en el estado de nuestra app y con ello mejoran la reactividad.
+
+```js
+// Mi estado
+    data() {
+      return {
+        question: '',
+      }
+    },
+    // Mis watchers
+    watch: {
+      // Observamos question
+      question(newQuestion, oldQuestion) {
+        // Si la pregunta cambia
+        // console.log(oldQuestion, newQuestion)
+          // Si la pregunta termina con un signo de interrogación
+          if (newQuestion.endsWith('?') && newQuestion.length > 1) {
+            // Respuesta aleatoria
+            console.log('Si tiene el signo de interrogación')
+          }
       },
     },
 ```

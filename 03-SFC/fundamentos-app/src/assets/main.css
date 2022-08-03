@@ -1,0 +1,13 @@
+/*
+Mi CSS genérico para todos los componentes de la aplicación.
+*/
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  color: #333;
+  background-color: #fff;
+  margin: 0 auto;
+  padding: 10px;
+  text-align: center;
+}
