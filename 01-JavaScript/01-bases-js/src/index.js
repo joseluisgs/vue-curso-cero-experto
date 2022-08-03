@@ -169,3 +169,10 @@ getHeroByIdPromise(2)
 getHeroByIdPromise(25)
   .then((heroe) => console.log(heroe))
   .catch((err) => console.log(err))
+
+  // API Fetch
+fetch('https://rickandmortyapi.com/api/character/')
+  // https://developer.mozilla.org/es/docs/Web/API/Response
+  .then((response) => response.json()) // Obtenemos la respuesta, pero esto es una promesa en sí, por eso hay otro then
+  .then((data) => console.log(data)) // finalmente obtenemos los datos de la promesa anterior
+  .catch((error) => console.log(error))

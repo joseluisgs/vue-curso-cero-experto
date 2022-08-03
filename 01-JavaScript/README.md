@@ -11,6 +11,7 @@ JavaScript es un lenguaje de programación que se utiliza en el desarrollo de ap
 - [Desestructurar arrays](#desestructurar-arrays)
 - [Importaciones y exportaciones](#importaciones-y-exportaciones)
 - [Promesas](#promesas)
+- [Api Fetch](#api-fetch)
 
 ## const, let y var
 JavaScript tiene dos tipos de definir variables:
@@ -190,4 +191,16 @@ const promesa = new Promise((resolve, reject) => {
 })
 promesa.then(resultado => console.log(resultado))
 promesa.catch(error => console.log(error))
+```
+
+## Api Fetch
+Api fetch es una libreria que nos permite hacer peticiones a una api web.
+
 ```js
+fetch('https://rickandmortyapi.com/api/character/')
+    // https://developer.mozilla.org/es/docs/Web/API/Response
+    .then((response) => response.json()) // Obtenemos la respuesta, pero esto es una promesa en sí, por eso hay otro then
+    .then((data) => console.log(data)) // finalmente obtenemos los datos de la promesa anterior
+    .catch((error) => console.log(error))
+
+```
