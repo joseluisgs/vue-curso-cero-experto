@@ -21,7 +21,7 @@ Apuntes y proyectos para el curso de Vue.js
       - [Agradecimientos](#agradecimientos)
 
 ## Acerca de
-Este repositorio recoge apuntes, proyectos y anotaciones del curso de Vue.js de cero a Experto.
+Este repositorio recoge apuntes, proyectos y anotaciones del curso de Vue.js de Cero a Experto.
 
 ## Contenido
 El contenido del curso se divide en las siguientes secciones: 
@@ -46,7 +46,7 @@ Codificado con :sparkling_heart: por [José Luis González Sánchez](https://twi
  <a href="https://joseluisgs.github.io/" target="_blank">
         <img src="https://joseluisgs.github.io/img/favicon.png" 
     height="30">
-    </a>  &nbsp;&nbsp;****
+    </a>  &nbsp;&nbsp;
     <a href="https://github.com/joseluisgs" target="_blank">
         <img src="https://distreau.com/github.svg" 
     height="30">
