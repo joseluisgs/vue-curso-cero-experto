@@ -17,6 +17,7 @@ Veremos como crear aplicaciones de mayor envergadura y trabajar con componentes 
   - [Propiedades computadas](#propiedades-computadas)
   - [Propiedades](#propiedades)
   - [Watchers](#watchers)
+  - [Eventos](#eventos)
 
 ## Iniciando el proyecto
 
@@ -193,3 +194,29 @@ Los [watchers](https://vuejs.org/guide/essentials/watchers.html) son métodos qu
       },
     },
 ```
+
+## Eventos
+
+De la misma manera que con las propiedades nos sirven para pasarles valores del padre al hijo, los [eventos](https://vuejs.org/guide/components/events.html) nos sirven para pasarles valores del hijo al padre. Usaremos emits
+
+```js
+// desde el componente hijo que emite el evento
+// eventos que emito hay qeu anunciarlos
+emits: ['question-response'],
+  //...
+  // Mandamos el evento y su parámetro, si lo hay
+  this.$emit('question-response', this.answer)
+```
+
+````js
+// desde el padre lo recogemos, como un evento normal y lo procesamos
+<Indecision @question-response="callbackQuestionResponse" />
+//...
+methods: {
+      callbackQuestionResponse(data) {
+        console.log('He recibido el evento: ', data)
+      },
+    },
+    ```
+
+````

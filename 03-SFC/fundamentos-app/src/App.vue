@@ -1,5 +1,5 @@
 <template>
-  <Indecision />
+  <Indecision @question-response="callbackQuestionResponse" />
   <!-- <hr />
   <MyCounter :started="1" />
   <MyCounter
@@ -20,6 +20,12 @@
     components: {
       // MyCounter,
       Indecision,
+    },
+
+    methods: {
+      callbackQuestionResponse(data) {
+        console.log('He recibido el evento: ', data)
+      },
     },
   }
 </script>

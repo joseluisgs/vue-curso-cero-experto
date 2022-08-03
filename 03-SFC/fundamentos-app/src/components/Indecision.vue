@@ -23,7 +23,12 @@ import Indecision from '@/components/Indecision.vue';
 
 <script>
   export default {
+    // Mi nombre
     name: 'Indecision',
+
+    // eventos que emito
+    emits: ['question-response'],
+
     // Mi estado
     data() {
       return {
@@ -42,6 +47,8 @@ import Indecision from '@/components/Indecision.vue';
         const { answer, image } = await response.json()
         this.answer = answer === 'yes' ? 'Sí' : 'No'
         this.image = image
+        // Mandamos el evento y su parámetro, si lo hay
+        this.$emit('question-response', this.answer)
       },
     },
     // Mis watchers
