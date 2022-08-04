@@ -42,7 +42,7 @@ import Indecision from '@/components/Indecision.vue';
       return {
         question: '',
         answer: null,
-        image: '',
+        image: null,
         isValidQuestion: false,
       }
     },
@@ -66,7 +66,7 @@ import Indecision from '@/components/Indecision.vue';
       // Observamos question
       question(newQuestion) {
         // Si la pregunta cambia
-        // console.log(oldQuestion, newQuestion)
+        console.log(newQuestion)
         // Si la pregunta termina con un signo de interrogación y tiene más que eso :)
         this.isValidQuestion = false
         if (newQuestion.endsWith('?') && newQuestion.length > 1) {

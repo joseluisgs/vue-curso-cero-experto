@@ -1,0 +1,15 @@
+// Vitest Snapshot v1
+
+exports[`Component -> Indecision > Debe hacer match con el snapshot 1`] = `
+"<!-- Hacemos binding con image -->
+<!--v-if-->
+<div class=\\"bg-dark\\" data-v-4a8fca50=\\"\\"></div>
+<div class=\\"indecision-container\\" data-v-4a8fca50=\\"\\">
+  <h1 data-v-4a8fca50=\\"\\">Indecision</h1><input type=\\"text\\" placeholder=\\"Hazme una pregunta\\" data-v-4a8fca50=\\"\\">
+  <p data-v-4a8fca50=\\"\\">Recuerda terminar con un signo de interrogación (?)</p>
+  <div data-v-4a8fca50=\\"\\">
+    <!--v-if-->
+    <h1 data-v-4a8fca50=\\"\\"></h1>
+  </div>
+</div>"
+`;

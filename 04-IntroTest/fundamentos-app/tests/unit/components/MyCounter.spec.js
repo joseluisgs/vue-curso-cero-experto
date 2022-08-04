@@ -65,6 +65,6 @@ describe('Component -> MyCounter', () => {
     expect(wrapper.props().titulo).toBe('Titulo')
     expect(wrapper.props().started).toBe('3')
     expect(wrapper.find('h2').text()).toBe('Titulo')
-     expect(wrapper.find('p').text()).contains('3')
+    expect(wrapper.find('p').text()).contains('3')
   })
 })
