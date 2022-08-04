@@ -1,10 +1,14 @@
 <template>
-  <p class="fade-in">Hola</p>
+  <PokemonView />
 </template>
 
 <script>
+  import PokemonView from '@/views/PokemonView.vue'
   export default {
     name: 'App',
+    components: {
+      PokemonView,
+    },
   }
 </script>
 
