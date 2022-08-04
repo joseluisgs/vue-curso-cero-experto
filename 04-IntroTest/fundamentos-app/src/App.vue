@@ -26,7 +26,7 @@
     },
     methods: {
       callbackQuestionResponse(data) {
-        console.log('He recibido el evento: ', data)
+        console.log('He recibido el evento: ', data.respuesta)
       },
     },
   }

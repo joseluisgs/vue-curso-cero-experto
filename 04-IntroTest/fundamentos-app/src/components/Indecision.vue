@@ -50,21 +50,26 @@ import Indecision from '@/components/Indecision.vue';
     // Mis métodos
     methods: {
       async getAnswer() {
-        this.answer = 'Pensando...'
-        // Obtenemos una respuesta y desestructuramos
-        const response = await fetch('https://yesno.wtf/api')
-        const { answer, image } = await response.json()
-        this.answer = answer === 'yes' ? 'Sí' : 'No'
-        this.image = image
-        // Mandamos el evento y su parámetro, si lo hay
-        this.$emit('question-response', this.answer)
+        try {
+          this.answer = 'Pensando...'
+          // Obtenemos una respuesta y desestructuramos
+          const { answer, image } = await fetch('https://yesno.wtf/api').then((res) => res.json())
+
+          this.answer = answer === 'yes' ? 'Sí' : 'No'
+          this.image = image
+          // Mandamos el evento y su parámetro, si lo hay
+          this.$emit('question-response', { respuesta: this.answer })
+        } catch (error) {
+          this.answer = 'No se pudo cargar de la API la respuesta'
+          this.image = null
+        }
       },
     },
 
     // Mis watchers
     watch: {
       // Observamos question
-      question(newQuestion) {
+      question(newQuestion, oldQuestion) {
         // Si la pregunta cambia
         console.log(newQuestion)
         // Si la pregunta termina con un signo de interrogación y tiene más que eso :)

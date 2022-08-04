@@ -4,6 +4,7 @@ import { shallowMount } from '@vue/test-utils'
 import Indecision from '@/components/Indecision.vue'
 
 // Suite para describir
+// https://vitest.dev/guide/mocking.html 
 describe('Component -> Indecision', () => {
   let wrapper
   let clgSpy
@@ -51,9 +52,50 @@ describe('Component -> Indecision', () => {
     expect(getAnswerSpy).toHaveBeenCalled()
   })
 
-  test('Pruebas getAnswer', () => {})
+  test('Pruebas getAnswer', async () => {
+    // Aw puede poner el fn sin mockImplementation
+    // eslint-disable-next-line no-undef
+    global.fetch = vi.fn().mockImplementation(() =>
+      Promise.resolve({
+        json: () =>
+          Promise.resolve({
+            answer: 'yes',
+            forced: false,
+            image: 'https://yesno.wtf/assets/yes/2.gif',
+          }),
+      })
+    )
+    // Llamamos directamente a getAnswer y comprobamos los cambios
+    await wrapper.vm.getAnswer()
+    expect(wrapper.vm.answer).toBe('Sí')
+    expect(wrapper.vm.image).toBe('https://yesno.wtf/assets/yes/2.gif')
+  })
 
-  test('Pruebas getAnswer - Fallo API', () => {})
+  test('Pruebas getAnswer - Fallo API', async () => {
+    global.fetch = vi.fn().mockImplementation(() => Promise.reject('API es down'))
+    // Llamamos directamente a getAnswer y comprobamos los cambios
+    await wrapper.vm.getAnswer()
+    const img = wrapper.find('img')
+    expect(img.exists()).toBe(false)
+    expect(wrapper.vm.answer).toBe('No se pudo cargar de la API la respuesta')
+  })
 
-  test('Emite el evento question-response', () => {})
+  test('Emite el evento question-response', async () => {
+    global.fetch = vi.fn().mockImplementation(() =>
+      Promise.resolve({
+        json: () =>
+          Promise.resolve({
+            answer: 'yes',
+            forced: false,
+            image: 'https://yesno.wtf/assets/yes/2.gif',
+          }),
+      })
+    )
+    // Llamamos directamente a getAnswer y comprobamos los cambios
+    await wrapper.vm.getAnswer()
+    expect(wrapper.vm.answer).toBe('Sí')
+    // se emite el evento question-response con el objeto que se le pasa
+    expect(wrapper.emitted()['question-response']).toBeTruthy()
+    console.log(wrapper.emitted())
+  })
 })
