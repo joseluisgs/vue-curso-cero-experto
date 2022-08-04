@@ -1,4 +1,4 @@
-import { describe, test, expect, beforeEach } from 'vitest'
+import { describe, test, expect, beforeEach, vi } from 'vitest'
 
 import { shallowMount } from '@vue/test-utils'
 import Indecision from '@/components/Indecision.vue'
@@ -6,9 +6,11 @@ import Indecision from '@/components/Indecision.vue'
 // Suite para describir
 describe('Component -> Indecision', () => {
   let wrapper
+  let clgSpy
 
   beforeEach(() => {
     wrapper = shallowMount(Indecision)
+    clgSpy = vi.spyOn(console, 'log') // Vamos a espiar el console.log
   })
 
   // cada una de las pruebas o test
@@ -23,13 +25,23 @@ describe('Component -> Indecision', () => {
     expect(wrapper.text()).toContain('Test') // Comprobamos que el texto contiene el titulo
   })
 
-  test('Escribir en el input no debe disparar nada', async () => {})
+  test('Escribir en el input no debe disparar nada', async () => {
+    // De esta manera espiamos a funciones locales
+    const getAnswerSpy = vi.spyOn(wrapper.vm, 'getAnswer')
+    const { isValidQuestion } = wrapper.vm
 
-  test('Al escribir ? debe disparar el el fetch request', async () => {})
+    const input = wrapper.find('input')
+    await input.setValue('testing')
+    expect(clgSpy).toHaveBeenCalledTimes(1) // Comprobamos que se ha llamado una vez
+    expect(getAnswerSpy).not.toHaveBeenCalled() // Comprobamos que no se ha llamado a la funcion getAnswer
+    expect(isValidQuestion).toBe(false) // Comprobamos que la pregunta no es valida
+  })
 
-  test('Pruebas getAnswer', async () => {})
+  test('Al escribir ? debe disparar el el getAnswer', () => {})
 
-  test('Pruebas getAnswer - Fallo API', async () => {})
+  test('Pruebas getAnswer', () => {})
 
-  test('Emite el evento question-response', async () => {})
+  test('Pruebas getAnswer - Fallo API', () => {})
+
+  test('Emite el evento question-response', () => {})
 })

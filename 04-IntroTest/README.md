@@ -5,6 +5,7 @@ Veremos cómo crear nuestros primeros [test](https://vuejs.org/guide/scaling-up/
 - [Introducción al test unitario y de integración](#introducción-al-test-unitario-y-de-integración)
   - [Vitest](#vitest)
   - [Estructura de un test](#estructura-de-un-test)
+  - [Vue Test Utils](#vue-test-utils)
   - [Montando componentes](#montando-componentes)
   - [Assercciones o Marchers](#assercciones-o-marchers)
     - [Igualdad](#igualdad)
@@ -16,12 +17,16 @@ Veremos cómo crear nuestros primeros [test](https://vuejs.org/guide/scaling-up/
   - [Buscar elementos](#buscar-elementos)
   - [Simular eventos](#simular-eventos)
   - [Propiedades](#propiedades)
+  - [Espias: Spy](#espias-spy)
 
 ## Vitest
-Vitest es una suite de test que se monta sobre Vite que tiene amplia compatibilidad con [Jest](https://jestjs.io/), Mocha, Jasmine, etc. De hecho podemos usarla como alternativa a la misma.
+[Vitest](https://vitest.dev/) es una suite de test que se monta sobre Vite que tiene amplia compatibilidad con [Jest](https://jestjs.io/), Mocha, Jasmine, etc. De hecho podemos usarla como alternativa a la misma. Es rmuy rápida al ejecutarse sobre Vite.
 
 ## Estructura de un test
 Te recomiendo que mires [este tutorial mío para saber cómo testear](https://github.com/joseluisgs/vue-weather-testing) y [este](https://github.com/joseluisgs/testing-js-jest). Todo lo que se dice para jest, sirve para vitest.
+
+## Vue Test Utils
+Es la [librería o conjunto de utilidades](https://v1.test-utils.vuejs.org/) que se pueden usar con Vitest o Jest para poder testear unitariamente componentes y aplicaciones de Vue.
 
 ## Montando componentes
 - shallowMount: Nos permite cargar un componente de manera individual para testearlo, creando un wrapper pero sin componentes hijos.
@@ -81,3 +86,6 @@ Podemos simular eventos con la función trigger. Cuidado que debes testearlo con
 
 ## Propiedades
 Podemos acceder a las propiedades de un componente usando la función props. También podemos pasarles prop al componente al montarlo con el wrapper en el objeto props.
+
+## Espias: Spy
+Podemos crear [espias](https://vitest.dev/guide/mocking.html) de métodos y propiedades de un componente usando la función [spyOn](https://vitest.dev/api/#vi-spyon). Con ellos podemos vigilar si se ha llamado a un método o propiedad.

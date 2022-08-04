@@ -21,7 +21,7 @@ Veremos como crear aplicaciones de mayor envergadura y trabajar con componentes 
 
 ## Iniciando el proyecto
 
-Vamos a usar la [plantilla oficial](https://vuejs.org/guide/quick-start.html#with-build-tools) basada en Vite. Debemos tener la extensión Volar instalada
+Vamos a usar la [plantilla oficial](https://vuejs.org/guide/quick-start.html#with-build-tools) basada en [Vite](https://vitejs.dev/)(le da muchas más rapidez que el antiguo Vue CLI). Debemos tener la extensión [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) instalada
 
 ```bash
 $ npm init vue@latest
