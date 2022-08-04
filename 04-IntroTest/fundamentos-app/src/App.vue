@@ -1,5 +1,8 @@
 <template>
-  <Indecision @question-response="callbackQuestionResponse" />
+  <Indecision
+    titulo="Indecision"
+    @question-response="callbackQuestionResponse"
+  />
   <!-- <hr />
   <MyCounter :started="1" />
   <MyCounter

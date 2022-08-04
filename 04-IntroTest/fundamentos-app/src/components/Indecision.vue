@@ -8,6 +8,7 @@ import Indecision from '@/components/Indecision.vue';
   />
   <div class="bg-dark"></div>
   <div class="indecision-container">
+    <h1>{{ titulo }}</h1>
     <input
       type="text"
       placeholder="Hazme una pregunta"
@@ -24,6 +25,15 @@ import Indecision from '@/components/Indecision.vue';
 <script>
   export default {
     name: 'Indecision',
+    // Mis propiedades
+
+    props: {
+      titulo: {
+        type: String,
+        default: 'Indecision',
+      },
+    },
+
     // eventos que emito
     emits: ['question-response'],
 
