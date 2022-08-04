@@ -69,7 +69,7 @@ import Indecision from '@/components/Indecision.vue';
     // Mis watchers
     watch: {
       // Observamos question
-      question(newQuestion, oldQuestion) {
+      question(newQuestion) {
         // Si la pregunta cambia
         console.log(newQuestion)
         // Si la pregunta termina con un signo de interrogación y tiene más que eso :)
