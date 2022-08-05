@@ -1,10 +1,13 @@
 <template>
-  <h1>¿Quién es este Pokemon</h1>
-  <PokemonPicture
-    :pokemonId="1"
-    :showPokemon="true"
-  />
-  <PokemonOptions :pokemons="pokemons" />
+  <h1 v-if="!pokemon">Espere por favor...</h1>
+  <div v-else>
+    <h1>¿Quién es este Pokemon</h1>
+    <PokemonPicture
+      :pokemonId="pokemon.id"
+      :showPokemon="showPokemon"
+    />
+    <PokemonOptions :pokemons="pokemons" />
+  </div>
 </template>
 
 <script>
@@ -20,12 +23,14 @@
     data() {
       return {
         pokemons: [],
+        pokemon: null,
+        showPokemon: false,
       }
     },
     methods: {
       async getPokemons() {
         this.pokemons = await getPokemonsOptions()
-        console.table(this.pokemons)
+        this.pokemon = this.pokemons[Math.floor(Math.random() * this.pokemons.length)]
       },
     },
     mounted() {
