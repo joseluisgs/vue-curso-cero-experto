@@ -5,6 +5,7 @@ Proyecto de juego adivina Pokemon con Options API
   - [Resumen](#resumen)
   - [Comunicación entre componentes](#comunicación-entre-componentes)
   - [Pinia](#pinia)
+  - [Ciclos de vida de un componente](#ciclos-de-vida-de-un-componente)
 
 ## Resumen
 Este juego resume todo lo visto usando la Options API de Vue.js.
@@ -16,3 +17,6 @@ Este juego resume todo lo visto usando la Options API de Vue.js.
 
 ## Pinia
 [Pinia](https://pinia.vuejs.org/core-concepts/state.html#usage-with-the-options-api) es el store oficial de Vue. En este caso solo hemos usado un estado global para mejorar la estadísticas. Estas podrían ser fácilmente compartidas por cada componente importando la store y su estado.
+
+## Ciclos de vida de un componente
+Saber el [ciclo de vida de un componente](https://vuejs.org/guide/essentials/lifecycle.html) nos ayuda a saber como usar los hooks y con ellos [disparar acciones asociados al ciclo de vida del componente](https://vuejs.org/api/options-lifecycle.html). como son beforeCreated() => created() => beforeMount() => mounted() => beforeUpdate() => updated(), beforeUnmount(), unmounted().
