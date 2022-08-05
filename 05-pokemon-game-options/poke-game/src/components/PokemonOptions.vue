@@ -11,7 +11,7 @@
 
 <script>
   import getPokemonsOptions from '@/helpers/getPokemonsOptions'
-  console.log(getPokemonsOptions())
+
   export default {
     name: 'PokemonOptions',
   }
