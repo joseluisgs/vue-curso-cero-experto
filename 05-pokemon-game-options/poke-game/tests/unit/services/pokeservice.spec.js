@@ -1,6 +1,7 @@
 import { describe, test, expect } from 'vitest'
 
 import getPokemons, { getPokemonsArray, getPokemonsNames } from '@/services/pokeservice'
+import { pokemons as pokemonsList } from '../mocks/pokemons.mocks'
 
 describe('Poke Service', () => {
   // Un test
@@ -13,12 +14,7 @@ describe('Poke Service', () => {
   })
 
   test('Debe de regresar un array de cuatro elementos con sus nombres', async () => {
-    const expected = [
-      { name: 'bulbasaur', id: 1 },
-      { name: 'ivysaur', id: 2 },
-      { name: 'venusaur', id: 3 },
-      { name: 'charmander', id: 4 },
-    ]
+    const expected = pokemonsList
     const pokemons = await getPokemonsNames([1, 2, 3, 4])
     expect(pokemons).toBeInstanceOf(Array)
     expect(pokemons).toStrictEqual(expected)
