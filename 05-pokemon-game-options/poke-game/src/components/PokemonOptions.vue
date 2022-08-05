@@ -4,6 +4,7 @@
       <li
         v-for="pokemon in pokemons"
         :key="pokemon.id"
+        @click="$emit('selection-pokemon', pokemon.id)"
       >
         {{ pokemon.name }}
       </li>
@@ -14,12 +15,15 @@
 <script>
   export default {
     name: 'PokemonOptions',
+    // Mis propiedades
     props: {
       pokemons: {
         type: Array,
         required: true,
       },
     },
+    // Mis eventos son:
+    emits: ['selection-pokemon'],
   }
 </script>
 

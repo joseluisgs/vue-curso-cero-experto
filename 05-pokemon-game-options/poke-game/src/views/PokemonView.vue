@@ -3,10 +3,13 @@
   <div v-else>
     <h1>¿Quién es este Pokemon</h1>
     <PokemonPicture
-      :pokemonId="pokemon.id"
-      :showPokemon="showPokemon"
+      :pokemon-id="pokemon.id"
+      :show-pokemon="showPokemon"
     />
-    <PokemonOptions :pokemons="pokemons" />
+    <PokemonOptions
+      :pokemons="pokemons"
+      @selection-pokemon="checkAnswer"
+    />
   </div>
 </template>
 
@@ -31,6 +34,13 @@
       async getPokemons() {
         this.pokemons = await getPokemonsOptions()
         this.pokemon = this.pokemons[Math.floor(Math.random() * this.pokemons.length)]
+      },
+      checkAnswer(pokemonId) {
+        if (pokemonId === this.pokemon.id) {
+          this.showPokemon = true
+        } else {
+          this.showPokemon = false
+        }
       },
     },
     mounted() {
