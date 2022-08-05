@@ -3,9 +3,11 @@ import { defineStore } from 'pinia'
 export const PokeStore = defineStore({
   id: 'PokeStore',
   state: () => ({
-    partidas: 1,
-    victorias: 0,
-    derrotas: 0,
+    estadisticas: {
+      partidas: 1,
+      victorias: 0,
+      derrotas: 0,
+    },
   }),
   getters: {},
   actions: {},

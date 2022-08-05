@@ -29,6 +29,9 @@
   import PokemonPicture from '@/components/PokemonPicture.vue'
   import PokemonOptions from '@/components/PokemonOptions.vue'
   import getPokemons from '@/services/pokeservice'
+  import { mapState } from 'pinia'
+  import { PokeStore } from '@/stores/pokestore'
+
   export default {
     name: 'PokemonView',
     components: {
@@ -42,11 +45,6 @@
         showPokemon: false,
         showAnswer: false,
         message: '',
-        estadisticas: {
-          partidas: 1,
-          victorias: 0,
-          derrotas: 0,
-        },
       }
     },
     methods: {
@@ -79,6 +77,9 @@
     },
     mounted() {
       this.setPokemons()
+    },
+    computed: {
+      ...mapState(PokeStore, ['estadisticas']),
     },
   }
 </script>
