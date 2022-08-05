@@ -10,6 +10,14 @@
       :pokemons="pokemons"
       @selection-pokemon="checkAnswer"
     />
+    <!-- Se puede usar templete para no mostrar div -->
+    <div
+      v-if="showAnswer"
+      class="fade-in"
+    >
+      <h2>{{ message }}</h2>
+      <button @click="newGame">Jugar otra vez</button>
+    </div>
   </div>
 </template>
 
@@ -28,6 +36,8 @@
         pokemons: [],
         pokemon: null,
         showPokemon: false,
+        showAnswer: false,
+        message: '',
       }
     },
     methods: {
@@ -38,9 +48,21 @@
       checkAnswer(pokemonId) {
         if (pokemonId === this.pokemon.id) {
           this.showPokemon = true
+          this.showAnswer = true
+          this.message = `¡Correcto! es ${this.pokemon.name}`
         } else {
           this.showPokemon = false
+          this.showAnswer = true
+          this.message = `¡Incorrecto! es ${this.pokemon.name}`
         }
+      },
+      newGame() {
+        this.pokemon = null
+        this.pokemons = []
+        this.showAnswer = false
+        this.showPokemon = false
+        this.message = ''
+        this.getPokemons()
       },
     },
     mounted() {
