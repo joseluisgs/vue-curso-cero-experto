@@ -12,6 +12,6 @@ module.exports = {
     // 'vue/script-setup-uses-vars': 'error',
     // 'vue/no-unused-vars': 'error',
     // 'no-unused-vars': 'error',
-    // 'prefer-template': 'error', // si solo permitimos una:  "prefer-template": [true, "allow-single-concat"]
+    'prefer-template': 'error', // si solo permitimos una:  "prefer-template": [true, "allow-single-concat"]
   },
 }

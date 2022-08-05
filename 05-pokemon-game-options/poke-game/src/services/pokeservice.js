@@ -1,6 +1,6 @@
 import PokeAPI from '@/api/pokeapi'
 
-const getPokemonsArray = () => {
+export const getPokemonsArray = () => {
   const pokemonsArray = Array.from(Array(650))
   return pokemonsArray.map((_, index) => index + 1)
 }
@@ -11,7 +11,7 @@ const getPokemons = async () => {
   return pokemons
 }
 
-const getPokemonsNames = async ([a, b, c, d] = []) => {
+export const getPokemonsNames = async ([a, b, c, d] = []) => {
   // Vamos a consumir la API de pokeapi para obtener los nombres de los pokemons
 
   const [p1, p2, p3, p4] = await Promise.all([
