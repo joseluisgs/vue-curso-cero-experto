@@ -3,10 +3,12 @@
   <div v-else>
     <h1>¿Quién es este Pokemon</h1>
     <PokemonPicture
+      data-testid="PokemonPicture"
       :pokemon-id="pokemon.id"
       :show-pokemon="showPokemon"
     />
     <PokemonOptions
+    data-testid="PokemonOptions"
       :pokemons="pokemons"
       @selection-pokemon="checkAnswer"
     />

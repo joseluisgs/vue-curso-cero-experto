@@ -6,6 +6,7 @@ Proyecto de juego adivina Pokemon con Options API
   - [Comunicación entre componentes](#comunicación-entre-componentes)
   - [Pinia](#pinia)
   - [Ciclos de vida de un componente](#ciclos-de-vida-de-un-componente)
+  - [Mount vs ShallowMount](#mount-vs-shallowmount)
 
 ## Resumen
 Este juego resume todo lo visto usando la Options API de Vue.js.
@@ -20,3 +21,7 @@ Este juego resume todo lo visto usando la Options API de Vue.js.
 
 ## Ciclos de vida de un componente
 Saber el [ciclo de vida de un componente](https://vuejs.org/guide/essentials/lifecycle.html) nos ayuda a saber como usar los hooks y con ellos [disparar acciones asociados al ciclo de vida del componente](https://vuejs.org/api/options-lifecycle.html). como son beforeCreated() => created() => beforeMount() => mounted() => beforeUpdate() => updated(), beforeUnmount(), unmounted().
+
+## Mount vs ShallowMount
+- mount: monta el componente con sus hijos.
+- shallowmount: monta el componente sin sus hijos.
