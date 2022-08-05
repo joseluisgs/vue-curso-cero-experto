@@ -18,13 +18,17 @@
       <h2>{{ message }}</h2>
       <button @click="newGame">Jugar otra vez</button>
     </div>
+    <h4>Estadisticas:</h4>
+    <h5>Partidas: {{ estadisticas.partidas }}</h5>
+    <h5>Aciertos: {{ estadisticas.victorias }}</h5>
+    <h5>Derrotas: {{ estadisticas.derrotas }}</h5>
   </div>
 </template>
 
 <script>
   import PokemonPicture from '@/components/PokemonPicture.vue'
   import PokemonOptions from '@/components/PokemonOptions.vue'
-  import getPokemonsOptions from '../helpers/getPokemonsOptions'
+  import getPokemons from '@/services/pokeservice'
   export default {
     name: 'PokemonView',
     components: {
@@ -38,11 +42,16 @@
         showPokemon: false,
         showAnswer: false,
         message: '',
+        estadisticas: {
+          partidas: 1,
+          victorias: 0,
+          derrotas: 0,
+        },
       }
     },
     methods: {
-      async getPokemons() {
-        this.pokemons = await getPokemonsOptions()
+      async setPokemons() {
+        this.pokemons = await getPokemons()
         this.pokemon = this.pokemons[Math.floor(Math.random() * this.pokemons.length)]
       },
       checkAnswer(pokemonId) {
@@ -50,10 +59,12 @@
           this.showPokemon = true
           this.showAnswer = true
           this.message = `¡Correcto! es ${this.pokemon.name}`
+          this.estadisticas.victorias++
         } else {
           this.showPokemon = false
           this.showAnswer = true
           this.message = `¡Incorrecto! es ${this.pokemon.name}`
+          this.estadisticas.derrotas++
         }
       },
       newGame() {
@@ -62,11 +73,12 @@
         this.showAnswer = false
         this.showPokemon = false
         this.message = ''
-        this.getPokemons()
+        this.setPokemons()
+        this.estadisticas.partidas++
       },
     },
     mounted() {
-      this.getPokemons()
+      this.setPokemons()
     },
   }
 </script>
