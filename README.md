@@ -34,6 +34,7 @@ El contenido del curso se divide en las siguientes secciones:
 - [02: Vue.js](02-IntroVue//README.md). Vue.js avanzando.
 - [03: Vue y SFC](03-SFC/README.md). Creación de proyectos avanzados basados en componentes con SFC. 
 - [04: Introducción al Test](04-IntroTest/README.md). Nos iniciaremos al test unitario y de integración.
+- [05: Pokemon Game](05-Pokemon-Game-OptionsAPI/README.md). Creación de un juego de pokemon.
 
 ## Licencia
 

@@ -8,7 +8,7 @@
       :show-pokemon="showPokemon"
     />
     <PokemonOptions
-    data-testid="PokemonOptions"
+      data-testid="PokemonOptions"
       :pokemons="pokemons"
       @selection-pokemon="checkAnswer"
     />
@@ -82,6 +82,14 @@
     },
     computed: {
       ...mapState(PokeStore, ['estadisticas']),
+    },
+    // Watched properties por gusto sobre pokemon
+    watch: {
+      // Nuevo pokemon
+      pokemon(newPokemon, oldPokemon) {
+        console.log('Nuevo pokemon', newPokemon)
+        console.log('Antiguo pokemon', oldPokemon)
+      },
     },
   }
 </script>
