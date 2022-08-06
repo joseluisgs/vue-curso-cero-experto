@@ -12,13 +12,13 @@ Proyecto de juego adivina Pokemon con [Composition API](https://vuejs.org/api/co
     - [Hooks de ciclo de vida](#hooks-de-ciclo-de-vida)
     - [Propiedades](#propiedades)
     - [Eventos](#eventos)
-  - [Exposición](#exposición)
-  - [Testing](#testing)
+    - [Exposición](#exposición)
+    - [Testing](#testing)
     - [Ejemplo Pokemon v1](#ejemplo-pokemon-v1)
     - [Consideraciones](#consideraciones)
   - [Script Setup](#script-setup)
-  - [Eventos y Propiedades](#eventos-y-propiedades)
-  - [Exposición de variables](#exposición-de-variables)
+    - [Eventos y Propiedades](#eventos-y-propiedades)
+    - [Exposición de variables](#exposición-de-variables)
     - [Ejemplo Pokemon v2](#ejemplo-pokemon-v2)
 
 ## Resumen
@@ -176,7 +176,7 @@ export default {
 }
 ```
 
-## Exposición
+### Exposición
 Setup es cerrado por defecto, si queremos hacer algo público fuera de los enlaces de la platilla usamos expose
 ```js
 export default {
@@ -193,7 +193,7 @@ export default {
 }
 ```
 
-## Testing
+### Testing
 A la hora de testear todo cambia un poco, porque si no tenemos data como objeto reactivo debemos acceder a las variables desde otra manera exportándolas o exponiéndolas. De la misma manera para los métodos. Fíjate que donde ante teníamos en el objeto montado Data, ahora debemos acceder a las variables que necesitamos y métodos y por eso los exportamos
 
 
@@ -219,7 +219,7 @@ console.log('hello script setup')
 </script>
 ```
 
-## Eventos y Propiedades
+### Eventos y Propiedades
 Debes usar defineProps y defineEmits para definir las propiedades y eventos emitidos.
 
 ```js
@@ -232,7 +232,7 @@ const emit = defineEmits(['change', 'delete'])
 // setup code
 </script>
 ```
-## Exposición de variables
+### Exposición de variables
 Setup es cerrado por defecto, puedes usar defineExpose para exponer
 ```js
 <script setup>
