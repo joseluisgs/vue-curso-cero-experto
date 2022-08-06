@@ -17,8 +17,11 @@
 </template>
 
 <script>
+  // Todo lo que usemos lo tenemos que importar para ser más eficientes
+  import { computed } from 'vue'
   export default {
     name: 'PokemonPicture',
+
     props: {
       pokemonId: {
         type: Number,
@@ -31,11 +34,18 @@
       },
     },
 
-    computed: {
-      pokemonImage() {
-        return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${this.pokemonId}.svg`
-        // return `@/assets/images/pokemon-test.svg`
-      },
+    // Para leer las propiedades de la propia componente
+    setup(props) {
+      // Un campo computado....
+      // return `@/assets/images/pokemon-test.svg`
+      const pokemonImage = computed(
+        () =>
+          `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${props.pokemonId}.svg`
+      )
+      // Siempre devolvemos lo que para nosotros es público
+      return {
+        pokemonImage,
+      }
     },
   }
 </script>

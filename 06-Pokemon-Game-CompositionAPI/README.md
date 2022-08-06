@@ -39,7 +39,7 @@ Para uso en producción:
 
 ### Estructura
 
-A partir de ahora tenemos una función [setup](https://vuejs.org/api/composition-api-setup.html) que sirve de punto de entrada devolviendo (return) o exponiendo públicamente aquellos elementos que necesitamos en las vistas. Ademas importaremos aquellos elementos que necesitemos en todo momento.
+A partir de ahora tenemos una función [setup](https://vuejs.org/api/composition-api-setup.html) que sirve de punto de entrada devolviendo (return) o exponiendo públicamente aquellos elementos que necesitamos en las vistas. Ademas importaremos aquellos elementos que necesitemos en todo momento (más eficiente el código).
 
 ```js
 <script>
@@ -143,4 +143,4 @@ export default {
 }
 ```
 ### Ejemplo Pokemon v1
-Puedes ver la aplicación de todos estos elementos en los distintos componentes.
+Puedes ver la aplicación de todos estos elementos en los distintos componentes de manera gradual (commit a commit)
