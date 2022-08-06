@@ -32,7 +32,7 @@
   import PokemonOptions from '@/components/PokemonOptions.vue'
   import getPokemons from '@/services/pokeservice'
   import { PokeStore } from '@/stores/pokestore'
-  import { ref, onMounted, watch, computed } from 'vue'
+  import { ref, onMounted, watch } from 'vue'
 
   export default {
     name: 'PokemonView',
@@ -40,11 +40,11 @@
       PokemonPicture,
       PokemonOptions,
     },
-
+    //  setup(props, context)
     setup() {
       // Mis objetos reactivos!!!
       const pokemons = ref([])
-      // const pokemon = ref(null)
+      const pokemon = ref(null)
       const showPokemon = ref(false)
       const showAnswer = ref(false)
       const message = ref('')
@@ -59,7 +59,7 @@
 
       const setPokemons = async () => {
         pokemons.value = await getPokemons()
-        //pokemon.value = pokemons.value[Math.floor(Math.random() * pokemons.value.length)]
+        pokemon.value = pokemons.value[Math.floor(Math.random() * pokemons.value.length)]
       }
 
       const newGame = () => {
@@ -86,10 +86,10 @@
         }
       }
 
-      // Computed, voy a mejorar algunas cosas de esta manera para que sea más eficiente
-      const pokemon = computed(
-        () => pokemons.value[Math.floor(Math.random() * pokemons.value.length)]
-      )
+      // Computed, es un ejemplo pero lo cambia cada vez que lo lea!!!
+      // const pokemon = computed(
+      //   () => pokemons.value[Math.floor(Math.random() * pokemons.value.length)]
+      // )
 
       // watcher
       watch(pokemon, (newPokemon, oldPokemon) => {
@@ -107,7 +107,11 @@
         newGame,
         checkAnswer,
         estadisticas: pokeStore.estadisticas,
+        // Para testear, la hago publica
+        setPokemons,
       }
+
+      // Para testear si queremos, exponemos
     },
   }
 </script>
