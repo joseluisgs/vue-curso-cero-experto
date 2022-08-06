@@ -12,19 +12,15 @@
   </div>
 </template>
 
-<script>
-  export default {
-    name: 'PokemonOptions',
-    // Mis propiedades
-    props: {
-      pokemons: {
-        type: Array,
-        required: true,
-      },
+<script setup>
+  defineProps({
+    pokemons: {
+      type: Array,
+      required: true,
     },
-    // Mis eventos son:
-    emits: ['selection-pokemon'],
-  }
+  })
+
+  defineEmits(['selection-pokemon'])
 </script>
 
 <style scoped>
