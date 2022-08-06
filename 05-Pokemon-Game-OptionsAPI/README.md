@@ -1,7 +1,7 @@
-# Juego de adivina Pokemon
-Proyecto de juego adivina Pokemon con Options API
+# Juego de adivina Pokemon Options API
+Proyecto de juego adivina Pokemon con [Options API](https://vuejs.org/api/options-state.html)
 
-- [Juego de adivina Pokemon](#juego-de-adivina-pokemon)
+- [Juego de adivina Pokemon Options API](#juego-de-adivina-pokemon-options-api)
   - [Resumen](#resumen)
   - [Comunicación entre componentes](#comunicación-entre-componentes)
   - [Pinia](#pinia)
@@ -9,7 +9,7 @@ Proyecto de juego adivina Pokemon con Options API
   - [Mount vs ShallowMount](#mount-vs-shallowmount)
 
 ## Resumen
-Este juego resume todo lo visto usando la Options API de Vue.js.
+Este juego resume todo lo visto usando la [Options API](https://vuejs.org/api/options-state.html) de Vue.js.
 
 ## Comunicación entre componentes
 - Padre a hijo: Usa propiedades

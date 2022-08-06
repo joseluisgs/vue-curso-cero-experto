@@ -1,0 +1,32 @@
+// Vitest Snapshot v1
+
+exports[`Pokemon View Component > Debe hacer match con el snapshot cuando cargan los pokemons 1`] = `
+<div>
+  <h1>
+    ¿Quién es este Pokemon
+  </h1>
+  <pokemon-picture-stub
+    data-testid="PokemonPicture"
+    pokemonid="1"
+    showpokemon="false"
+  />
+  <pokemon-options-stub
+    data-testid="PokemonOptions"
+    pokemons="[object Object],[object Object],[object Object],[object Object]"
+  />
+  <!-- Se puede usar templete para no mostrar div -->
+  <!--v-if-->
+  <h4>
+    Estadisticas:
+  </h4>
+  <h5>
+    Partidas: 1
+  </h5>
+  <h5>
+    Aciertos: 0
+  </h5>
+  <h5>
+    Derrotas: 0
+  </h5>
+</div>
+`;
