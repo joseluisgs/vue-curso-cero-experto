@@ -16,38 +16,29 @@
   </div>
 </template>
 
-<script>
+<script setup>
   // Todo lo que usemos lo tenemos que importar para ser más eficientes
   import { computed } from 'vue'
-  export default {
-    name: 'PokemonPicture',
 
-    props: {
-      pokemonId: {
-        type: Number,
-        required: true,
-      },
-      showPokemon: {
-        type: Boolean,
-        required: true,
-        default: false,
-      },
+  const props = defineProps({
+    pokemonId: {
+      type: Number,
+      required: true,
     },
+    showPokemon: {
+      type: Boolean,
+      required: true,
+      default: false,
+    },
+  })
 
-    // Para leer las propiedades de la propia componente
-    setup(props) {
-      // Un campo computado....
-      // return `@/assets/images/pokemon-test.svg`
-      const pokemonImage = computed(
-        () =>
-          `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${props.pokemonId}.svg`
-      )
-      // Siempre devolvemos lo que para nosotros es público
-      return {
-        pokemonImage,
-      }
-    },
-  }
+  // Para leer las propiedades de la propia component
+  // Un campo computado....
+  // return `@/assets/images/pokemon-test.svg`
+  const pokemonImage = computed(
+    () =>
+      `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${props.pokemonId}.svg`
+  )
 </script>
 
 <style scoped>
