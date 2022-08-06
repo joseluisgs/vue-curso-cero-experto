@@ -34,7 +34,8 @@ El contenido del curso se divide en las siguientes secciones:
 - [02: Vue.js](02-IntroVue//README.md). Vue.js avanzando.
 - [03: Vue y SFC](03-SFC/README.md). Creación de proyectos avanzados basados en componentes con SFC. 
 - [04: Introducción al Test](04-IntroTest/README.md). Nos iniciaremos al test unitario y de integración.
-- [05: Pokemon Game](05-Pokemon-Game-OptionsAPI/README.md). Creación de un juego de pokemon.
+- [05: Pokemon Game Options API](05-Pokemon-Game-OptionsAPI/README.md). Creación de un juego de pokemon siguiendo Options API con sus test.
+- [06: Pokemon Game Composition API](06-Pokemon-Game-CompositionAPI/README.md). Nuestro primer acercamiento a la API deComposición. Creación de un juego de pokemon siguiendo Composition API con sus test. Dos forms de hacerlo hasta llegar a script setup, la forma actualmente recomendada.
 
 ## Licencia
 
