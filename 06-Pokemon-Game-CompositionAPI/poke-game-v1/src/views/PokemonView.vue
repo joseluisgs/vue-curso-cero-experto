@@ -31,8 +31,8 @@
   import PokemonPicture from '@/components/PokemonPicture.vue'
   import PokemonOptions from '@/components/PokemonOptions.vue'
   import getPokemons from '@/services/pokeservice'
-  import { mapState } from 'pinia'
   import { PokeStore } from '@/stores/pokestore'
+  import { ref, onMounted, watch, computed } from 'vue'
 
   export default {
     name: 'PokemonView',
@@ -40,56 +40,74 @@
       PokemonPicture,
       PokemonOptions,
     },
-    data() {
-      return {
-        pokemons: [],
-        pokemon: null,
-        showPokemon: false,
-        showAnswer: false,
-        message: '',
+
+    setup() {
+      // Mis objetos reactivos!!!
+      const pokemons = ref([])
+      // const pokemon = ref(null)
+      const showPokemon = ref(false)
+      const showAnswer = ref(false)
+      const message = ref('')
+
+      // La stores
+      const pokeStore = PokeStore()
+
+      // Ciclo de vida on Mounted
+      onMounted(() => {
+        setPokemons()
+      })
+
+      const setPokemons = async () => {
+        pokemons.value = await getPokemons()
+        //pokemon.value = pokemons.value[Math.floor(Math.random() * pokemons.value.length)]
       }
-    },
-    methods: {
-      async setPokemons() {
-        this.pokemons = await getPokemons()
-        this.pokemon = this.pokemons[Math.floor(Math.random() * this.pokemons.length)]
-      },
-      checkAnswer(pokemonId) {
-        if (pokemonId === this.pokemon.id) {
-          this.showPokemon = true
-          this.showAnswer = true
-          this.message = `¡Correcto! es ${this.pokemon.name}`
-          this.estadisticas.victorias++
+
+      const newGame = () => {
+        //pokemon.value = null
+        pokemons.value = []
+        showAnswer.value = false
+        showPokemon.value = false
+        message.value = ''
+        setPokemons()
+        pokeStore.estadisticas.partidas++
+      }
+
+      const checkAnswer = (pokemonId) => {
+        if (pokemonId === pokemon.value.id) {
+          showPokemon.value = true
+          showAnswer.value = true
+          message.value = `¡Correcto! es ${pokemon.value.name}`
+          pokeStore.estadisticas.victorias++
         } else {
-          this.showPokemon = false
-          this.showAnswer = true
-          this.message = `¡Incorrecto! es ${this.pokemon.name}`
-          this.estadisticas.derrotas++
+          showPokemon.value = false
+          showAnswer.value = true
+          message.value = `¡Incorrecto! es ${pokemon.value.name}`
+          pokeStore.estadisticas.derrotas++
         }
-      },
-      newGame() {
-        this.pokemon = null
-        this.pokemons = []
-        this.showAnswer = false
-        this.showPokemon = false
-        this.message = ''
-        this.setPokemons()
-        this.estadisticas.partidas++
-      },
-    },
-    mounted() {
-      this.setPokemons()
-    },
-    computed: {
-      ...mapState(PokeStore, ['estadisticas']),
-    },
-    // Watched properties por gusto sobre pokemon
-    watch: {
-      // Nuevo pokemon
-      pokemon(newPokemon, oldPokemon) {
+      }
+
+      // Computed, voy a mejorar algunas cosas de esta manera para que sea más eficiente
+      const pokemon = computed(
+        () => pokemons.value[Math.floor(Math.random() * pokemons.value.length)]
+      )
+
+      // watcher
+      watch(pokemon, (newPokemon, oldPokemon) => {
         console.log('Nuevo pokemon', newPokemon)
         console.log('Antiguo pokemon', oldPokemon)
-      },
+      })
+
+      // Devulvemos un objeto con los datos de la vista
+      return {
+        pokemons,
+        pokemon,
+        showPokemon,
+        showAnswer,
+        message,
+        newGame,
+        checkAnswer,
+        estadisticas: pokeStore.estadisticas,
+      }
     },
   }
 </script>

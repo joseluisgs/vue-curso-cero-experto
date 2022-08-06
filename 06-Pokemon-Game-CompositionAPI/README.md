@@ -64,7 +64,7 @@ export default {
 
 ### Reactividad
 
-Usaremos ref para crear [referencias reactivas](https://vuejs.org/api/reactivity-core.html) a elementos simples y reactive para crear referencias reactivas a elementos más complejos.
+Usaremos ref para crear [referencias reactivas](https://vuejs.org/api/reactivity-core.html) a elementos simples y reactive para crear referencias reactivas a elementos más complejos. Si usamos ref accedemos al valor en lectura y escritura bajo .value.
 
 ```js
 const count = ref(0)
