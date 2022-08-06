@@ -249,4 +249,4 @@ defineExpose({
 ```
 
 ### Ejemplo Pokemon v2
-Puedes ver la aplicación con script setup viendo los cambios commit a commit
+Puedes ver la aplicación con script setup viendo los cambios commit a commit.

@@ -32,7 +32,7 @@
   import PokemonOptions from '@/components/PokemonOptions.vue'
   import getPokemons from '@/services/pokeservice'
   import { PokeStore } from '@/stores/pokestore'
-  import { ref, onMounted, watch } from 'vue'
+  import { ref, onMounted, watch, computed } from 'vue'
 
   export default {
     name: 'PokemonView',
@@ -48,6 +48,9 @@
       const showPokemon = ref(false)
       const showAnswer = ref(false)
       const message = ref('')
+
+      // Para o poner ejemplo con el watcher
+      let idPokemon = 0 // no va a ser reactivo
 
       // La stores
       const pokeStore = PokeStore()
@@ -87,14 +90,15 @@
       }
 
       // Computed, es un ejemplo pero lo cambia cada vez que lo lea!!!
-      // const pokemon = computed(
-      //   () => pokemons.value[Math.floor(Math.random() * pokemons.value.length)]
-      // )
+      const pokemonData = computed(() => {
+        return `Pokemon: ${pokemon.value.name} tiene el id:(${pokemon.value.id})`
+      })
 
       // watcher
-      watch(pokemon, (newPokemon, oldPokemon) => {
-        console.log('Nuevo pokemon', newPokemon)
-        console.log('Antiguo pokemon', oldPokemon)
+      watch(pokemon, (newPokemon) => {
+        // Solo por hacer un ejemplo
+        idPokemon = newPokemon.id
+        //console.log(idPokemon)
       })
 
       // Devulvemos un objeto con los datos de la vista
@@ -109,6 +113,8 @@
         estadisticas: pokeStore.estadisticas,
         // Para testear, la hago publica
         setPokemons,
+        idPokemon,
+        pokemonData,
       }
 
       // Para testear si queremos, exponemos

@@ -30,7 +30,7 @@ describe('Pokemon View Component', () => {
         ],
       },
     })
-    console.log(wrapper)
+    //console.log(wrapper)
     // Creamos el spia
     const setPokemonsSpy = vi.spyOn(wrapper.vm, 'setPokemons')
 
@@ -74,7 +74,7 @@ describe('Pokemon View Component', () => {
     expect(pokemonPicture.attributes('pokemonid')).toBeTruthy() // Al ser computer la leo aleatoria, por eso debe estar
     expect(pokemonOptions.attributes('pokemons')).toBeTruthy()
 
-    console.log(pokemonPicture.html())
+    //console.log(pokemonPicture.html())
   })
 
   test('pruebas con check answer', async () => {
@@ -177,5 +177,29 @@ describe('Pokemon View Component', () => {
     expect(wrapper.vm.estadisticas.partidas).toBe(2)
     expect(wrapper.vm.estadisticas.derrotas).toBe(1)
     expect(wrapper.vm.estadisticas.victorias).toBe(1)
+  })
+
+  test('Computed y Watcher', async () => {
+    const wrapper = shallowMount(PokemonView, {
+      mounted: vi.fn(), // De esta manera mockeamos el onMounted
+      global: {
+        plugins: [
+          createTestingPinia({
+            createSpy: vi.fn,
+          }),
+        ],
+      },
+    })
+
+    // cargamos los datos
+    wrapper.vm.pokemons = pokemons
+    wrapper.vm.pokemon = pokemons[0]
+    await wrapper.vm.$nextTick()
+
+    expect(wrapper.vm.pokemonData).toBe(
+      `Pokemon: ${pokemons[0].name} tiene el id:(${pokemons[0].id})`
+    )
+
+    expect(wrapper.vm.idPokemon).toBe(0)
   })
 })
