@@ -19,6 +19,7 @@ Proyecto de juego adivina Pokemon con [Composition API](https://vuejs.org/api/co
   - [Script Setup](#script-setup)
   - [Eventos y Propiedades](#eventos-y-propiedades)
   - [Exposición de variables](#exposición-de-variables)
+    - [Ejemplo Pokemon v2](#ejemplo-pokemon-v2)
 
 ## Resumen
 
@@ -246,3 +247,6 @@ defineExpose({
 })
 </script>
 ```
+
+### Ejemplo Pokemon v2
+Puedes ver la aplicación con script setup viendo los cambios commit a commit
