@@ -1,0 +1,7 @@
+// Vitest Snapshot v1
+
+exports[`Pokemon View Component > Debe hacer match con el snapshot cuando cargan los pokemons 1`] = `
+<h1>
+  Espere por favor...
+</h1>
+`;
