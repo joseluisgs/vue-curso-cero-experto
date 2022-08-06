@@ -23,7 +23,7 @@ Apuntes y proyectos para el curso de Vue.js
 
 ## Acerca de
 
-Este repositorio recoge apuntes, proyectos y anotaciones del curso de Vue.js de Cero a Experto.
+Este repositorio recoge apuntes, proyectos y anotaciones del curso de [Vue.js](https://vuejs.org/) de Cero a Experto.
 
 ## Contenido
 
