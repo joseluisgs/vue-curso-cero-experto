@@ -52,6 +52,14 @@ const router = createRouter({
       },
       meta: { title: 'Pokemon Page' },
     },
+    // a google
+    {
+      path: '/google',
+      name: 'google',
+      beforeEnter() {
+        window.open('http://www.google.com', '_blank')
+      },
+    },
     // 404
     {
       // Cualquier cosa que no coicida con las rutas anteriores

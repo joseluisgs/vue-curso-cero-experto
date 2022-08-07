@@ -9,11 +9,27 @@
     <!-- Con nombrados -->
     <RouterLink :to="{ name: 'pokemon-page', params: { id: '2' } }">Pokemon 2</RouterLink>
     <RouterLink to="/pokemon/about">About Pokemon</RouterLink>
+    <!-- Externo a Google -->
+    <RouterLink :to="{ name: 'google' }">Google</RouterLink>
+    <CustomLink
+      v-for="link in links"
+      :key="link.to"
+      :link="link"
+    />
   </nav>
 </template>
 
 <script setup>
   import { RouterLink } from 'vue-router'
+  import { defineAsyncComponent, ref } from 'vue'
+  const CustomLink = defineAsyncComponent(() => import('./CustomLink.vue'))
+
+  const links = ref([
+    { to: '/home', text: 'Pokemons' },
+    { to: '/pokemon/50', text: 'Por ID' },
+    { to: '/about', text: 'About' },
+    { to: 'http://google.com', text: 'Google' },
+  ])
 </script>
 
 <style scoped>
