@@ -17,7 +17,7 @@
 
 <script setup>
   import { useRouter, useRoute } from 'vue-router'
-  import { ref, watch } from 'vue'
+  import { ref, watch, onBeforeMount } from 'vue'
 
   // Vamos a pasarle unas propiedades!!!
   const props = defineProps({
@@ -61,9 +61,9 @@
     }
   }
 
-  // onMounted(async () => {
-  //   pokemon.value = await apiFetch()
-  // })
+  onBeforeMount(async () => {
+    pokemon.value = await apiFetch()
+  })
   // onUpdated(async () => {
   //   pokemon.value = await apiFetch()
   // })

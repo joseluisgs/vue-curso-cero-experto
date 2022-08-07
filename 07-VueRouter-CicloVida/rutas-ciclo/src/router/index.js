@@ -10,6 +10,10 @@ const router = createRouter({
     // Exportación directa
     {
       path: '/',
+      redirect: '/home',
+    },
+    {
+      path: '/home',
       name: 'home',
       component: HomeView,
     },
