@@ -48,7 +48,7 @@ const router = createRouter({
       // Cualquier cosa que no coicida con las rutas anteriores
       path: '/:pathMatch(.*)*', // Cualquier otra cosa
       name: '404',
-      component: () => import('../modules/shared/views/404View.vue'), // Lazy loading
+      component: () => import('@/modules/shared/views/404View.vue'), // Lazy loading
     },
   ],
 })
