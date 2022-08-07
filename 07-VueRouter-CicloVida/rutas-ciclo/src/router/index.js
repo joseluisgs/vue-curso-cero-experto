@@ -33,10 +33,10 @@ const router = createRouter({
     {
       path: '/pokemon/about',
       name: 'pokemon-about',
-      component: () => import('@/modules/pokemon/views/PokemonAbout.vue'),
+      component: () => import('@/modules/pokemon/views/PokemonAbout.vue'), // Lazy loading
       meta: { title: 'Pokemon List' },
     },
-    // Pagina d detalles de pokemon
+    // Pagina d detalles de pokemon, le pasamos el parámetro id por la url
     {
       path: '/pokemon/:id',
       name: 'pokemon-detail',
@@ -48,7 +48,7 @@ const router = createRouter({
       // Cualquier cosa que no coicida con las rutas anteriores
       path: '/:pathMatch(.*)*', // Cualquier otra cosa
       name: '404',
-      component: () => import('../modules/shared/views/404View.vue'),
+      component: () => import('../modules/shared/views/404View.vue'), // Lazy loading
     },
   ],
 })
