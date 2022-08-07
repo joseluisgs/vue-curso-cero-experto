@@ -10,6 +10,7 @@ Proyecto de juego adivina Pokemon con [Composition API](https://vuejs.org/api/co
     - [Router View](#router-view)
     - [Segmentos de URL y Query Parameters](#segmentos-de-url-y-query-parameters)
     - [Navegar por código: router](#navegar-por-código-router)
+    - [Pasar propiedades en base al valor del router](#pasar-propiedades-en-base-al-valor-del-router)
   - [Ciclo de Vida y Hooks El [ciclo de vida de un](#ciclo-de-vida-y-hooks-el-ciclo-de-vida-de-un)
 
 ## Resumen
@@ -143,6 +144,23 @@ const goHome = () => {
   // router.push('/pokemons')
   // o usando nombraods
   router.push({ name: 'pokemon-list' })
+}
+```
+
+### Pasar propiedades en base al valor del router
+
+Podemos hacerlo usado [props](https://router.vuejs.org/guide/essentials/passing-props.html) en el enrutador
+
+```js
+{
+      path: '/pokemon/:id',
+      name: 'pokemon-page',
+      component: PokemonPage,
+      // Le pasamos props a la vista PokemonPage
+      props: (route) => ({
+        id: route.params.id,
+      }),
+      meta: { title: 'Pokemon Page' },
 }
 ```
 

@@ -41,6 +41,11 @@ const router = createRouter({
       path: '/pokemon/:id',
       name: 'pokemon-page',
       component: PokemonPage,
+      // Le pasamos props a la vista PokemonPage
+      props: (route) => {
+        const id = Number(route.params.id) // Si no se puede lo mandamos a 404
+        return isNaN(id) ? router.push({ name: '404' }) : { id: id }
+      },
       meta: { title: 'Pokemon Page' },
     },
     // 404
