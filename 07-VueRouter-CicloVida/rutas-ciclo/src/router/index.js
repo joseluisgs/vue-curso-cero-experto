@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import HomeView from '@/modules/shared/views/HomeView.vue'
 import PokemonList from '@/modules/pokemon/views/PokemonList.vue'
 import PokemonPage from '@/modules/pokemon/views/PokemonPage.vue'
 
@@ -20,7 +20,7 @@ const router = createRouter({
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import('../views/AboutView.vue'),
+      component: () => import('@/modules/shared/views/AboutView.vue'),
     },
     // Vamos a hacer la de pokemon directa
     {
@@ -42,6 +42,13 @@ const router = createRouter({
       name: 'pokemon-detail',
       component: PokemonPage,
       meta: { title: 'Pokemon Details' },
+    },
+    // 404
+    {
+      // Cualquier cosa que no coicida con las rutas anteriores
+      path: '/:pathMatch(.*)*', // Cualquier otra cosa
+      name: '404',
+      component: () => import('../modules/shared/views/404View.vue'),
     },
   ],
 })
