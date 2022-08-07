@@ -8,7 +8,9 @@ Proyecto de juego adivina Pokemon con [Composition API](https://vuejs.org/api/co
   - [Vue Router](#vue-router)
     - [Router Link](#router-link)
     - [Router View](#router-view)
-  - [Ciclo de Vida y Hooks](#ciclo-de-vida-y-hooks)
+    - [Segmentos de URL y Query Parameters](#segmentos-de-url-y-query-parameters)
+    - [Navegar por código: router](#navegar-por-código-router)
+  - [Ciclo de Vida y Hooks El [ciclo de vida de un](#ciclo-de-vida-y-hooks-el-ciclo-de-vida-de-un)
 
 ## Resumen
 
@@ -25,6 +27,7 @@ Respecto a las URLs del navegador, existe la posibilidad de que se vayan modific
 ## Vue Router
 
 [Vue Router](https://router.vuejs.org/api/interfaces/routeroptions.html#history) es el componente de Vue que nos permite navegar entre páginas o vistas. Se define en un fichero con las rutas.
+
 ```js
 const router = createRouter({
   // Hacemos el history para la URL y sin #, si no es crteateHashHistory
@@ -40,7 +43,7 @@ const router = createRouter({
     {
       path: '/about',
       name: 'about',
-     // Lazy loading
+      // Lazy loading
       component: () => import('@/views/AboutView.vue'),
     },
     // Vamos a hacer la de pokemon directa
@@ -66,7 +69,7 @@ export default router
 
 ### Router Link
 
-Nos permite crear enlaces a los componentes de Vue como si fueran etiquetas <a href="http://...">...</a>." 
+Nos permite crear enlaces a los componentes de Vue como si fueran etiquetas <a href="http://...">...</a>."
 
 ```html
 <nav>
@@ -74,12 +77,13 @@ Nos permite crear enlaces a los componentes de Vue como si fueran etiquetas <a h
   <RouterLink to="/about">About</RouterLink>
   <!-- Si quiero usar el nombre de las vistas o de componente y no su url-->
   <RouterLink :to="{ name: 'home' }">Home Named</RouterLink>
-
 </nav>
 ```
 
 ### Router View
+
 Renderiza el componente indicado por el router en el layout donde se pone. Todos los componentes se renderizarán ahí.
+
 ```html
 <template>
   <NavBar />
@@ -96,13 +100,60 @@ Renderiza el componente indicado por el router en el layout donde se pone. Todos
 </template>
 ```
 
-## Ciclo de Vida y Hooks
-El [ciclo de vida de un componente](https://vuejs.org/guide/essentials/lifecycle.html) usando Composition API, los hooks más importantes son:
-![hooks](https://vuejs.org/assets/lifecycle.16e4c08e.png)
+### Segmentos de URL y Query Parameters
+
+Nos sirven para pasarle información a los componentes en base a su URL por segmentos y Query Parameters
+
+En el router, definimos el segmento variable:
+
+```js
+{
+  path: '/pokemon/:id',
+  name: 'pokemon-page',
+  component: PokemonPage,
+  meta: { title: 'Pokemon Page' },
+},
+
+```
+
+En la navegación
+
+```html
+<RouterLink to="/pokemon/1">Pokemon 1</RouterLink>
+<!-- Con nombrados -->
+<RouterLink :to="{ name: 'pokemon-page', params: { id: '2' } }">Pokemon 2</RouterLink>
+```
+
+En el componente podemos recuperarlo con el objeto [route](https://router.vuejs.org/guide/advanced/composition-api.html).
+
+```js
+import { useRoute } from 'vue-router'
+console.log(route.fullPath)
+console.log(route.params.id)
+console.log(route.query)
+```
+
+### Navegar por código: router
+
+Podemos navegar por codigo a cualquier lugar definido por nuestro router con el objeto [router](https://router.vuejs.org/guide/advanced/composition-api.html).
+
+```js
+import { useRouter } from 'vue-router'
+const goHome = () => {
+  // router.push('/pokemons')
+  // o usando nombraods
+  router.push({ name: 'pokemon-list' })
+}
+```
+
+## Ciclo de Vida y Hooks El [ciclo de vida de un
+
+componente](https://vuejs.org/guide/essentials/lifecycle.html) usando Composition API, los hooks más
+importantes son: ![hooks](https://vuejs.org/assets/lifecycle.16e4c08e.png):
+
 - onBeforeMount(): Antes de que el componente se monte.
 - onMounted(): Una vez montado.
 - onBeforeUpdate(): Antes de que el componente se actualice.
-- onUpdate(): Cuando se actualiza
+- onUpdate(): Cuando se actualiza.
 - onBeforeUnmount(): Antes de que el componente se desmonte.
 - onUnmounted(): una vez desmontado.
-

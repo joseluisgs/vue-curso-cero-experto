@@ -39,9 +39,9 @@ const router = createRouter({
     // Pagina d detalles de pokemon, le pasamos el parámetro id por la url
     {
       path: '/pokemon/:id',
-      name: 'pokemon-detail',
+      name: 'pokemon-page',
       component: PokemonPage,
-      meta: { title: 'Pokemon Details' },
+      meta: { title: 'Pokemon Page' },
     },
     // 404
     {
