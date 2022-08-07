@@ -23,4 +23,11 @@
     font-weight: bold;
     margin: 0 10px;
   }
+  nav a {
+    cursor: pointer;
+  }
+  /* Para el enlace activo */
+  .router-link-exact-active {
+    color: #42b983;
+  }
 </style>
