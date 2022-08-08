@@ -1,24 +1,25 @@
 <template>
   <div class="container py-4 px-3 mx-auto">
-    <h1>This is an home page</h1>
-    <button class="btn btn-primary">Primary</button>
-    <button class="btn btn-secondary">Secondary</button>
-    <button class="btn btn-success">Success</button>
+    <h1 class="is-size-3">This is an home page</h1>
+    <button class="button is-primary">Primary</button>
+    <button class="button is-secondary">Secondary</button>
+    <button class="button is-success">Success</button>
   </div>
 </template>
 
 <script setup></script>
 
 <style lang="scss" scooped>
-  .btn {
+  .button {
     margin: 10px;
   }
 
   h1 {
-    color: green;
+    color: darkblue;
 
     &:hover {
-      color: greenyellow;
+      color: violet;
+      cursor: pointer;
     }
   }
 </style>

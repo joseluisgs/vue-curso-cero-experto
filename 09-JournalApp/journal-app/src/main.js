@@ -4,11 +4,11 @@ import { createPinia } from 'pinia'
 import App from './App.vue'
 import router from './router'
 
+// Mis estilos css
 import '@/assets/styles/main.css'
 
-// Import bootstrap con mi plantilla de estilos
+// Mis estilos scss
 import '@/assets/styles/styles.scss'
-import * as bootstrap from 'bootstrap'
 
 const app = createApp(App)
 

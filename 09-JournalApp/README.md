@@ -9,8 +9,16 @@ Aplicación resumen de lo visto
 
 Aplicación resumen usando lo visto como es VueRouter y Pinia.
 
-## Bootstrap
-Usaremos [Bootstrap](https://getbootstrap.com/) para el diseño de la aplicación.
+## Estilos
+
+Puedes añadir cualquier [estilo a tu app](https://dev.to/kevin_odongo35/how-to-add-tailwind-css-bootstrap-vuetify-or-bulma-to-a-vue-project-3on2).
 
 ### Instalación
-Instalaremos Bootstrap y Sass usando npm y configurando Vite
+
+- [Sass](https://sass-lang.com/), viene configurado para Vite.
+
+Y ahora elegimos por ejemplo entre:
+- [Bootstrap](https://getbootstrap.com/)
+- [Bulma](https://bulma.io/)
+
+Importamos en nuestro main el estilo y personalizamos como queramos!!
