@@ -4,6 +4,7 @@ module.exports = {
   plugins: [require('@tailwindcss/typography'), require('daisyui')],
   // Themes
   daisyui: {
+    // Se ponen por orden
     themes: [
       'dark',
       'light',
