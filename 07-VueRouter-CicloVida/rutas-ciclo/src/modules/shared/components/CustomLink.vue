@@ -8,14 +8,10 @@
   >
   <router-link
     v-else
-    :to="link.to"
-    v-slot="{ href, isActive }"
+    :to="route"
+    v-slot="{ isActive }"
   >
-    <a
-      :href="href"
-      :class="isActive ? 'is-active' : 'normal-link'"
-      >{{ link.text }}</a
-    >
+    <a :class="isActive ? 'is-active' : 'normal-link'">{{ link.text }}</a>
   </router-link>
 </template>
 
@@ -29,9 +25,14 @@
     },
   })
 
-  console.log(props.link)
+  // console.log(props.link)
 
   const isExternalLink = computed(() => props.link.to.startsWith('http'))
+  const route = computed(() =>
+    props.link.id === undefined
+      ? { name: props.link.to }
+      : { name: props.link.to, params: { id: props.link.id } }
+  )
 </script>
 
 <style scoped>

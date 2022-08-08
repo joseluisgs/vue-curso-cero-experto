@@ -34,16 +34,16 @@
   const CustomLink = defineAsyncComponent(() => import('./CustomLink.vue'))
 
   const pokemonsLinks = ref([
-    { to: '/pokemon', text: 'Pokemons' },
-    { to: '/pokemon/50', text: 'Pokemon Por ID' },
-    { to: '/pokemon/about', text: 'Pokemon About' },
+    { to: 'pokemon-list', text: 'Pokemons' },
+    { to: 'pokemon-page', text: 'Pokemon Por ID', id: 50 },
+    { to: 'pokemon-about', text: 'Pokemon About' },
     { to: 'http://google.com', text: 'Google' },
   ])
 
   const dragonballLinks = ref([
-    { to: '/dragonball', text: 'Dragon Ball' },
-    { to: '/dragonball/50', text: 'Dragon Ball Por ID' },
-    { to: '/dragonball/about', text: 'Dragon Ball About' },
+    { to: 'dragonball-list', text: 'Dragon Ball' },
+    { to: 'dragonball-page', text: 'Dragon Ball Por ID', id: 50 },
+    { to: 'dragonball-about', text: 'Dragon Ball About' },
   ])
 </script>
 
