@@ -36,6 +36,7 @@ El contenido del curso se divide en las siguientes secciones:
 - [04: Introducción al Test](04-IntroTest/README.md). Nos iniciaremos al test unitario y de integración.
 - [05: Pokemon Game Options API](05-Pokemon-Game-OptionsAPI/README.md). Creación de un juego de pokemon siguiendo Options API con sus test.
 - [06: Pokemon Game Composition API](06-Pokemon-Game-CompositionAPI/README.md). Nuestro primer acercamiento a la API deComposición. Creación de un juego de pokemon siguiendo Composition API con sus test. Dos forms de hacerlo hasta llegar a script setup, la forma actualmente recomendada.
+- [07: Vue Router y Ciclo de Vida](07-VueRouter-CicloVida/README.md). Usaremos Vue Router para navegar por nuestra app en base a rutas, nombres, paso de parámetros, rutas anidadas y guardas de las mismas. Profundizaremos en el ciclo de vida de un componente de Vue.
 
 ## Licencia
 
