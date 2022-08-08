@@ -26,32 +26,44 @@ const router = createRouter({
       // which is lazy-loaded when the route is visited.
       component: () => import('@/modules/shared/views/AboutView.vue'),
     },
-    // Vamos a hacer la de pokemon directa
     {
       path: '/pokemon',
-      name: 'pokemon-list',
-      component: PokemonList,
+      name: 'pokemon-layout',
       meta: { title: 'Pokemon List' }, // Así ponemos campos meta para SEO
+      component: () => import('@/modules/pokemon/layouts/PokemonLayout.vue'),
+      // Definimos las rutas hijas que se renderizan dentro de este componente en su propio router view!!!
+      children: [
+        {
+          path: '',
+          name: 'pokemon-list',
+          meta: { title: 'Pokemon List' },
+          component: PokemonList,
+        },
+        {
+          path: 'about',
+          name: 'pokemon-about',
+          component: () => import('@/modules/pokemon/views/PokemonAbout.vue'), // Lazy loading
+          meta: { title: 'Pokemon About' },
+        },
+        // Pagina d detalles de pokemon, le pasamos el parámetro id por la url
+        {
+          path: ':id',
+          name: 'pokemon-page',
+          component: PokemonPage,
+          // Le pasamos props a la vista PokemonPage
+          props: (route) => {
+            const id = Number(route.params.id) // Si no se puede lo mandamos a 404
+            return isNaN(id) ? router.push({ name: '404' }) : { id: id }
+          },
+          meta: { title: 'Pokemon Page' },
+        },
+        {
+          path: '/',
+          redirect: { name: 'pokemon-list' },
+        },
+      ],
     },
-    // Vamos a hacer la pokemon about lazy
-    {
-      path: '/pokemon/about',
-      name: 'pokemon-about',
-      component: () => import('@/modules/pokemon/views/PokemonAbout.vue'), // Lazy loading
-      meta: { title: 'Pokemon List' },
-    },
-    // Pagina d detalles de pokemon, le pasamos el parámetro id por la url
-    {
-      path: '/pokemon/:id',
-      name: 'pokemon-page',
-      component: PokemonPage,
-      // Le pasamos props a la vista PokemonPage
-      props: (route) => {
-        const id = Number(route.params.id) // Si no se puede lo mandamos a 404
-        return isNaN(id) ? router.push({ name: '404' }) : { id: id }
-      },
-      meta: { title: 'Pokemon Page' },
-    },
+
     // a google
     {
       path: '/google',

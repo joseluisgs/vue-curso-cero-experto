@@ -3,14 +3,16 @@
     <RouterLink to="/">Home</RouterLink>
     <RouterLink to="/about">About</RouterLink>
     <!-- Si quiero usar el nombre de las vistas y no su url-->
-    <RouterLink :to="{ name: 'home' }">Home Named</RouterLink>
-    <RouterLink :to="{ name: 'pokemon-list' }">Pokemon List</RouterLink>
-    <RouterLink to="/pokemon/1">Pokemon 1</RouterLink>
+    <!-- <RouterLink :to="{ name: 'home' }">Home Named</RouterLink> -->
+    <!-- <RouterLink :to="{ name: 'pokemon-list' }">Pokemon List</RouterLink> -->
+    <!-- <RouterLink to="/pokemon/1">Pokemon 1</RouterLink> -->
     <!-- Con nombrados -->
-    <RouterLink :to="{ name: 'pokemon-page', params: { id: '2' } }">Pokemon 2</RouterLink>
-    <RouterLink to="/pokemon/about">About Pokemon</RouterLink>
+    <!-- <RouterLink :to="{ name: 'pokemon-page', params: { id: '2' } }">Pokemon 2</RouterLink> -->
+    <!-- <RouterLink to="/pokemon/about">About Pokemon</RouterLink> -->
     <!-- Externo a Google -->
     <RouterLink :to="{ name: 'google' }">Google</RouterLink>
+  </nav>
+  <nav>
     <CustomLink
       v-for="link in links"
       :key="link.to"
@@ -25,9 +27,9 @@
   const CustomLink = defineAsyncComponent(() => import('./CustomLink.vue'))
 
   const links = ref([
-    { to: '/home', text: 'Pokemons' },
+    { to: '/pokemon', text: 'Pokemons' },
     { to: '/pokemon/50', text: 'Por ID' },
-    { to: '/about', text: 'About' },
+    { to: '/pokemon/about', text: 'About' },
     { to: 'http://google.com', text: 'Google' },
   ])
 </script>

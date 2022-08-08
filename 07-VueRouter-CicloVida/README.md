@@ -11,6 +11,7 @@ Proyecto de juego adivina Pokemon con [Composition API](https://vuejs.org/api/co
     - [Segmentos de URL y Query Parameters](#segmentos-de-url-y-query-parameters)
     - [Navegar por código: router](#navegar-por-código-router)
     - [Pasar propiedades en base al valor del router](#pasar-propiedades-en-base-al-valor-del-router)
+    - [Rutas Hijas y Multiple Router View](#rutas-hijas-y-multiple-router-view)
   - [Ciclo de Vida y Hooks El [ciclo de vida de un](#ciclo-de-vida-y-hooks-el-ciclo-de-vida-de-un)
 
 ## Resumen
@@ -163,6 +164,31 @@ Podemos hacerlo usado [props](https://router.vuejs.org/guide/essentials/passing-
       meta: { title: 'Pokemon Page' },
 }
 ```
+### Rutas Hijas y Multiple Router View
+Podemos renderizar una vista hija en una vista padre usando el componente [children](https://router.vuejs.org/guide/essentials/nested-routes.html) de las rutas. Estas se rederizarán dentro de un componente padre pudiéndose anidar ruoter view.
+```js
+const routes = [
+  {
+    path: '/user/:id',
+    component: User,
+    children: [
+      {
+        // UserProfile will be rendered inside User's <router-view>
+        // when /user/:id/profile is matched
+        path: 'profile',
+        component: UserProfile,
+      },
+      {
+        // UserPosts will be rendered inside User's <router-view>
+        // when /user/:id/posts is matched
+        path: 'posts',
+        component: UserPosts,
+      },
+    ],
+  },
+]
+```
+
 
 ## Ciclo de Vida y Hooks El [ciclo de vida de un
 
