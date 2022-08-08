@@ -12,6 +12,7 @@ Proyecto de juego adivina Pokemon con [Composition API](https://vuejs.org/api/co
     - [Navegar por código: router](#navegar-por-código-router)
     - [Pasar propiedades en base al valor del router](#pasar-propiedades-en-base-al-valor-del-router)
     - [Rutas Hijas y Multiple Router View](#rutas-hijas-y-multiple-router-view)
+    - [Navigation Guards](#navigation-guards)
   - [Ciclo de Vida y Hooks El [ciclo de vida de un](#ciclo-de-vida-y-hooks-el-ciclo-de-vida-de-un)
 
 ## Resumen
@@ -164,8 +165,11 @@ Podemos hacerlo usado [props](https://router.vuejs.org/guide/essentials/passing-
       meta: { title: 'Pokemon Page' },
 }
 ```
+
 ### Rutas Hijas y Multiple Router View
+
 Podemos renderizar una vista hija en una vista padre usando el componente [children](https://router.vuejs.org/guide/essentials/nested-routes.html) de las rutas. Estas se rederizarán dentro de un componente padre pudiéndose anidar ruoter view.
+
 ```js
 const routes = [
   {
@@ -189,6 +193,20 @@ const routes = [
 ]
 ```
 
+### Navigation Guards
+
+Los [guards](https://router.vuejs.org/guide/advanced/navigation-guards.html) son condiciones que deben de cumplirse para dejar pasar a una ruta, por ejemplo que estemos autenticados, o que tengamos x permisos.
+
+```js
+const router = createRouter({ ... })
+
+router.beforeEach((to, from) => {
+  // Si no venimos de login y no estamos autenticados, vamos a login
+  if (to.name !== 'Login' && !isAuthenticated) next({ name: 'Login' })
+  // si no pasamos a la ruta
+  else next()
+})
+```
 
 ## Ciclo de Vida y Hooks El [ciclo de vida de un
 

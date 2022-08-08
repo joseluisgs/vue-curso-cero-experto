@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '@/modules/shared/views/HomeView.vue'
 import PokemonList from '@/modules/pokemon/views/PokemonList.vue'
 import PokemonPage from '@/modules/pokemon/views/PokemonPage.vue'
+import { nextTick } from 'vue'
 
 const router = createRouter({
   // Hacemos el history para la URL y sin #, si no es crteateHashHistory
@@ -108,6 +109,12 @@ const router = createRouter({
         window.open('http://www.google.com', '_blank')
       },
     },
+    // Error
+    {
+      path: '/error', // Cualquier otra cosa
+      name: 'Error',
+      component: () => import('@/modules/shared/views/ErrorView.vue'), // Lazy loading
+    },
     // 404
     {
       // Cualquier cosa que no coicida con las rutas anteriores
@@ -116,6 +123,19 @@ const router = createRouter({
       component: () => import('@/modules/shared/views/404View.vue'), // Lazy loading
     },
   ],
+})
+
+/// Guard Global!!!
+router.beforeEach((to, from, next) => {
+  console.log(`Antes de cada ruta: desde ${from.name} hasta ${to.name}`)
+  const random = Math.random() * 100
+  if (random > 50) {
+    console.log('Autenticado')
+    next() // Lo deja pasar
+  } else {
+    console.log('Bloqueado por el beforeEach Guard')
+    next({ name: 'Error' })
+  }
 })
 
 export default router
