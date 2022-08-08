@@ -8,3 +8,9 @@ Aplicación resumen de lo visto
 ## Resumen
 
 Aplicación resumen usando lo visto como es VueRouter y Pinia.
+
+## Bootstrap
+Usaremos [Bootstrap](https://getbootstrap.com/) para el diseño de la aplicación.
+
+### Instalación
+Instalaremos Bootstrap y Sass usando npm y configurando Vite
