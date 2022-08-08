@@ -6,18 +6,20 @@
 </template>
 
 <script>
-  import { mapWritableState } from 'pinia'
+  import { mapWritableState, mapActions } from 'pinia'
   import { CounterStore } from '../stores/counter'
 
   export default {
     name: 'ContadorOptions',
     methods: {
       incrementar() {
-        this.counter++
+        this.increment()
       },
       decrementar() {
-        this.counter--
+        this.decrement()
       },
+      // Los importamos y los podemos usar con this
+      ...mapActions(CounterStore, ['increment', 'decrement']),
     },
     computed: {
       // Lo importamos en modo lectura y escritura y podemos acceder a eĺ en base a this.counter

@@ -10,12 +10,13 @@
   // accedemos a la store
   const counterStore = CounterStore()
 
+  // Encapsulamos con metodos
   const incrementar = () => {
-    counterStore.counter++
+    counterStore.increment()
   }
 
   const decrementar = () => {
-    counterStore.counter--
+    counterStore.decrement()
   }
 </script>
 

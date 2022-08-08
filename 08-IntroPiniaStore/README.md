@@ -12,8 +12,10 @@ Aprenderemos a manejar [Pinia](https://pinia.vuejs.org/), como estore principal 
     - [Modulos](#modulos)
     - [Composition API](#composition-api)
       - [Acceso al estado](#acceso-al-estado)
+      - [Acciones](#acciones)
     - [Options API](#options-api)
       - [Acceso al State](#acceso-al-state)
+      - [Acciones](#acciones-1)
 
 ## Resumen
 
@@ -105,9 +107,21 @@ export const useCartStore = defineStore('cart', {
 ```
 
 ### Composition API
+
 #### Acceso al estado
+
 Importamos el store como un elemento más y accedemos por sus propiedades en el state.
 
+#### Acciones
+
+Simplemente llamamos al método, sea síncrono o asíncrono.
+
 ### Options API
+
 #### Acceso al State
+
 Para manejar el [estado](https://pinia.vuejs.org/core-concepts/state.html#usage-with-the-options-api), usaremos mapState para optener un estado de solo lectura, o mapWritableState() para lectura escritura.
+
+#### Acciones
+
+Usamos para manejar las [acciones](https://pinia.vuejs.org/core-concepts/actions.html#without-setup) mapActions y la acción a ejecutar ya sean síncronas o asíncronas.
