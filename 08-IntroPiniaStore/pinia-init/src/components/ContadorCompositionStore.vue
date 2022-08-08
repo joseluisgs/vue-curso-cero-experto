@@ -5,6 +5,12 @@
   <button @click="decrementar">-</button>
   <button @click="incrementarAsync">Async +</button>
   <button @click="decrementarAsync">Async -</button>
+  <button
+    @click="random"
+    :disabled="counterStore.isLoading"
+  >
+    Random
+  </button>
 </template>
 
 <script setup>
@@ -27,6 +33,10 @@
 
   const decrementarAsync = async () => {
     counterStore.decrementAsync(3)
+  }
+
+  const random = async () => {
+    counterStore.random()
   }
 </script>
 
