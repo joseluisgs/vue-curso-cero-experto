@@ -16,6 +16,7 @@ Aprenderemos a manejar [Pinia](https://pinia.vuejs.org/), como estore principal 
     - [Options API](#options-api)
       - [Acceso al State](#acceso-al-state)
       - [Acciones](#acciones-1)
+      - [Getters](#getters-1)
 
 ## Resumen
 
@@ -116,6 +117,10 @@ Importamos el store como un elemento más y accedemos por sus propiedades en el 
 
 Simplemente llamamos al método, sea síncrono o asíncrono.
 
+####
+
+Son una variable mas, como un computer mas
+
 ### Options API
 
 #### Acceso al State
@@ -125,3 +130,7 @@ Para manejar el [estado](https://pinia.vuejs.org/core-concepts/state.html#usage-
 #### Acciones
 
 Usamos para manejar las [acciones](https://pinia.vuejs.org/core-concepts/actions.html#without-setup) mapActions y la acción a ejecutar ya sean síncronas o asíncronas.
+
+#### Getters
+
+Se usa mapState

@@ -1,6 +1,7 @@
 <template>
   <h2>Contador Store Composition API</h2>
   <p>Valor: {{ counterStore.counter }}</p>
+  <p>Doble: {{ counterStore.doubleCount }}</p>
   <button @click="incrementar">+</button>
   <button @click="decrementar">-</button>
   <button @click="incrementarAsync">Async +</button>

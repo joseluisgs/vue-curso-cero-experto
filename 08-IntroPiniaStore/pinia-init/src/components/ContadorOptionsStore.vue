@@ -1,6 +1,7 @@
 <template>
   <h2>Contador Store Options API</h2>
   <p>Valor: {{ counter }}</p>
+  <p>Doble: {{ doubleCount }}</p>
   <button @click="incrementar">+</button>
   <button @click="decrementar">-</button>
   <button @click="incrementarAsync">Async +</button>
@@ -48,7 +49,7 @@
       // Lo importamos en modo lectura y escritura y podemos acceder a eĺ en base a this.counter
       // Lo hemos desestructurado... Pero es peligroso poder usarlo así, mejor encapsular!!! (acciones)
       ...mapWritableState(CounterStore, ['counter']),
-      ...mapState(CounterStore, ['isLoading']),
+      ...mapState(CounterStore, ['isLoading', 'doubleCount']),
     },
   }
 </script>
