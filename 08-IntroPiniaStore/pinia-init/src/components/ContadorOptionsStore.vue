@@ -21,10 +21,10 @@
         this.decrement()
       },
       async incrementarAsync() {
-        this.incrementAsync(1)
+        this.incrementAsync(3)
       },
       async decrementarAsync() {
-        this.decrementAsync(1)
+        this.decrementAsync(3)
       },
       // Los importamos y los podemos usar con this
       ...mapActions(CounterStore, ['increment', 'decrement', 'incrementAsync', 'decrementAsync']),

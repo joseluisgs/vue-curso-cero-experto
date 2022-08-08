@@ -22,11 +22,11 @@
   }
 
   const incrementarAsync = async () => {
-    counterStore.incrementAsync(1)
+    counterStore.incrementAsync(3)
   }
 
   const decrementarAsync = async () => {
-    counterStore.decrementAsync(1)
+    counterStore.decrementAsync(3)
   }
 </script>
 
