@@ -17,6 +17,7 @@ Aprenderemos a manejar [Pinia](https://pinia.vuejs.org/), como estore principal 
       - [Acceso al State](#acceso-al-state)
       - [Acciones](#acciones-1)
       - [Getters](#getters-1)
+    - [Migración desde Vuex](#migración-desde-vuex)
 
 ## Resumen
 
@@ -134,3 +135,7 @@ Usamos para manejar las [acciones](https://pinia.vuejs.org/core-concepts/actions
 #### Getters
 
 Se usa mapState
+
+### Migración desde Vuex
+
+Puedes seguir esta guía para [migrar desde Vuex](https://pinia.vuejs.org/cookbook/migration-vuex.html)

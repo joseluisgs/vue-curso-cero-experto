@@ -16,7 +16,8 @@
 
 <script>
   import { mapWritableState, mapActions, mapState } from 'pinia'
-  import { CounterStore } from '../stores/counter'
+  import { CounterStore } from '@/stores/counter'
+  import { LoadingStore } from '@/stores/loading'
 
   export default {
     name: 'ContadorOptions',
@@ -49,7 +50,8 @@
       // Lo importamos en modo lectura y escritura y podemos acceder a eĺ en base a this.counter
       // Lo hemos desestructurado... Pero es peligroso poder usarlo así, mejor encapsular!!! (acciones)
       ...mapWritableState(CounterStore, ['counter']),
-      ...mapState(CounterStore, ['isLoading', 'doubleCount']),
+      ...mapState(CounterStore, ['doubleCount']),
+      ...mapState(LoadingStore, ['isLoading']),
     },
   }
 </script>

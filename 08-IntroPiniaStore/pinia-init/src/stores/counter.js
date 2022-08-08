@@ -1,10 +1,11 @@
 import { defineStore } from 'pinia'
+// Podemos usar una store dentro de otra!!!
+import { LoadingStore } from '@/stores/loading'
 
 export const CounterStore = defineStore({
   id: 'CounterStore',
   state: () => ({
     counter: 0,
-    isLoading: false,
   }),
   getters: {
     doubleCount: (state) => state.counter * 2,
@@ -27,10 +28,11 @@ export const CounterStore = defineStore({
       }, 1000)
     },
     async random() {
-      this.isLoading = true
+      const loadingStore = LoadingStore()
+      loadingStore.setLoading(true)
       setTimeout(() => {
         this.counter = Math.floor(Math.random() * 100)
-        this.isLoading = false
+        loadingStore.setLoading(false)
       }, 3000)
     },
   },

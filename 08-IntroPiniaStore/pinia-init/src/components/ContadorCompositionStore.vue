@@ -8,16 +8,18 @@
   <button @click="decrementarAsync">Async -</button>
   <button
     @click="random"
-    :disabled="counterStore.isLoading"
+    :disabled="loadingStore.isLoading"
   >
     Random
   </button>
 </template>
 
 <script setup>
-  import { CounterStore } from '../stores/counter'
+  import { CounterStore } from '@/stores/counter'
+  import { LoadingStore } from '@/stores/loading'
   // accedemos a la store
   const counterStore = CounterStore()
+  const loadingStore = LoadingStore()
 
   // Encapsulamos con metodos
   const incrementar = () => {
@@ -37,7 +39,10 @@
   }
 
   const random = async () => {
+    // Podriamos cambiar el estado aquí, pero lo hacemos en la store
+    // loadingStore.setLoading(true)
     counterStore.random()
+    // loadingStore.setLoading(false)
   }
 </script>
 
