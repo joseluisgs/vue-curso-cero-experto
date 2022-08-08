@@ -3,6 +3,8 @@
   <p>Valor: {{ counter }}</p>
   <button @click="incrementar">+</button>
   <button @click="decrementar">-</button>
+  <button @click="incrementarAsync">Async +</button>
+  <button @click="decrementarAsync">Async -</button>
 </template>
 
 <script>
@@ -18,8 +20,14 @@
       decrementar() {
         this.decrement()
       },
+      async incrementarAsync() {
+        this.incrementAsync(1)
+      },
+      async decrementarAsync() {
+        this.decrementAsync(1)
+      },
       // Los importamos y los podemos usar con this
-      ...mapActions(CounterStore, ['increment', 'decrement']),
+      ...mapActions(CounterStore, ['increment', 'decrement', 'incrementAsync', 'decrementAsync']),
     },
     computed: {
       // Lo importamos en modo lectura y escritura y podemos acceder a eĺ en base a this.counter

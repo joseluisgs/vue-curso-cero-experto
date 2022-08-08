@@ -3,6 +3,8 @@
   <p>Valor: {{ counterStore.counter }}</p>
   <button @click="incrementar">+</button>
   <button @click="decrementar">-</button>
+  <button @click="incrementarAsync">Async +</button>
+  <button @click="decrementarAsync">Async -</button>
 </template>
 
 <script setup>
@@ -17,6 +19,14 @@
 
   const decrementar = () => {
     counterStore.decrement()
+  }
+
+  const incrementarAsync = async () => {
+    counterStore.incrementAsync(1)
+  }
+
+  const decrementarAsync = async () => {
+    counterStore.decrementAsync(1)
   }
 </script>
 

@@ -15,5 +15,15 @@ export const CounterStore = defineStore({
     decrement() {
       this.counter--
     },
+    incrementAsync(value = 1) {
+      setTimeout(() => {
+        this.counter += value
+      }, 1000)
+    },
+    decrementAsync(value = 1) {
+      setTimeout(() => {
+        this.counter -= value
+      }, 1000)
+    },
   },
 })
