@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '@/modules/shared/views/HomeView.vue'
 import PokemonList from '@/modules/pokemon/views/PokemonList.vue'
 import PokemonPage from '@/modules/pokemon/views/PokemonPage.vue'
-import { nextTick } from 'vue'
+import isAuthenticatedGuard from '@/router/auth-guard'
 
 const router = createRouter({
   // Hacemos el history para la URL y sin #, si no es crteateHashHistory
@@ -73,6 +73,8 @@ const router = createRouter({
       name: 'dragonball-layout',
       meta: { title: 'Dragon Ball List' }, // Así ponemos campos meta para SEO/modules/layouts/DragonBallLayout.vue
       component: () => import('@/modules/dragonball/layouts/DragonBallLayout.vue'),
+      // Vamos a protegerlo
+      beforeEnter: [isAuthenticatedGuard],
       // Definimos las rutas hijas que se renderizan dentro de este componente en su propio router view!!!
       children: [
         {
@@ -138,27 +140,27 @@ const router = createRouter({
 //   }
 // })
 
-// Guard Asincrono
+// Guard Global Asincrono
 
-const canAccess = () => {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      const random = Math.random() * 100
-      if (random > 50) {
-        console.log('Autenticado')
-        resolve(true)
-      } else {
-        console.log('Bloqueado por el beforeEach Guard')
-        resolve(false)
-      }
-    }, 1000)
-  })
-}
+// const canAccess = () => {
+//   return new Promise((resolve) => {
+//     setTimeout(() => {
+//       const random = Math.random() * 100
+//       if (random > 50) {
+//         console.log('Autenticado')
+//         resolve(true)
+//       } else {
+//         console.log('Bloqueado por el beforeEach Guard')
+//         resolve(false)
+//       }
+//     }, 1000)
+//   })
+// }
 
-router.beforeEach(async (to, from, next) => {
-  console.log(`Antes de cada ruta: desde ${from.name} hasta ${to.name}`)
-  const authorized = await canAccess()
-  authorized ? next() : next({ name: 'Error' })
-})
+// router.beforeEach(async (to, from, next) => {
+//   console.log(`Antes de cada ruta: desde ${from.name} hasta ${to.name}`)
+//   const authorized = await canAccess()
+//   authorized ? next() : next({ name: 'Error' })
+// })
 
 export default router
