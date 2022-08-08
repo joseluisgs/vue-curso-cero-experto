@@ -26,6 +26,8 @@ const router = createRouter({
       // which is lazy-loaded when the route is visited.
       component: () => import('@/modules/shared/views/AboutView.vue'),
     },
+
+    // Pokemon
     {
       path: '/pokemon',
       name: 'pokemon-layout',
@@ -60,6 +62,40 @@ const router = createRouter({
         {
           path: '/',
           redirect: { name: 'pokemon-list' },
+        },
+      ],
+    },
+
+    // Dragon Ball
+    {
+      path: '/dragonball',
+      name: 'dragonball-layout',
+      meta: { title: 'Dragon Ball List' }, // Así ponemos campos meta para SEO/modules/layouts/DragonBallLayout.vue
+      component: () => import('@/modules/dragonball/layouts/DragonBallLayout.vue'),
+      // Definimos las rutas hijas que se renderizan dentro de este componente en su propio router view!!!
+      children: [
+        {
+          path: '',
+          name: 'dragonball-list',
+          meta: { title: 'DragonBall List' },
+          component: () => import('@/modules/dragonball/views/DragonBallList.vue'), // Lazy loading
+        },
+        {
+          path: 'about',
+          name: 'dragonball-about',
+          component: () => import('@/modules/dragonball/views/DragonBallAbout.vue'), // Lazy loading
+          meta: { title: 'DragonBall About' },
+        },
+        // Pagina d detalles de pokemon, le pasamos el parámetro id por la url
+        {
+          path: ':id',
+          name: 'dragonball-page',
+          component: () => import('@/modules/dragonball/views/DragonBallPage.vue'), // Lazy loading
+          meta: { title: 'DragonBall Page' },
+        },
+        {
+          path: '/',
+          redirect: { name: 'dragonball-list' },
         },
       ],
     },

@@ -14,7 +14,14 @@
   </nav>
   <nav>
     <CustomLink
-      v-for="link in links"
+      v-for="link in pokemonsLinks"
+      :key="link.to"
+      :link="link"
+    />
+  </nav>
+  <nav>
+    <CustomLink
+      v-for="link in dragonballLinks"
       :key="link.to"
       :link="link"
     />
@@ -26,11 +33,17 @@
   import { defineAsyncComponent, ref } from 'vue'
   const CustomLink = defineAsyncComponent(() => import('./CustomLink.vue'))
 
-  const links = ref([
+  const pokemonsLinks = ref([
     { to: '/pokemon', text: 'Pokemons' },
-    { to: '/pokemon/50', text: 'Por ID' },
-    { to: '/pokemon/about', text: 'About' },
+    { to: '/pokemon/50', text: 'Pokemon Por ID' },
+    { to: '/pokemon/about', text: 'Pokemon About' },
     { to: 'http://google.com', text: 'Google' },
+  ])
+
+  const dragonballLinks = ref([
+    { to: '/dragonball', text: 'Dragon Ball' },
+    { to: '/dragonball/50', text: 'Dragon Ball Por ID' },
+    { to: '/dragonball/about', text: 'Dragon Ball About' },
   ])
 </script>
 
