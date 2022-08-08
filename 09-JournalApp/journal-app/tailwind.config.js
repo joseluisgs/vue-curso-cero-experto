@@ -1,3 +1,4 @@
+/* eslint-env node */
 module.exports = {
   content: ['./src/**/*.{vue,js,ts}'],
   // Instalo el plugin tailwindcss de tipografía
