@@ -197,6 +197,8 @@ const routes = [
 
 Los [guards](https://router.vuejs.org/guide/advanced/navigation-guards.html) son condiciones que deben de cumplirse para dejar pasar a una ruta, por ejemplo que estemos autenticados, o que tengamos x permisos.
 
+Si queremos aplicarlas solo a rutas específicas, debemos usar [beforeEnter](https://router.vuejs.org/api/interfaces/routerecordnormalized.html#beforeenter) con el nombre de la función que hace de guarda.
+
 ```js
 const router = createRouter({ ... })
 
