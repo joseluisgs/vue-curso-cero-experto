@@ -25,14 +25,14 @@ Mi clase para maquetar, luego quitar!!! */
 
 /* For Chrome, EDGE, Opera, Others */
 /* .scrollbar::-webkit-scrollbar {
-  width: 2px;
-  height: '2px'
-} */
+  width: 5px;
+  height: 3px;
+} 
 
-/* .scrollbar::-webkit-scrollbar-track {
-  background:rgb(84, 155, 221);
+.scrollbar::-webkit-scrollbar-track {
+  @apply bg-base-200;
 }
 
 .scrollbar::-webkit-scrollbar-thumb {
-  background: rgb(39, 10, 170);
+  @apply bg-primary;
 } */

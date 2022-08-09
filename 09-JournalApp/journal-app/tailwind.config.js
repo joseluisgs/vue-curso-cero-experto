@@ -10,15 +10,16 @@ module.exports = {
   content: ['./src/**/*.{vue,js,ts}'],
   // Instalo el plugin tailwindcss de tipografía
   plugins: [
+    require('daisyui'),
     require('@tailwindcss/typography'),
     require('@tailwindcss/forms'),
-    require('daisyui'),
-    // Scrollbar sin css: https://stackoverflow.com/questions/69400560/how-to-change-scrollbar-when-using-tailwind-next-js-react
+    // require('tailwind-scrollbar'),
+    // // Scrollbar sin css: https://stackoverflow.com/questions/69400560/how-to-change-scrollbar-when-using-tailwind-next-js-react
     plugin(({ addBase, theme }) => {
       addBase({
         '.scrollbar': {
           overflowY: 'auto',
-          scrollbarColor: `${theme('colors.blue.600')} ${theme('colors.blue.200')}`,
+          scrollbarColor: `${theme('colors.primary')} ${theme('colors.base-200')}`,
           scrollbarWidth: 'thin',
         },
         '.scrollbar::-webkit-scrollbar': {
@@ -26,10 +27,10 @@ module.exports = {
           width: '5px',
         },
         '.scrollbar::-webkit-scrollbar-thumb': {
-          backgroundColor: theme('colors.blue.600'),
+          backgroundColor: theme('colors.primary'),
         },
         '.scrollbar::-webkit-scrollbar-track-piece': {
-          backgroundColor: theme('colors.blue.200'),
+          backgroundColor: theme('colors.base-200'),
         },
       })
     }),

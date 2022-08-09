@@ -1,13 +1,13 @@
 <template>
-  <div class="border-r border-indigo-500 h-[calc(100vh_-_56px)]">
+  <div class="border-r border-primary h-[calc(88vh)]">
     <div class="px-2 pt-2">
       <input
         type="text"
         placeholder="Buscar entradas"
-        class="text-indigo-900 rounded-md"
+        class="w-full rounded-md text-base-content bg-base-100"
       />
     </div>
-    <div class="mt-3 scrollbar h-[calc(100vh_-_120px)] overflow-y-auto">
+    <div class="mt-3 scrollbar h-[calc(88vh_-_90px)] overflow-y-auto">
       <div>
         <Entry
           v-for="item in 200"

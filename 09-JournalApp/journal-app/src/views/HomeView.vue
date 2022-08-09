@@ -12,7 +12,12 @@
     >
       DayBook
     </button>
-    <button class="btn btn-secondary">Secondary</button>
+    <button
+      class="btn btn-secondary"
+      @click="goToAbout()"
+    >
+      About
+    </button>
     <button class="btn btn-success btn-outline">Success</button>
     <article class="mx-auto prose text-center">
       <h1>Garlic bread with cheese: What the science tells us</h1>
@@ -34,7 +39,8 @@
 <script setup>
   import { useRouter } from 'vue-router'
   const router = useRouter()
-  const goToDaybook = () => router.push({ name: 'daybook' })
+  const goToDaybook = () => router.push({ name: 'daybook-no-entry' })
+  const goToAbout = () => router.push({ name: 'about' })
 </script>
 
 <style scooped>
