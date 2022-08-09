@@ -26,4 +26,4 @@ Y ahora elegimos por ejemplo entre:
 - Ejemplo con [Bootstrap](https://github.com/joseluisgs/vue-curso-cero-experto/commit/125b246f79372002ed1276ddf5384cb8a03b14cf)
 - Ejemplo con [Bulma](https://github.com/joseluisgs/vue-curso-cero-experto/commit/e7e106b1c69517000e0599156bb9f2dcc724167f)
 
-En este ejemplo vamos a usar Tailwind con [DaisyUI](https://daisyui.com) que nos da una serie de componentes para Tailwind.
+En este ejemplo vamos a usar Tailwind con [DaisyUI](https://daisyui.com) que nos da una serie de componentes para Tailwind. Se ha usado estilos por defecto y el sistema de cambio de estilo porpuesto [aquí](https://github.com/saadeghi/theme-change).

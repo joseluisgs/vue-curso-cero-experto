@@ -28,7 +28,7 @@
 
 <script setup></script>
 
-<style lang="scss" scooped>
+<style scooped>
   .btn {
     margin: 10px;
   }
