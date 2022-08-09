@@ -1,12 +1,17 @@
 <template>
   <div
     data-theme="joseluisgs"
-    class="container px-3 py-4 mx-auto text-center rounded-lg shadow-md shadow-gray-500"
+    class="container px-3 py-4 mx-auto text-center rounded-lg shadow-xl"
   >
     <h1 class="text-xl font-semibold text-gray-500 cursor-pointer hover:text-indigo-500">
       This is an home page
     </h1>
-    <button class="btn btn-primary">Primary</button>
+    <button
+      class="btn btn-primary"
+      @click="goToDaybook()"
+    >
+      DayBook
+    </button>
     <button class="btn btn-secondary">Secondary</button>
     <button class="btn btn-success btn-outline">Success</button>
     <article class="mx-auto prose text-center">
@@ -26,7 +31,11 @@
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+  import { useRouter } from 'vue-router'
+  const router = useRouter()
+  const goToDaybook = () => router.push({ name: 'daybook' })
+</script>
 
 <style scooped>
   .btn {

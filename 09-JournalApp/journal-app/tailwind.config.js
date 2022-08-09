@@ -23,7 +23,7 @@ module.exports = {
   daisyui: {
     // Se ponen por orden
     themes: [
-      'night',
+      'night', // Al ponerlo es elk tema por defecto oscuro!!!
       'dark',
       'light',
       'lemonade',

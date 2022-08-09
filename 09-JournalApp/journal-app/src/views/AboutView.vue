@@ -1,7 +1,7 @@
 <template>
   <!-- Si quiero poner una cosa en mi tema, solo debo ponerle
 data-theme="dark" -->
-  <div class="px-3 text-center rounded-lg shadow-md container-md py-4mx-auto shadow-gray-500">
+  <div class="px-3 rounded-lg shadow-xl container-md py-4mx-auto">
     <article class="max-w-3xl mx-auto prose text-center">
       <h1 class="text-xl font-semibold text-gray-500 cursor-pointer hover:text-indigo-500">
         This is an about page
@@ -13,6 +13,7 @@ data-theme="dark" -->
           <img
             src="https://placeimg.com/200/280/arch"
             alt="Movie"
+            class="rounded-md shadow-md ml-3"
           />
         </figure>
         <div class="card-body">
