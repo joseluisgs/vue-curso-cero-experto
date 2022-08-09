@@ -4,7 +4,7 @@
   >
     <!-- Titulo -->
     <div class="flex">
-      <span class="text-lg font-bold text-success">09</span>
+      <span class="text-lg font-bold text-primary">09</span>
       <span class="mx-2 text-lg font-semibold">Agosto</span>
       <span class="mx-1 text-lg font-light">2022, </span>
       <span class="mx-1 text-lg italic">martes:</span>

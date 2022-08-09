@@ -7,10 +7,10 @@
         class="text-indigo-900 rounded-md"
       />
     </div>
-    <div class="mt-3 scrollbar h-[calc(100vh_-_120px)] overflow-y-auto dev">
+    <div class="mt-3 scrollbar h-[calc(100vh_-_120px)] overflow-y-auto">
       <div>
         <Entry
-          v-for="item in 20"
+          v-for="item in 200"
           :key="item"
         />
       </div>

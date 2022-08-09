@@ -1,20 +1,21 @@
 <template>
-  <div class="navbar bg-primary text-primary-content rounded-md">
+  <div class="rounded-md navbar bg-primary text-primary-content">
     <div class="navbar-start">
-      <button class="btn btn-ghost normal-case text-xl">
+      <button class="text-xl normal-case btn btn-ghost">
         <img
           src="@/assets/images/logo.png"
           alt="logo"
-          class="w-10 mr-3 inline-block text-right"
+          class="inline-block w-10 mr-3 text-right"
         />
         DayBook
       </button>
     </div>
     <div class="navbar-end">
-      <button class="btn btn-secondary btn-outline gap-2 text-center">
+      <button class="gap-2 text-center btn btn-secondary btn-outline">
         <Icon
-          icon="mdi:logout"
-          class="h-6 w-6 text-indigo-700 hover:text-indigo-200 cursor-pointer"
+          icon="material-symbols:exit-to-app-rounded"
+          :inline="true"
+          class="w-8 h-8"
         />
       </button>
     </div>
