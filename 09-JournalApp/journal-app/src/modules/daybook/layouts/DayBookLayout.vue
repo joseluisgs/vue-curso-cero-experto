@@ -8,8 +8,6 @@
     <div class="flex flex-col flex-1">
       <!-- Router View que ocupe todo lo que tenemos...-->
       <RouterView />
-      <!-- Barra de herramientas con botón de nuevo -->
-      <FavButton class="self-end w-12 my-3 shadow-md h12" />
     </div>
   </div>
 </template>
@@ -18,7 +16,6 @@
   import NavBar from '../components/DayBookNavbar.vue'
   import EntryList from '../components/DayBookEntryList.vue'
   import { RouterView } from 'vue-router'
-  import FavButton from '@/modules/daybook/components/DayBookFabButton.vue'
 </script>
 
 <style lang="scss" scoped></style>

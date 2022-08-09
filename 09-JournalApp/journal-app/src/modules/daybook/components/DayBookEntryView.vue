@@ -35,12 +35,17 @@
   <img
     src="https://upload.wikimedia.org/wikipedia/commons/3/3c/San_Juans_north_of_Durango.jpg"
     alt="imagen"
-    class="fixed w-1/5 m-2 border-4 rounded-md shadow-md right-20 bottom-40"
+    class="fixed w-1/5 m-2 border-4 rounded-md shadow-md right-10 bottom-32"
+  />
+  <FavButton
+    icon="fa-regular:save"
+    class="fixed w-12 h-12 shadow-md right-10 bottom-14"
   />
 </template>
 
 <script setup>
   import { Icon } from '@iconify/vue'
+  import FavButton from '@/modules/daybook/components/DayBookFabButton.vue'
 </script>
 
 <style lang="scss" scoped></style>

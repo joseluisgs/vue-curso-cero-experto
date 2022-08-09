@@ -6,10 +6,15 @@
       class="w-16 h-16 text-primary"
     />
   </div>
+  <FavButton
+    icon="akar-icons:plus"
+    class="self-end w-12 h-12 my-3 shadow-md"
+  />
 </template>
 
 <script setup>
   import { Icon } from '@iconify/vue'
+  import FavButton from '@/modules/daybook/components/DayBookFabButton.vue'
 </script>
 
 <style lang="scss" scoped></style>
