@@ -8,3 +8,10 @@ html,
 body {
   padding: 10px;
 }
+/* 
+Mi clase para maquetar, luego quitar!!! */
+.dev {
+    border-width: 2px;
+    border-style: dashed solid;
+    border-color: red;
+  }

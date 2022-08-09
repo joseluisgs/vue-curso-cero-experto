@@ -27,3 +27,5 @@ Y ahora elegimos por ejemplo entre:
 - Ejemplo con [Bulma](https://github.com/joseluisgs/vue-curso-cero-experto/commit/e7e106b1c69517000e0599156bb9f2dcc724167f)
 
 En este ejemplo vamos a usar Tailwind con [DaisyUI](https://daisyui.com) que nos da una serie de componentes para Tailwind. Se ha usado estilos por defecto y el sistema de cambio de estilo propuesto [aquí](https://github.com/saadeghi/theme-change).
+
+Como iconos usaremos [Iconofy](https://iconify.design/).
