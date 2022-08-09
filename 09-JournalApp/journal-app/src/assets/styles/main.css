@@ -11,7 +11,28 @@ body {
 /* 
 Mi clase para maquetar, luego quitar!!! */
 .dev {
-    border-width: 2px;
-    border-style: dashed solid;
-    border-color: red;
-  }
+  border-width: 2px;
+  border-style: dashed solid;
+  border-color: red;
+}
+
+/* Scrollbar */
+/* For Firefox Browser */
+/* .scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(39, 10, 170) rgb(84, 155, 221);
+} */
+
+/* For Chrome, EDGE, Opera, Others */
+/* .scrollbar::-webkit-scrollbar {
+  width: 2px;
+  height: '2px'
+} */
+
+/* .scrollbar::-webkit-scrollbar-track {
+  background:rgb(84, 155, 221);
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+  background: rgb(39, 10, 170);
+} */
