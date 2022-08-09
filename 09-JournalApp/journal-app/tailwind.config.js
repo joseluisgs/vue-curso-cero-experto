@@ -12,7 +12,7 @@ module.exports = {
   plugins: [
     require('daisyui'),
     require('@tailwindcss/typography'),
-    require('@tailwindcss/forms'),
+    // require('@tailwindcss/forms'),
     // require('tailwind-scrollbar'),
     // // Scrollbar sin css: https://stackoverflow.com/questions/69400560/how-to-change-scrollbar-when-using-tailwind-next-js-react
     plugin(({ addBase, theme }) => {

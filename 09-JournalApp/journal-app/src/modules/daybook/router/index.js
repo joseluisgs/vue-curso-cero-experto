@@ -11,5 +11,12 @@ export default {
       component: () => import('@/modules/daybook/views/DayBookNoEntry.vue'),
       meta: { title: 'DayBook No Entry' },
     },
+    {
+      name: 'daybook-entry',
+      path: ':id',
+      component: () => import('@/modules/daybook/components/DayBookEntryView.vue'),
+      meta: { title: 'DayBook Entry' },
+      // Le pasamos props
+    },
   ],
 }

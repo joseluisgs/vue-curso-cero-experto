@@ -7,7 +7,7 @@
     <!-- Columnas, la primera empuja el máximo -->
     <div class="flex flex-col flex-1">
       <!-- Router View que ocupe todo lo que tenemos...-->
-      <RouterView class="h-full" />
+      <RouterView />
       <!-- Barra de herramientas con botón de nuevo -->
       <FavButton class="self-end w-12 my-3 shadow-md h12" />
     </div>

@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col items-center justify-center">
+  <div class="flex flex-col items-center justify-center h-full">
     <h1 class="text-3xl font-bold text-primary">No hay nada seleccionado</h1>
     <Icon
       icon="codicon:note"
