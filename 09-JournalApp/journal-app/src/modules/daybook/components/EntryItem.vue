@@ -32,7 +32,6 @@
   })
 
   const entryDate = computed(() => {
-    console.log(props.entry.date)
     return getDateParsered(props.entry.date)
   })
 </script>

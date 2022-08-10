@@ -4,13 +4,13 @@
     name="fade"
     mode="out-in"
   >
-    <div>
+    <div v-if="myEntry">
       <div class="flex h-20 flex-row items-center justify-between p-2">
         <div>
-          <span class="text-lg font-bold text-primary">09</span>
-          <span class="mx-2 text-lg font-semibold text-base-content">Agosto</span>
-          <span class="mx-1 text-lg font-light text-base-content">2022, </span>
-          <span class="mx-1 text-lg font-light text-base-content">martes.</span>
+          <span class="text-lg font-bold text-primary">{{ entryDate.day }}</span>
+          <span class="mx-2 text-lg font-semibold text-base-content">{{ entryDate.month }}</span>
+          <span class="mx-1 text-lg font-light text-base-content">{{ entryDate.year }}, </span>
+          <span class="mx-1 text-lg font-light text-base-content">{{ entryDate.dayOfWeek }}.</span>
         </div>
         <div>
           <button class="btn btn-error mx-2 gap-2">
@@ -34,14 +34,15 @@
       <hr class="border-t border-primary" />
       <div class="flex h-full flex-col px-3">
         <textarea
+          v-model.trim="myEntry.text"
           placeholder="¿Qué sucedió hoy?"
           class="ext-base-content textarea textarea-primary my-2 h-full w-full rounded-md bg-base-100"
         ></textarea>
       </div>
       <img
-        src="https://upload.wikimedia.org/wikipedia/commons/3/3c/San_Juans_north_of_Durango.jpg"
+        :src="myEntry.picture"
         alt="imagen"
-        class="fixed right-10 bottom-32 m-2 w-1/5 rounded-lg border-4 border-base-200 object-cover shadow-xl"
+        class="fixed right-10 bottom-32 m-2 w-48 rounded-lg border-4 border-base-200 object-cover shadow-xl"
       />
       <FavButton
         icon="fa-regular:save"
@@ -52,12 +53,13 @@
 </template>
 
 <script setup>
-  import { Icon } from '@iconify/vue'
   import FavButton from '@/components/FabButton.vue'
-  import { useRoute } from 'vue-router'
-  import JournalStore from '../stores/journal'
-  import { computed } from 'vue'
   import getDateParsered from '@/helpers/dateparser.js'
+  import { Icon } from '@iconify/vue'
+  import { ref } from 'vue'
+  import { useRouter } from 'vue-router'
+  import JournalStore from '../stores/journal'
+
   const props = defineProps({
     id: {
       type: String,
@@ -65,19 +67,19 @@
     },
   })
 
-  const route = useRoute()
+  const router = useRouter()
   const journalStore = JournalStore()
 
-  console.log(route.params.id)
-  console.log(props.id)
+  const myEntry = ref(null)
+  const entryDate = ref(null)
 
-  const myEntry = computed(() => journalStore.getEntryById(props.id))
-  console.log(myEntry.value.text)
-
-  const entryDate = computed(() => {
-    return getDateParsered(myEntry.value.date)
-  })
-  console.log(entryDate.value)
+  // Compruebo que existe la entrada
+  myEntry.value = journalStore.getEntryById(props.id)
+  if (!myEntry.value) {
+    router.push({ name: 'daybook-no-entry' })
+  } else {
+    entryDate.value = getDateParsered(myEntry.value.date)
+  }
 </script>
 
 <style lang="scss" scoped>

@@ -1,9 +1,9 @@
 <template>
   <div
     data-theme="joseluisgs"
-    class="container px-3 py-4 mx-auto text-center rounded-lg shadow-xl"
+    class="container mx-auto rounded-lg px-3 py-4 text-center shadow-xl"
   >
-    <h1 class="text-xl font-semibold text-gray-500 cursor-pointer hover:text-indigo-500">
+    <h1 class="cursor-pointer text-xl font-semibold text-gray-500 hover:text-indigo-500">
       This is an home page
     </h1>
     <button
@@ -18,8 +18,8 @@
     >
       About
     </button>
-    <button class="btn btn-success btn-outline">Success</button>
-    <article class="mx-auto prose text-center">
+    <button class="btn btn-outline btn-success">Success</button>
+    <article class="prose mx-auto text-center">
       <h1>Garlic bread with cheese: What the science tells us</h1>
       <p>
         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repudiandae minus quam harum ab
