@@ -1,23 +1,40 @@
 <template>
   <div
-    class="p-2 m-2 mb-3 border rounded-lg shadow-md cursor-pointer border-primary bg-base-100 hover:bg-base-200"
+    class="m-2 mb-3 cursor-pointer rounded-lg border border-primary bg-base-100 p-2 shadow-md hover:bg-base-200"
   >
     <!-- Titulo -->
     <div class="flex">
-      <span class="text-lg font-bold text-primary">09</span>
-      <span class="mx-2 text-lg font-semibold text-base-content">Agosto</span>
-      <span class="mx-1 text-lg font-light text-base-content">2022, </span>
-      <span class="mx-1 text-lg font-light text-base-content">martes.</span>
+      <span class="text-lg font-bold text-primary">{{ entryDate.day }}</span>
+      <span class="mx-2 text-lg font-semibold text-base-content">{{ entryDate.month }}</span>
+      <span class="mx-1 text-lg font-light text-base-content">{{ entryDate.year }}, </span>
+      <span class="mx-1 text-lg font-light text-base-content">{{ entryDate.dayOfWeek }}.</span>
     </div>
     <!-- Descripcion -->
-    <div class="text-sm text-base-content">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem laboriosam soluta mollitia
-      voluptatum est illo voluptates vel quam minus provident porro repellat hic quia, maiores
-      consequuntur, nemo possimus minima blanditiis.
-    </div>
+    <div class="text-sm text-base-content">{{ shortText }} {{ props.entry.date }}</div>
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+  import { computed } from 'vue'
+  import getDateParsered from '@/helpers/dateparser.js'
+
+  const props = defineProps({
+    entry: {
+      type: Object,
+      required: true,
+    },
+  })
+
+  const shortText = computed(() => {
+    return props.entry.text.length > 130
+      ? props.entry.text.substring(0, 130) + '...'
+      : props.entry.text
+  })
+
+  const entryDate = computed(() => {
+    console.log(props.entry.date)
+    return getDateParsered(props.entry.date)
+  })
+</script>
 
 <style lang="scss" scoped></style>

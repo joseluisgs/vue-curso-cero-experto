@@ -13,9 +13,10 @@
         <!-- Animaciones -->
         <transition-group name="list-complete">
           <EntryItem
-            v-for="item in journalStore.getEntriesByTerm(searchTerm)"
-            :key="item.id"
-            @click="goToEntry(item)"
+            v-for="entry in entriesByTerm"
+            :key="entry.id"
+            :entry="entry"
+            @click="goToEntry(entry)"
           />
         </transition-group>
       </div>
@@ -27,15 +28,17 @@
   import EntryItem from '../components/EntryItem.vue'
   import { useRouter } from 'vue-router'
   import JournalStore from '../stores/journal'
-  import { ref } from 'vue'
+  import { ref, computed } from 'vue'
 
   const router = useRouter()
   const journalStore = JournalStore()
 
   const searchTerm = ref('')
 
-  const goToEntry = (item) => {
-    router.push({ name: 'daybook-entry', params: { id: 10 } })
+  const entriesByTerm = computed(() => journalStore.getEntriesByTerm(searchTerm.value))
+
+  const goToEntry = (entry) => {
+    router.push({ name: 'daybook-entry', params: { id: entry.id } })
   }
 </script>
 

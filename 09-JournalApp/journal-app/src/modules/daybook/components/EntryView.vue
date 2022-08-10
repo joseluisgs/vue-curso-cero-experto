@@ -5,7 +5,7 @@
     mode="out-in"
   >
     <div>
-      <div class="dev flex h-20 flex-row items-center justify-between p-2">
+      <div class="flex h-20 flex-row items-center justify-between p-2">
         <div>
           <span class="text-lg font-bold text-primary">09</span>
           <span class="mx-2 text-lg font-semibold text-base-content">Agosto</span>
@@ -31,8 +31,8 @@
           </button>
         </div>
       </div>
-      <hr />
-      <div class="dev flex h-full flex-col px-3">
+      <hr class="border-t border-primary" />
+      <div class="flex h-full flex-col px-3">
         <textarea
           placeholder="¿Qué sucedió hoy?"
           class="ext-base-content textarea textarea-primary my-2 h-full w-full rounded-md bg-base-100"
