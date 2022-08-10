@@ -56,7 +56,7 @@
   import FavButton from '@/components/FabButton.vue'
   import getDateParsered from '@/helpers/dateparser.js'
   import { Icon } from '@iconify/vue'
-  import { ref } from 'vue'
+  import { ref, watch, computed } from 'vue'
   import { useRouter } from 'vue-router'
   import JournalStore from '../stores/journal'
 
@@ -71,15 +71,31 @@
   const journalStore = JournalStore()
 
   const myEntry = ref(null)
-  const entryDate = ref(null)
 
-  // Compruebo que existe la entrada
-  myEntry.value = journalStore.getEntryById(props.id)
-  if (!myEntry.value) {
-    router.push({ name: 'daybook-no-entry' })
-  } else {
-    entryDate.value = getDateParsered(myEntry.value.date)
+  const loadEntry = () => {
+    myEntry.value = journalStore.getEntryById(props.id)
+    if (!myEntry.value) {
+      router.push({ name: 'daybook-no-entry' })
+    }
   }
+
+  // Y cargamos la entrada
+  loadEntry()
+
+  // La fecha es computada
+  const entryDate = computed(() => {
+    return getDateParsered(myEntry.value.date)
+  })
+
+  // Compruebo que existe la entrada añado un watcher!!
+  watch(
+    () => props.id,
+    () => {
+      loadEntry()
+    }
+  )
+
+  // Observamos el id y sus cambios
 </script>
 
 <style lang="scss" scoped>
