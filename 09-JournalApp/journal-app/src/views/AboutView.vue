@@ -1,25 +1,25 @@
 <template>
   <!-- Si quiero poner una cosa en mi tema, solo debo ponerle
 data-theme="dark" -->
-  <div class="px-3 rounded-lg shadow-xl container-md py-4mx-auto">
-    <article class="max-w-3xl mx-auto prose text-center">
-      <h1 class="text-xl font-semibold text-gray-500 cursor-pointer hover:text-indigo-500">
+  <div class="container-md py-4mx-auto rounded-lg px-3 shadow-xl">
+    <article class="prose mx-auto max-w-3xl text-center">
+      <h1 class="cursor-pointer text-xl font-semibold text-gray-500 hover:text-indigo-500">
         This is an about page
       </h1>
 
       <h1>Temas</h1>
-      <div class="shadow-xl card card-side bg-base-100">
+      <div class="card card-side bg-base-100 shadow-xl">
         <figure>
           <img
             src="https://placeimg.com/200/280/arch"
             alt="Movie"
-            class="rounded-md shadow-md ml-3"
+            class="ml-3 rounded-md shadow-md"
           />
         </figure>
         <div class="card-body">
           <h2 class="card-title">Temas de colores</h2>
           <p>Click the button to watch on Jetflix app.</p>
-          <div class="justify-end card-actions">
+          <div class="card-actions justify-end">
             <button class="btn btn-primary">Watch</button>
             <button class="btn btn-secondary">Watch</button>
           </div>
@@ -34,7 +34,7 @@ data-theme="dark" -->
 
       <button
         data-set-theme=""
-        class="btn btn-primary btn-outline"
+        class="btn btn-outline btn-primary"
       >
         Default
       </button>
@@ -64,7 +64,7 @@ data-theme="dark" -->
       </button>
       <button
         data-set-theme="joseluisgs"
-        class="btn btn-success btn-outline"
+        class="btn btn-outline btn-success"
       >
         JoseLuisGS
       </button>
@@ -75,6 +75,7 @@ data-theme="dark" -->
 <script setup>
   import { onMounted } from 'vue'
   import { themeChange } from 'theme-change'
+
   // Para cambiar de tema
   // https://github.com/saadeghi/theme-change
   onMounted(() => {

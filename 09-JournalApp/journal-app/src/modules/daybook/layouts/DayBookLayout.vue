@@ -1,11 +1,11 @@
 <template>
   <NavBar />
-  <div class="flex flex-row py-2 mx-auto my-2 rounded-md shadow-lg">
+  <div class="mx-auto my-2 flex flex-row rounded-md py-2 shadow-lg">
     <div class="w-4/12">
       <EntryList />
     </div>
     <!-- Columnas, la primera empuja el máximo -->
-    <div class="flex flex-col flex-1">
+    <div class="flex flex-1 flex-col">
       <!-- Router View que ocupe todo lo que tenemos...-->
       <RouterView />
     </div>

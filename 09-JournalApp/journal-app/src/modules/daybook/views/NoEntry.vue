@@ -4,17 +4,17 @@
     name="fade"
     mode="out-in"
   >
-    <div class="flex flex-col items-center justify-center h-full">
+    <div class="flex h-full flex-col items-center justify-center">
       <h1 class="text-3xl font-bold text-primary">No hay nada seleccionado</h1>
       <Icon
         icon="codicon:note"
-        class="w-16 h-16 text-primary"
+        class="h-16 w-16 text-primary"
       />
     </div>
   </transition>
   <FavButton
     icon="akar-icons:plus"
-    class="self-end w-12 h-12 my-3 shadow-md"
+    class="my-3 h-12 w-12 self-end shadow-md"
   />
 </template>
 

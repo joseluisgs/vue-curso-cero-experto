@@ -15,8 +15,8 @@
 </template>
 
 <script setup>
-  import { computed } from 'vue'
   import getDateParsered from '@/helpers/dateparser.js'
+  import { computed } from 'vue'
 
   const props = defineProps({
     entry: {
@@ -27,7 +27,7 @@
 
   const shortText = computed(() => {
     return props.entry.text.length > 130
-      ? props.entry.text.substring(0, 130) + '...'
+      ? `${props.entry.text.substring(0, 130)}...`
       : props.entry.text
   })
 

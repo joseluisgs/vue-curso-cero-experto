@@ -56,7 +56,7 @@
   import FavButton from '@/components/FabButton.vue'
   import getDateParsered from '@/helpers/dateparser.js'
   import { Icon } from '@iconify/vue'
-  import { ref, watch, computed } from 'vue'
+  import { computed, ref, watch } from 'vue'
   import { useRouter } from 'vue-router'
   import JournalStore from '../stores/journal'
 

@@ -38,7 +38,9 @@
 
 <script setup>
   import { useRouter } from 'vue-router'
+
   const router = useRouter()
+
   const goToDaybook = () => router.push({ name: 'daybook-no-entry' })
   const goToAbout = () => router.push({ name: 'about' })
 </script>

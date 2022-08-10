@@ -25,10 +25,10 @@
 </template>
 
 <script setup>
-  import EntryItem from '../components/EntryItem.vue'
+  import { computed, ref } from 'vue'
   import { useRouter } from 'vue-router'
+  import EntryItem from '../components/EntryItem.vue'
   import JournalStore from '../stores/journal'
-  import { ref, computed } from 'vue'
 
   const router = useRouter()
   const journalStore = JournalStore()
