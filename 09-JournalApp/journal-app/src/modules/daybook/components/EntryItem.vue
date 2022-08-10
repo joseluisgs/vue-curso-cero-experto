@@ -7,7 +7,7 @@
       <span class="text-lg font-bold text-primary">09</span>
       <span class="mx-2 text-lg font-semibold text-base-content">Agosto</span>
       <span class="mx-1 text-lg font-light text-base-content">2022, </span>
-      <span class="mx-1 text-lg font-light text-base-content">martes:</span>
+      <span class="mx-1 text-lg font-light text-base-content">martes.</span>
     </div>
     <!-- Descripcion -->
     <div class="text-sm text-base-content">

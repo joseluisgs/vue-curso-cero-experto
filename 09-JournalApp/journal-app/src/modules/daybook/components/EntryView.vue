@@ -1,51 +1,51 @@
 <template>
-<!-- Transicciones me pidde un solo div!!! -->
+  <!-- Transicciones me pidde un solo div!!! -->
   <transition
     name="fade"
     mode="out-in"
   >
     <div>
-      <div class="flex flex-row items-center justify-between h-20 p-2 dev">
+      <div class="dev flex h-20 flex-row items-center justify-between p-2">
         <div>
           <span class="text-lg font-bold text-primary">09</span>
           <span class="mx-2 text-lg font-semibold text-base-content">Agosto</span>
           <span class="mx-1 text-lg font-light text-base-content">2022, </span>
-          <span class="mx-1 text-lg font-light text-base-content">martes</span>
+          <span class="mx-1 text-lg font-light text-base-content">martes.</span>
         </div>
         <div>
-          <button class="gap-2 mx-2 btn btn-error">
+          <button class="btn btn-error mx-2 gap-2">
             <Icon
               icon="fa:trash"
               :inline="true"
-              class="w-5 h-5"
+              class="h-5 w-5"
             />
             Borrar
           </button>
-          <button class="gap-2 mx-2 btn btn-primary">
+          <button class="btn btn-primary mx-2 gap-2">
             <Icon
               icon="fa:upload"
               :inline="true"
-              class="w-5 h-5"
+              class="h-5 w-5"
             />
             Subir foto
           </button>
         </div>
       </div>
       <hr />
-      <div class="flex flex-col h-full px-3 dev">
+      <div class="dev flex h-full flex-col px-3">
         <textarea
           placeholder="¿Qué sucedió hoy?"
-          class="w-full h-full my-2 rounded-md ext-base-content bg-base-100 textarea textarea-primary"
+          class="ext-base-content textarea textarea-primary my-2 h-full w-full rounded-md bg-base-100"
         ></textarea>
       </div>
       <img
         src="https://upload.wikimedia.org/wikipedia/commons/3/3c/San_Juans_north_of_Durango.jpg"
         alt="imagen"
-        class="fixed object-cover w-1/5 m-2 border-4 rounded-lg shadow-xl border-base-200 right-10 bottom-32"
+        class="fixed right-10 bottom-32 m-2 w-1/5 rounded-lg border-4 border-base-200 object-cover shadow-xl"
       />
       <FavButton
         icon="fa-regular:save"
-        class="fixed w-12 h-12 shadow-md right-10 bottom-14"
+        class="fixed right-10 bottom-14 h-12 w-12 shadow-md"
       />
     </div>
   </transition>

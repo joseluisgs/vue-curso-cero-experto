@@ -31,12 +31,22 @@ export const JournalStore = defineStore({
 
   // Mis Getters
   getters: {
-    // doubleCount: (state) => state.counter * 2,
-    // return entries even number
-    getEvens: (state) => state.entries.filter((x) => x % 2 == 0),
-    // TODO
-    getEntriesByTerm: (state) => (term) => state.entries.filter((x) => x.includes(term)),
-    getEntriesById: (state) => (id) => state.entries.find((x) => x.id == id),
+    getEntriesByTerm:
+      (state) =>
+      (searchTerm = '') => {
+        // console.log(searchTerm)
+        if (searchTerm === '') return state.entries
+
+        let filter = new RegExp(searchTerm, 'i') // patron de búsqueda ignorando mayúsculas o minúsculas
+        return (
+          state.entries
+            // Filtramos por las que tengan esa expresión regular
+            .filter((entry) => entry.text.match(filter))
+          // Ordenamos de mas moderna a antigua
+          //.sort((a, b) => (a.date < b.date ? 1 : -1))
+        )
+      },
+    getEntriesById: (state) => (entryId) => state.entries.find((entry) => entry.id === entryId),
   },
 
   // Mis acciones
@@ -60,3 +70,5 @@ export const JournalStore = defineStore({
     },
   },
 })
+
+export default JournalStore
