@@ -13,9 +13,9 @@
 </template>
 
 <script setup>
-  import NavBar from '../components/NavBar.vue'
-  import EntryList from '../components/EntryList.vue'
   import { RouterView } from 'vue-router'
+  import EntryList from '../components/EntryList.vue'
+  import NavBar from '../components/NavBar.vue'
 </script>
 
 <style lang="scss" scoped></style>

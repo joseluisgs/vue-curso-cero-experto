@@ -73,8 +73,8 @@ data-theme="dark" -->
 </template>
 
 <script setup>
-  import { onMounted } from 'vue'
   import { themeChange } from 'theme-change'
+  import { onMounted } from 'vue'
 
   // Para cambiar de tema
   // https://github.com/saadeghi/theme-change
