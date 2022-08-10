@@ -54,6 +54,30 @@
 <script setup>
   import { Icon } from '@iconify/vue'
   import FavButton from '@/components/FabButton.vue'
+  import { useRoute } from 'vue-router'
+  import JournalStore from '../stores/journal'
+  import { computed } from 'vue'
+  import getDateParsered from '@/helpers/dateparser.js'
+  const props = defineProps({
+    id: {
+      type: String,
+      required: true,
+    },
+  })
+
+  const route = useRoute()
+  const journalStore = JournalStore()
+
+  console.log(route.params.id)
+  console.log(props.id)
+
+  const myEntry = computed(() => journalStore.getEntryById(props.id))
+  console.log(myEntry.value.text)
+
+  const entryDate = computed(() => {
+    return getDateParsered(myEntry.value.date)
+  })
+  console.log(entryDate.value)
 </script>
 
 <style lang="scss" scoped>

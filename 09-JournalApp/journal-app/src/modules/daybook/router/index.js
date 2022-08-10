@@ -1,5 +1,8 @@
 // Router local
 
+// import { useRouter } from 'vue-router'
+// const router = useRouter()
+
 export default {
   name: 'daybook',
   component: () => import('@/modules/daybook/layouts/DayBookLayout.vue'),
@@ -17,6 +20,13 @@ export default {
       component: () => import('@/modules/daybook/components/EntryView.vue'),
       meta: { title: 'DayBook Entry' },
       // Le pasamos props
+      props: (route) => {
+        return {
+          id: route.params.id,
+        }
+        // const id = String(route.params.id) // Si no se puede lo mandamos a 404
+        // return isNaN(id) ? router.push({ name: '404' }) : { id: id }
+      },
     },
   ],
 }
