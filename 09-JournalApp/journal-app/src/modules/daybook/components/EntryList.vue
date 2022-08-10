@@ -9,11 +9,14 @@
     </div>
     <div class="mt-3 scrollbar h-[calc(88vh_-_90px)] overflow-y-auto">
       <div>
-        <EntryItem
-          v-for="item in 200"
-          :key="item"
-          @click="goToEntry(item)"
-        />
+        <!-- Animaciones -->
+        <transition-group name="list-complete">
+          <EntryItem
+            v-for="item in 200"
+            :key="item"
+            @click="goToEntry(item)"
+          />
+        </transition-group>
       </div>
     </div>
   </div>
@@ -28,4 +31,17 @@
   }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+  // https://vuejs.org/guide/built-ins/transition-group.html
+  .list-complete-item {
+    transition: all 0.8s ease;
+  }
+  .list-complete-enter-from,
+  .list-complete-leave-to {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  .list-complete-leave-active {
+    position: relative;
+  }
+</style>
