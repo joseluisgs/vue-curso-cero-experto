@@ -2,8 +2,11 @@
 
 Aplicación resumen de lo visto
 
-- [Introducción a Pinia y a las Store](#introducción-a-pinia-y-a-las-store)
+- [Journal App](#journal-app)
   - [Resumen](#resumen)
+  - [Estilos](#estilos)
+    - [Personalización de Estilos](#personalización-de-estilos)
+    - [Organización de código](#organización-de-código)
 
 ## Resumen
 
@@ -29,3 +32,10 @@ Y ahora elegimos por ejemplo entre:
 En este ejemplo vamos a usar Tailwind con [DaisyUI](https://daisyui.com) que nos da una serie de componentes para Tailwind. Se ha usado estilos por defecto y el sistema de cambio de estilo propuesto [aquí](https://github.com/saadeghi/theme-change).
 
 Como iconos usaremos [Iconofy](https://iconify.design/).
+
+### Organización de código
+- En los directorios globales tenemos las vistas, componentes, routes y stores genérales para toda la aplicación.
+- En cada carpeta modules tienes la parte dedicada a esa sección. 
+- No es una organización que comparta en gran medida, pero puedes organizar tu código como quieras, siempre que te deje ampliarlo y cambiarlo de manera poco traumática.
+
+
