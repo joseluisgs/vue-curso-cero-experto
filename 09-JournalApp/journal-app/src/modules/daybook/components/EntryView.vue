@@ -45,7 +45,7 @@
 
 <script setup>
   import { Icon } from '@iconify/vue'
-  import FavButton from '@/modules/daybook/components/DayBookFabButton.vue'
+  import FavButton from '@/components/FabButton.vue'
 </script>
 
 <style lang="scss" scoped></style>

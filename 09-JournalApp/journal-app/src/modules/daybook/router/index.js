@@ -8,13 +8,13 @@ export default {
     {
       name: 'daybook-no-entry',
       path: '',
-      component: () => import('@/modules/daybook/views/DayBookNoEntry.vue'),
+      component: () => import('@/modules/daybook/views/NoEntry.vue'),
       meta: { title: 'DayBook No Entry' },
     },
     {
       name: 'daybook-entry',
       path: ':id',
-      component: () => import('@/modules/daybook/components/DayBookEntryView.vue'),
+      component: () => import('@/modules/daybook/components/EntryView.vue'),
       meta: { title: 'DayBook Entry' },
       // Le pasamos props
     },

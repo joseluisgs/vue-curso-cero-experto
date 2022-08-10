@@ -15,7 +15,7 @@
       required: true,
     },
   })
-  console.log('props', props.icon)
+  // console.log('props', props.icon)
 </script>
 
 <style lang="scss" scoped></style>

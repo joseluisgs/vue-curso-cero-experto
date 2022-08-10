@@ -20,7 +20,7 @@
 </template>
 
 <script setup>
-  import EntryItem from '../components/DayBookEntryItem.vue'
+  import EntryItem from '../components/EntryItem.vue'
   import { useRouter } from 'vue-router'
   const router = useRouter()
   const goToEntry = (item) => {

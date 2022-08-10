@@ -13,8 +13,8 @@
 </template>
 
 <script setup>
-  import NavBar from '../components/DayBookNavbar.vue'
-  import EntryList from '../components/DayBookEntryList.vue'
+  import NavBar from '../components/NavBar.vue'
+  import EntryList from '../components/EntryList.vue'
   import { RouterView } from 'vue-router'
 </script>
 
