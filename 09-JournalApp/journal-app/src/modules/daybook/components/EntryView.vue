@@ -90,7 +90,7 @@
     await journalStore.updateEntry({
       id: myEntry.value.id,
       text: text.value,
-      date: myEntry.value.date,
+      date: new Date().toDateString(), //myEntry.value.date, // Podriamos poner new Date y obrendríamos la fecha de la actualizacion
       picture: myEntry.value.picture,
     })
   }

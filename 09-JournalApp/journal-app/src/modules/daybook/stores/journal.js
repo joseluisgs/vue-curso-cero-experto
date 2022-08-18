@@ -24,8 +24,8 @@ export const JournalStore = defineStore({
           state.entries
             // Filtramos por las que tengan esa expresión regular
             .filter((entry) => entry.text.match(filter))
-            // Ordenamos de mas moderna a antigua
-            .sort((a, b) => new Date(a.date) < new Date(b.date))
+          // Ordenamos de mas moderna a antigua
+          //.sort((a, b) => new Date(a.date) < new Date(b.date))
         )
       },
     getEntryById: (state) => (entryId) => state.entries.find((entry) => entry.id === entryId),
@@ -48,13 +48,7 @@ export const JournalStore = defineStore({
 
     update(entry) {
       const index = this.entries.findIndex((e) => e.id === entry.id)
-      if (index === -1) {
-        console.log('Creando la entrada', entry)
-        this.entries.push(entry)
-      } else {
-        console.log('Actualizando la entrada', entry)
-        this.entries.splice(index, 1, entry)
-      }
+      this.entries.splice(index, 1, entry)
     },
 
     delete(entryId) {
