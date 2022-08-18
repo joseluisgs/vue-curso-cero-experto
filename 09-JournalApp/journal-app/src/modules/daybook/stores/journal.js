@@ -59,6 +59,8 @@ export const JournalStore = defineStore({
     async createEntry(entry) {
       this.setLoading(true)
       await espera(1000)
+      // Voy a ponerle una imagen por defecto por ahora hasta que la suba
+      entry.image = 'https://picsum.photos/600/600'
       this.create(entry)
       this.setLoading(false)
     },

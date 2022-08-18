@@ -76,19 +76,21 @@
   const text = ref(null)
 
   const loadEntry = () => {
+    // console.log(props.id)
     if (props.id !== 'new') {
       myEntry.value = journalStore.getEntryById(props.id)
       if (!myEntry.value) {
         router.push({ name: 'daybook-no-entry' })
       }
-      text.value = myEntry.value.text
     } else {
+      text.value = ''
       myEntry.value = {
         text: '',
         picture: null,
         date: new Date().toDateString(),
       }
     }
+    text.value = myEntry.value.text
   }
 
   // Y cargamos la entrada
@@ -96,19 +98,21 @@
 
   const saveEntry = async () => {
     if (props.id === 'new') {
-      console.log('createEntry')
-      journalStore.createEntry({
-        id: new Date().toDateString(),
+      // console.log('createEntry')
+      let id = String(Date.now())
+      await journalStore.createEntry({
+        id: id,
         text: text.value,
         picture: myEntry.value.picture,
         date: myEntry.value.date,
       })
+      router.push({ name: 'daybook-entry', params: { id: id } })
     } else {
-      console.log('updateEntry')
+      // console.log('updateEntry')
       await journalStore.updateEntry({
         id: myEntry.value.id,
         text: text.value,
-        date: new Date().toDateString(), //myEntry.value.date, // Podriamos poner new Date y obrendríamos la fecha de la actualizacion
+        date: myEntry.value.date, // Podriamos poner new Date y obrendríamos la fecha de la actualizacion
         picture: myEntry.value.picture,
       })
     }
