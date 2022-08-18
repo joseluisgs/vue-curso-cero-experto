@@ -15,12 +15,17 @@
   <FavButton
     icon="akar-icons:plus"
     class="my-3 h-12 w-12 self-end shadow-md"
+    @click="newEntry()"
   />
 </template>
 
 <script setup>
-  import { Icon } from '@iconify/vue'
   import FavButton from '@/components/FabButton.vue'
+  import { Icon } from '@iconify/vue'
+
+  const newEntry = async () => {
+    console.log('newEntry')
+  }
 </script>
 
 <style lang="scss" scoped>

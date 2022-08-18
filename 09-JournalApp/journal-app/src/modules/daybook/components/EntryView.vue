@@ -47,6 +47,7 @@
       <FavButton
         icon="fa-regular:save"
         class="fixed right-10 bottom-14 h-12 w-12 shadow-md"
+        @click="saveEntry()"
       />
     </div>
   </transition>
@@ -81,6 +82,10 @@
 
   // Y cargamos la entrada
   loadEntry()
+
+  const saveEntry = async () => {
+    console.log('saveEntry')
+  }
 
   // La fecha es computada
   const entryDate = computed(() => {
