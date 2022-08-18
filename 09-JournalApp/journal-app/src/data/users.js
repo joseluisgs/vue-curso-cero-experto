@@ -15,12 +15,4 @@ const users = [
   },
 ]
 
-export const getUser = () => {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(users[0])
-    }, 1000)
-  })
-}
-
 export default users

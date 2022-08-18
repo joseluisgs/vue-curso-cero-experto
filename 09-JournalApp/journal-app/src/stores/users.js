@@ -1,4 +1,5 @@
-import { getUser } from '@/data/users'
+import users from '@/data/users'
+import espera from '@/helpers/espera'
 import JournalStore from '@/modules/daybook/stores/journal'
 import { defineStore } from 'pinia'
 
@@ -18,15 +19,15 @@ export const UserStore = defineStore({
     },
 
     async logIn() {
-      const user = await getUser()
-      this.setUser(user)
+      await espera(500)
+      this.setUser(users[0])
       // Le cargamos las entradas del usuario!!!
       const journalStore = JournalStore()
       journalStore.fetchEntries()
     },
 
     async logOut() {
-      await getUser() // Solo por perder el tiempo y parezca asincrono
+      await espera(1000) // Solo por perder el tiempo y parezca asincrono
       // Le limpiamos los datos del usuario!!!
       const journalStore = JournalStore()
       journalStore.clearData()

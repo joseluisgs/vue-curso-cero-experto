@@ -20,12 +20,4 @@ const entries = [
   },
 ]
 
-export const getEntries = () => {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(entries)
-    }, 1500)
-  })
-}
-
 export default entries

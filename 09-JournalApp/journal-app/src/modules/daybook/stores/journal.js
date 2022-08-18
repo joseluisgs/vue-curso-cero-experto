@@ -1,4 +1,5 @@
-import { getEntries } from '@/data/entries'
+import entries from '@/data/entries'
+import espera from '@/helpers/espera'
 import { defineStore } from 'pinia'
 
 export const JournalStore = defineStore({
@@ -36,14 +37,42 @@ export const JournalStore = defineStore({
       this.isLoading = loading
     },
 
-    // CRUD: Entries
+    // Esto que hago aquí es para seguir la dinámica de tiempo real de Firebase
+    // Lo entenderás cuando lo veas implementado.
+    // https://firebase.google.com/docs/firestore/query-data/listen?hl=es&authuser=0#view_changes_between_snapshots
 
-    creatEntry() {
+    // CRUD: Entries
+    create(entry) {
+      this.entries.push(entry)
+    },
+
+    update(entry) {
+      const index = this.entries.findIndex((e) => e.id === entry.id)
+      if (index === -1) {
+        console.log('Creando la entrada', entry)
+        this.entries.push(entry)
+      } else {
+        console.log('Actualizando la entrada', entry)
+        this.entries.splice(index, 1, entry)
+      }
+    },
+
+    delete(entryId) {
+      const index = this.entries.findIndex((e) => e.id === entryId)
+      if (index !== -1) {
+        this.entries.splice(index, 1)
+      }
+    },
+
+    createEntry() {
       // TODO
     },
 
-    updateEntry(entry) {
-      // TODO
+    async updateEntry(entry) {
+      this.setLoading(true)
+      await espera(500)
+      this.update(entry)
+      this.setLoading(false)
     },
 
     deleteEntry(entry) {
@@ -52,9 +81,9 @@ export const JournalStore = defineStore({
 
     async fetchEntries() {
       this.setLoading(true)
-      const entries = await getEntries()
+      await espera(1500)
+      entries.forEach((entry) => this.create(entry))
       this.setLoading(false)
-      this.entries = entries
     },
 
     clearData() {

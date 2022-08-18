@@ -34,7 +34,7 @@
       <hr class="border-t border-primary" />
       <div class="flex h-full flex-col px-3">
         <textarea
-          v-model.trim="myEntry.text"
+          v-model.trim="text"
           placeholder="¿Qué sucedió hoy?"
           class="ext-base-content textarea textarea-primary my-2 h-full w-full rounded-md bg-base-100"
         ></textarea>
@@ -72,12 +72,14 @@
   const journalStore = JournalStore()
 
   const myEntry = ref(null)
+  const text = ref(null)
 
   const loadEntry = () => {
     myEntry.value = journalStore.getEntryById(props.id)
     if (!myEntry.value) {
       router.push({ name: 'daybook-no-entry' })
     }
+    text.value = myEntry.value.text
   }
 
   // Y cargamos la entrada
@@ -85,6 +87,12 @@
 
   const saveEntry = async () => {
     console.log('saveEntry')
+    await journalStore.updateEntry({
+      id: myEntry.value.id,
+      text: text.value,
+      date: myEntry.value.date,
+      picture: myEntry.value.picture,
+    })
   }
 
   // La fecha es computada
