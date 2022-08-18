@@ -51,15 +51,16 @@ export const JournalStore = defineStore({
       this.entries.splice(index, 1, entry)
     },
 
-    delete(entryId) {
-      const index = this.entries.findIndex((e) => e.id === entryId)
-      if (index !== -1) {
-        this.entries.splice(index, 1)
-      }
+    delete(entry) {
+      const index = this.entries.findIndex((e) => e.id === entry.id)
+      this.entries.splice(index, 1)
     },
 
-    createEntry() {
-      // TODO
+    async createEntry(entry) {
+      this.setLoading(true)
+      await espera(1000)
+      this.create(entry)
+      this.setLoading(false)
     },
 
     async updateEntry(entry) {

@@ -8,7 +8,19 @@
         class="input input-bordered input-primary w-full rounded-md bg-base-100 text-base-content"
       />
     </div>
-    <div class="scrollbar mt-3 h-[calc(88vh_-_90px)] overflow-y-auto">
+    <div class="mx-2 mt-2 flex justify-center">
+      <button
+        class="btn btn-outline btn-primary "
+        @click="goToNewEntry()"
+      >
+        <Icon
+          icon="ci:file-new"
+          class="mr-2 h-6 w-6"
+        />
+        Nueva Entrada
+      </button>
+    </div>
+    <div class="scrollbar mt-1 h-[calc(88vh_-_90px)] overflow-y-auto">
       <div>
         <!-- Animaciones -->
         <transition-group name="list-complete">
@@ -25,6 +37,7 @@
 </template>
 
 <script setup>
+  import { Icon } from '@iconify/vue'
   import { computed, ref } from 'vue'
   import { useRouter } from 'vue-router'
   import EntryItem from '../components/EntryItem.vue'
@@ -39,6 +52,10 @@
 
   const goToEntry = (entry) => {
     router.push({ name: 'daybook-entry', params: { id: entry.id } })
+  }
+
+  const goToNewEntry = () => {
+    router.push({ name: 'daybook-entry', params: { id: 'new' } })
   }
 </script>
 

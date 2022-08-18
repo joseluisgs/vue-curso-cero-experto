@@ -22,9 +22,11 @@
 <script setup>
   import FavButton from '@/components/FabButton.vue'
   import { Icon } from '@iconify/vue'
+  import { useRouter } from 'vue-router'
+  const router = useRouter()
 
-  const newEntry = async () => {
-    console.log('newEntry')
+  const newEntry = () => {
+    router.push({ name: 'daybook-entry', params: { id: 'new' } })
   }
 </script>
 

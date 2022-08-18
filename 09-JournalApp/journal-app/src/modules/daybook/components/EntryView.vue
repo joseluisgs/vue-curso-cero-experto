@@ -40,6 +40,7 @@
         ></textarea>
       </div>
       <img
+        v-if="myEntry.picture"
         :src="myEntry.picture"
         alt="imagen"
         class="fixed right-10 bottom-32 m-2 w-48 rounded-lg border-4 border-base-200 object-cover shadow-xl"
@@ -75,24 +76,42 @@
   const text = ref(null)
 
   const loadEntry = () => {
-    myEntry.value = journalStore.getEntryById(props.id)
-    if (!myEntry.value) {
-      router.push({ name: 'daybook-no-entry' })
+    if (props.id !== 'new') {
+      myEntry.value = journalStore.getEntryById(props.id)
+      if (!myEntry.value) {
+        router.push({ name: 'daybook-no-entry' })
+      }
+      text.value = myEntry.value.text
+    } else {
+      myEntry.value = {
+        text: '',
+        picture: null,
+        date: new Date().toDateString(),
+      }
     }
-    text.value = myEntry.value.text
   }
 
   // Y cargamos la entrada
   loadEntry()
 
   const saveEntry = async () => {
-    console.log('saveEntry')
-    await journalStore.updateEntry({
-      id: myEntry.value.id,
-      text: text.value,
-      date: new Date().toDateString(), //myEntry.value.date, // Podriamos poner new Date y obrendríamos la fecha de la actualizacion
-      picture: myEntry.value.picture,
-    })
+    if (props.id === 'new') {
+      console.log('createEntry')
+      journalStore.createEntry({
+        id: new Date().toDateString(),
+        text: text.value,
+        picture: myEntry.value.picture,
+        date: myEntry.value.date,
+      })
+    } else {
+      console.log('updateEntry')
+      await journalStore.updateEntry({
+        id: myEntry.value.id,
+        text: text.value,
+        date: new Date().toDateString(), //myEntry.value.date, // Podriamos poner new Date y obrendríamos la fecha de la actualizacion
+        picture: myEntry.value.picture,
+      })
+    }
   }
 
   // La fecha es computada

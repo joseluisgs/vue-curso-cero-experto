@@ -30,13 +30,13 @@ export default {
       },
       // Protegemos localmente la ruta si no estamos logueados
       beforeEnter(to, from, next) {
-        console.log('beforeEnter')
+        // console.log('beforeEnter')
         const userStore = UserStore()
         if (userStore.isLoggedIn) {
-          console.log('isLoggedIn')
+          // console.log('isLoggedIn')
           next()
         } else {
-          console.log('No estamos logueados')
+          // console.log('No estamos logueados')
           next({ name: 'daybook' })
         }
       },

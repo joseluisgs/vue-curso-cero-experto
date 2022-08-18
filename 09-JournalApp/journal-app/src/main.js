@@ -18,4 +18,4 @@ app.mount('#app')
 import UserStore from '@/stores/users'
 
 const userStore = new UserStore()
-// userStore.logIn()
+userStore.logIn()
