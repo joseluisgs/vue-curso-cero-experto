@@ -3,6 +3,6 @@
   "editor.guides.bracketPairs": true,
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.codeActionsOnSave": ["source.fixAll.eslint"],
+  "editor.codeActionsOnSave": ["source.fixAll.eslintm", "source.organizeImports"],
   "eslint.validate": ["javascript", "javascriptreact", "typescript", "vue"]
 }

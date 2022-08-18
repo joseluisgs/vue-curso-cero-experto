@@ -5,7 +5,7 @@ export const JournalStore = defineStore({
 
   // Mi estado
   state: () => ({
-    isLoading: true,
+    isLoading: false,
     entries: [
       // Es mejor usar UUID para identificar cada entrada
       {
@@ -42,8 +42,8 @@ export const JournalStore = defineStore({
           state.entries
             // Filtramos por las que tengan esa expresión regular
             .filter((entry) => entry.text.match(filter))
-          // Ordenamos de mas moderna a antigua
-          //.sort((a, b) => (a.date < b.date ? 1 : -1))
+            // Ordenamos de mas moderna a antigua
+            .sort((a, b) => new Date(a.date) < new Date(b.date))
         )
       },
     getEntryById: (state) => (entryId) => state.entries.find((entry) => entry.id === entryId),

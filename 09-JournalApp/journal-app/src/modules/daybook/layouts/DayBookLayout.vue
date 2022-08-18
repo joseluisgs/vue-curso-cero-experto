@@ -1,21 +1,58 @@
 <template>
   <NavBar />
-  <div class="mx-auto my-2 flex flex-row rounded-md py-2 shadow-lg">
+  <div
+    v-if="userStore.isLoggedIn"
+    class="mx-auto my-2 flex flex-row rounded-md py-2 shadow-lg"
+  >
     <div class="w-4/12">
       <EntryList />
     </div>
     <!-- Columnas, la primera empuja el máximo -->
     <div class="flex flex-1 flex-col">
-      <!-- Router View que ocupe todo lo que tenemos...-->
-      <RouterView />
+      <!-- Router View que ocupe todo lo que tenemos...Lo cachemaos con keepAlive-->
+      <RouterView v-slot="{ Component }">
+        <KeepAlive>
+          <component :is="Component" />
+        </KeepAlive>
+      </RouterView>
+    </div>
+  </div>
+  <div
+    v-else
+    class="mx-auto my-2 flex flex-row justify-center rounded-md py-2 shadow-lg"
+  >
+    <div class="alert alert-error m-2 w-1/3 shadow-lg">
+      <div>
+        <Icon
+          icon="carbon:user-avatar-filled"
+          class="h-8 w-8"
+        />
+        <span>ERROR: No estás identificado.</span>
+      </div>
+      <div class="flex-none">
+        <button
+          class="btn btn-ghost btn-sm"
+          @click="logIn()"
+        >
+          Login
+        </button>
+      </div>
     </div>
   </div>
 </template>
 
 <script setup>
+  import UserStore from '@/stores/users'
+  import { Icon } from '@iconify/vue'
   import { RouterView } from 'vue-router'
   import EntryList from '../components/EntryList.vue'
   import NavBar from '../components/NavBar.vue'
+
+  const userStore = new UserStore()
+
+  const logIn = async () => {
+    await userStore.logIn()
+  }
 </script>
 
 <style lang="scss" scoped></style>

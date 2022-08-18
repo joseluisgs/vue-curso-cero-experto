@@ -10,7 +10,7 @@
       <span class="mx-1 text-lg font-light text-base-content">{{ entryDate.dayOfWeek }}.</span>
     </div>
     <!-- Descripcion -->
-    <div class="text-sm text-base-content">{{ shortText }} {{ props.entry.date }}</div>
+    <div class="text-sm text-base-content">{{ shortText }}</div>
   </div>
 </template>
 
