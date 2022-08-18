@@ -1,5 +1,14 @@
 <template>
   <NavBar />
+  <!-- Div de cargando!! -->
+  <div
+    v-if="journalStore.isLoading"
+    class="mx-auto my-2 flex w-1/3 flex-row"
+  >
+    <div class="alert alert-info h-12 justify-center shadow-lg">
+      <button class="btn loading btn-ghost">Espere por favor</button>
+    </div>
+  </div>
   <div
     v-if="userStore.isLoggedIn"
     class="mx-auto my-2 flex flex-row rounded-md py-2 shadow-lg"
@@ -19,9 +28,9 @@
   </div>
   <div
     v-else
-    class="mx-auto my-2 flex flex-row justify-center rounded-md py-2 shadow-lg"
+    class="m-2 mx-auto my-2 flex w-1/3 flex-row"
   >
-    <div class="alert alert-error m-2 w-1/3 shadow-lg">
+    <div class="alert alert-error m-2 h-12 shadow-lg">
       <div>
         <Icon
           icon="carbon:user-avatar-filled"
@@ -47,6 +56,9 @@
   import { RouterView } from 'vue-router'
   import EntryList from '../components/EntryList.vue'
   import NavBar from '../components/NavBar.vue'
+  import JournalStore from '../stores/journal'
+
+  const journalStore = JournalStore()
 
   const userStore = new UserStore()
 
