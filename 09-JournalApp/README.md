@@ -7,6 +7,7 @@ Aplicación resumen de lo visto
   - [Estilos](#estilos)
     - [Personalización de Estilos](#personalización-de-estilos)
     - [Organización de código](#organización-de-código)
+    - [Keep Alive](#keep-alive)
 
 ## Resumen
 
@@ -37,5 +38,8 @@ Como iconos usaremos [Iconofy](https://iconify.design/).
 - En los directorios globales tenemos las vistas, componentes, routes y stores genérales para toda la aplicación.
 - En cada carpeta modules tienes la parte dedicada a esa sección. 
 - No es una organización que comparta en gran medida, pero puedes organizar tu código como quieras, siempre que te deje ampliarlo y cambiarlo de manera poco traumática.
+
+### Keep Alive
+Con [Keep Alive](https://vuejs.org/guide/built-ins/keep-alive.html#basic-usage) conseguimos cachear el componente que estamos mostrando agilizando.
 
 
