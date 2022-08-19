@@ -14,9 +14,11 @@
         </div>
         <div>
           <input
+            v-show="false"
             type="file"
             @change="selectedPicture($event)"
             accept="image/*"
+            ref="fileInput"
           />
           <button
             v-if="props.id !== 'new'"
@@ -30,7 +32,10 @@
             />
             Borrar
           </button>
-          <button class="btn btn-primary mx-2 gap-2">
+          <button
+            class="btn btn-primary mx-2 gap-2"
+            @click="onSeletedPicture()"
+          >
             <Icon
               icon="fa:upload"
               :inline="true"
@@ -49,8 +54,8 @@
         ></textarea>
       </div>
       <img
-        v-if="imgInput"
-        :src="imgInput"
+        v-if="imgUrl"
+        :src="imgUrl"
         alt="imagen"
         class="fixed right-10 bottom-32 m-2 w-48 rounded-lg border-4 border-base-200 object-cover shadow-xl"
       />
@@ -84,10 +89,11 @@
   const journalStore = JournalStore()
   const userStore = UserStore()
 
-  const myEntry = ref(null)
-  const textInput = ref(null)
-  const imgInput = ref(null)
-  const file = ref(null)
+  const myEntry = ref(null) // referencia a mi entrada
+  const textInput = ref(null) // referencia al texto de entrada
+  const imgUrl = ref(null) // referencia al url de la imagen
+  const fileImage = ref(null) // referencia al dichero de la imagen
+  const fileInput = ref(null) // referencia al input file
 
   const loadEntry = () => {
     // console.log(props.id)
@@ -97,15 +103,15 @@
         router.push({ name: 'daybook-no-entry' })
       }
     } else {
-      textInput.value = ''
       myEntry.value = {
         text: '',
         picture: null,
         date: new Date().toDateString(),
       }
     }
-    textInput.value = myEntry.value.text
-    imgInput.value = myEntry.value.picture
+    textInput.value = myEntry.value.text // el texto siempre será el de la entrada
+    imgUrl.value = myEntry.value.picture
+    fileImage.value = null
   }
 
   // Y cargamos la entrada
@@ -132,23 +138,29 @@
     if (props.id === 'new') {
       // console.log('createEntry')
       let id = String(Date.now()) // Cuidado que todo son string, para luego firebase!!!
-      await journalStore.createEntry({
-        id: id,
-        text: textInput.value,
-        picture: myEntry.value.picture,
-        date: myEntry.value.date,
-        uid: userStore.user.uid,
-      })
+      await journalStore.createEntry(
+        {
+          id: id,
+          text: textInput.value,
+          picture: myEntry.value.picture,
+          date: myEntry.value.date,
+          uid: userStore.user.uid,
+        },
+        fileImage.value
+      )
       router.push({ name: 'daybook-entry', params: { id: id } })
     } else {
       // console.log('updateEntry')
-      await journalStore.updateEntry({
-        id: myEntry.value.id,
-        text: textInput.value,
-        date: myEntry.value.date, // Podriamos poner new Date y obrendríamos la fecha de la actualizacion
-        picture: myEntry.value.picture,
-        uid: userStore.user.uid,
-      })
+      await journalStore.updateEntry(
+        {
+          id: myEntry.value.id,
+          text: textInput.value,
+          date: myEntry.value.date, // Podriamos poner new Date y obrendríamos la fecha de la actualizacion
+          picture: myEntry.value.picture,
+          uid: userStore.user.uid,
+        },
+        fileImage.value
+      )
     }
     Swal.fire('¡Listo!', 'La entrada se ha guardado correctamente', 'success')
   }
@@ -159,7 +171,7 @@
       text: '¡No podrás recuperar la entrada una vez borrada!',
       icon: 'warning',
       showDenyButton: true,
-      showConfirmButton: 'Sí, estoy seguro',
+      confirmButtonText: 'Sí, borrar',
     })
     if (response.isConfirmed) {
       new Swal({
@@ -173,17 +185,18 @@
   }
 
   const selectedPicture = (event) => {
-    file.value = event.target.files[0]
-    if (!file.value) {
-      imgInput.value = null
-      file.value = null
+    fileImage.value = event.target.files[0]
+    if (!fileImage.value) {
+      imgUrl.value = null
+      fileImage.value = null
       return
     }
     const reader = new FileReader()
-    reader.onload = () => (imgInput.value = reader.result)
-    reader.readAsDataURL(file)
+    reader.onload = () => (imgUrl.value = reader.result)
+    reader.readAsDataURL(fileImage.value)
   }
 
+  const onSeletedPicture = () => fileInput.value.click()
 
   // La fecha es computada
   const entryDate = computed(() => {

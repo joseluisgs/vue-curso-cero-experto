@@ -58,18 +58,25 @@ export const JournalStore = defineStore({
       this.entries.splice(index, 1)
     },
 
-    async createEntry(entry) {
+    async createEntry(entry, fileImage) {
       this.setLoading(true)
       await espera(1000)
-      // Voy a ponerle una imagen por defecto por ahora hasta que la suba
-      entry.picture = 'https://random.imagecdn.app/600/600'
+      if (fileImage) {
+        entry.picture = 'https://random.imagecdn.app/600/600'
+      }
+      // TODO: Crear en remoto
       this.create(entry)
       this.setLoading(false)
     },
 
-    async updateEntry(entry) {
+    async updateEntry(entry, fileImage) {
       this.setLoading(true)
       await espera(500)
+      // Debes actualizar la imagen si ha habido cambios
+      if (fileImage) {
+        entry.picture = 'https://random.imagecdn.app/600/600'
+      }
+      // TODO: Actualizar a remoto
       this.update(entry)
       this.setLoading(false)
     },
@@ -77,6 +84,8 @@ export const JournalStore = defineStore({
     async deleteEntry(entry) {
       this.setLoading(true)
       await espera(1000)
+      // Debes borrar la imagen antes!!
+      // TODO: Borrar en remoto
       this.delete(entry)
       this.setLoading(false)
     },
