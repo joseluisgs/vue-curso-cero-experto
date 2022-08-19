@@ -11,6 +11,8 @@ Aplicación resumen de lo visto
     - [Alertas](#alertas)
     - [Manejo del estado](#manejo-del-estado)
     - [Refs](#refs)
+  - [Test](#test)
+    - [Router](#router)
 
 ## Resumen
 
@@ -54,4 +56,12 @@ Verás en el manejo del estado que hay algunos métodos que parecen iguales sín
 
 ### Refs
 Podemos acceder a elementos del DOM usando [Templete Refs](https://vuejs.org/guide/essentials/template-refs.html). De esta manera podemos usar elementos del dom o llamarlos como se ha hecho con el input de la imagen.
+
+## Test
+
+### Router
+Las primeras pruebas son con router. Debemos tener en cuenta que como estamo susando Composition API, vamos a hacer uso de una librería
+[Vue Router Mock](https://github.com/posva/vue-router-mock) que nos ayuda a mockear nuestro router.
+
+Si no podemos hacer uso de los consejos de Vue [Test Utils](https://test-utils.vuejs.org/guide/advanced/vue-router.html) para Composition API.
 
