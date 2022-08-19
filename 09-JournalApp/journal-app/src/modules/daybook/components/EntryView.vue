@@ -63,6 +63,7 @@
   import getDateParsered from '@/helpers/dateparser.js'
   import UserStore from '@/stores/users'
   import { Icon } from '@iconify/vue'
+  import Swal from 'sweetalert2'
   import { computed, ref, watch } from 'vue'
   import { useRouter } from 'vue-router'
   import JournalStore from '../stores/journal'
@@ -103,6 +104,11 @@
   loadEntry()
 
   const saveEntry = async () => {
+    new Swal({
+      title: 'Espere por favor',
+      allowOutsideClick: false,
+    })
+    Swal.showLoading()
     if (props.id === 'new') {
       // console.log('createEntry')
       let id = String(Date.now()) // Cuidado que todo son string, para luego firebase!!!
@@ -124,11 +130,26 @@
         uid: userStore.user.uid,
       })
     }
+    Swal.fire('¡Listo!', 'La entrada se ha guardado correctamente', 'success')
   }
 
   const deleteEntry = async () => {
-    await journalStore.deleteEntry(myEntry.value)
-    router.push({ name: 'daybook-no-entry' })
+    const response = await Swal.fire({
+      title: '¿Estás seguro?',
+      text: '¡No podrás recuperar la entrada una vez borrada!',
+      icon: 'warning',
+      showDenyButton: true,
+      showConfirmButton: 'Sí, estoy seguro',
+    })
+    if (response.isConfirmed) {
+      new Swal({
+        title: 'Espere por favor',
+        allowOutsideClick: false,
+      })
+      await journalStore.deleteEntry(myEntry.value.id)
+      router.push({ name: 'daybook-no-entry' })
+      Swal.fire('¡Listo!', 'La entrada se ha eliminado correctamente', 'success')
+    }
   }
 
   // La fecha es computada

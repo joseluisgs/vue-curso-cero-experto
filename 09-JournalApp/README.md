@@ -8,6 +8,7 @@ Aplicación resumen de lo visto
     - [Personalización de Estilos](#personalización-de-estilos)
     - [Organización de código](#organización-de-código)
     - [Keep Alive](#keep-alive)
+    - [Alertas](#alertas)
 
 ## Resumen
 
@@ -41,5 +42,9 @@ Como iconos usaremos [Iconofy](https://iconify.design/).
 
 ### Keep Alive
 Con [Keep Alive](https://vuejs.org/guide/built-ins/keep-alive.html#basic-usage) conseguimos cachear el componente que estamos mostrando agilizando.
+
+### Alertas
+Se ha trabajado con dos alertas, una de ellas es un propio toast que se muestra en la parte superior de la pantalla.
+La otra opciónes usando la librería [SweetAlerts2](https://sweetalert2.github.io)
 
 

@@ -9,8 +9,11 @@ import UserStore from '@/stores/users'
 // Mis estilos css o sass
 import '@/assets/styles/main.css'
 
+
+// Cramos la aplicación
 const app = createApp(App)
 
+// Le asignamos los plugins o extras que usará
 app.use(createPinia())
 app.use(router)
 
@@ -18,5 +21,5 @@ app.use(router)
 const userStore = new UserStore()
 await userStore.logIn()
 
+// La montamos
 app.mount('#app')
-
