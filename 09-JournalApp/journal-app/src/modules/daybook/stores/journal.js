@@ -93,6 +93,7 @@ export const JournalStore = defineStore({
     async fetchEntries() {
       this.setLoading(true)
       await espera(1500)
+      // Actualizas la cache
       entries.forEach((entry) => this.create(entry))
       this.setLoading(false)
     },
