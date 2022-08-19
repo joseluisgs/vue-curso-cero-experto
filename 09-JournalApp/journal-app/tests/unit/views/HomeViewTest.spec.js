@@ -9,12 +9,14 @@ import { createRouterMock, getRouter, injectRouterMock } from 'vue-router-mock'
 
 describe('View -> HomeView', () => {
   // Porque e sVitest debemos configurarlo así
-  const router = createRouterMock({
-    spy: {
-      create: (fn) => vi.fn(fn),
-      reset: (spy) => spy.mockReset(),
-    },
-  })
+  // const router = createRouterMock({
+  //   spy: {
+  //     create: (fn) => vi.fn(fn),
+  //     reset: (spy) => spy.mockReset(),
+  //   },
+  // })
+  // Si usamos globals no es necesario todo esto
+  const router = createRouterMock()
 
   let wrapper
 

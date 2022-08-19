@@ -1,19 +1,24 @@
-import { describe, test, expect, vi } from 'vitest'
-import { shallowMount } from '@vue/test-utils'
 import PokemonView from '@/views/PokemonView.vue'
-import { pokemons } from '../mocks/pokemons.mocks'
 import { createTestingPinia } from '@pinia/testing'
+import { shallowMount } from '@vue/test-utils'
+import { describe, expect, test, vi } from 'vitest'
+import { pokemons } from '../mocks/pokemons.mocks'
+
+// https://pinia.vuejs.org/cookbook/testing.html#specifying-the-createspy-function
 
 describe('Pokemon View Component', () => {
   test('Debe hacer match con el snapshot cuando cargan los pokemons', () => {
     // Vamos a montar el stubs!!!
     const wrapper = shallowMount(PokemonView, {
       global: {
-        plugins: [
-          createTestingPinia({
-            createSpy: vi.fn,
-          }),
-        ],
+        // Así lo creamos si no usamos globals en la configuración de vites para test pues debemos indicar
+        // los spy directamente, si no solo es usar create pinia
+        // plugins: [
+        //   createTestingPinia({
+        //     createSpy: vi.fn,
+        //   }),
+        // ],
+        plugins: [createTestingPinia()],
       },
     })
     expect(wrapper.element).toMatchSnapshot()
@@ -23,11 +28,7 @@ describe('Pokemon View Component', () => {
     const wrapper = shallowMount(PokemonView, {
       mounted: vi.fn(), // De esta manera mockeamos el onMounted
       global: {
-        plugins: [
-          createTestingPinia({
-            createSpy: vi.fn,
-          }),
-        ],
+        plugins: [createTestingPinia()],
       },
     })
     //console.log(wrapper)
@@ -43,11 +44,9 @@ describe('Pokemon View Component', () => {
     const wrapper = shallowMount(PokemonView, {
       mounted: vi.fn(), // De esta manera mockeamos el onMounted
       global: {
-        plugins: [
-          createTestingPinia({
-            createSpy: vi.fn,
-          }),
-        ],
+        // Así lo creamos si no usamos globals en la configuración de vites para test pues debemos indicar
+        // los spy directamente, si no solo es usar create pinia
+        plugins: [createTestingPinia()],
       },
     })
 
@@ -83,11 +82,7 @@ describe('Pokemon View Component', () => {
     const wrapper = shallowMount(PokemonView, {
       mounted: vi.fn(), // De esta manera mockeamos el onMounted
       global: {
-        plugins: [
-          createTestingPinia({
-            createSpy: vi.fn,
-          }),
-        ],
+        plugins: [createTestingPinia()],
       },
     })
 
@@ -118,11 +113,7 @@ describe('Pokemon View Component', () => {
     const wrapper = shallowMount(PokemonView, {
       mounted: vi.fn(), // De esta manera mockeamos el onMounted
       global: {
-        plugins: [
-          createTestingPinia({
-            createSpy: vi.fn,
-          }),
-        ],
+        plugins: [createTestingPinia()],
       },
     })
 
@@ -145,11 +136,7 @@ describe('Pokemon View Component', () => {
     const wrapper = shallowMount(PokemonView, {
       mounted: vi.fn(), // De esta manera mockeamos el onMounted
       global: {
-        plugins: [
-          createTestingPinia({
-            createSpy: vi.fn,
-          }),
-        ],
+        plugins: [createTestingPinia()],
       },
     })
 
@@ -183,11 +170,7 @@ describe('Pokemon View Component', () => {
     const wrapper = shallowMount(PokemonView, {
       mounted: vi.fn(), // De esta manera mockeamos el onMounted
       global: {
-        plugins: [
-          createTestingPinia({
-            createSpy: vi.fn,
-          }),
-        ],
+        plugins: [createTestingPinia()],
       },
     })
 

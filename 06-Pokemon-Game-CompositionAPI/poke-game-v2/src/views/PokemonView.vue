@@ -28,11 +28,11 @@
 </template>
 
 <script setup>
-  import PokemonPicture from '@/components/PokemonPicture.vue'
   import PokemonOptions from '@/components/PokemonOptions.vue'
+  import PokemonPicture from '@/components/PokemonPicture.vue'
   import getPokemons from '@/services/pokeservice'
   import { PokeStore } from '@/stores/pokestore'
-  import { ref, onMounted, watch, computed } from 'vue'
+  import { computed, onMounted, ref, watch } from 'vue'
 
   // Mis objetos reactivos!!!
   const pokemons = ref([])
