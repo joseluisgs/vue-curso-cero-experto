@@ -13,7 +13,11 @@
           <span class="mx-1 text-lg font-light text-base-content">{{ entryDate.dayOfWeek }}.</span>
         </div>
         <div>
-          <button class="btn btn-error mx-2 gap-2">
+          <button
+            v-if="props.id !== 'new'"
+            class="btn btn-error mx-2 gap-2"
+            @click="deleteEntry()"
+          >
             <Icon
               icon="fa:trash"
               :inline="true"
@@ -57,6 +61,7 @@
 <script setup>
   import FavButton from '@/components/FabButton.vue'
   import getDateParsered from '@/helpers/dateparser.js'
+  import UserStore from '@/stores/users'
   import { Icon } from '@iconify/vue'
   import { computed, ref, watch } from 'vue'
   import { useRouter } from 'vue-router'
@@ -71,6 +76,7 @@
 
   const router = useRouter()
   const journalStore = JournalStore()
+  const userStore = UserStore()
 
   const myEntry = ref(null)
   const text = ref(null)
@@ -99,12 +105,13 @@
   const saveEntry = async () => {
     if (props.id === 'new') {
       // console.log('createEntry')
-      let id = String(Date.now())
+      let id = String(Date.now()) // Cuidado que todo son string, para luego firebase!!!
       await journalStore.createEntry({
         id: id,
         text: text.value,
         picture: myEntry.value.picture,
         date: myEntry.value.date,
+        uid: userStore.user.uid,
       })
       router.push({ name: 'daybook-entry', params: { id: id } })
     } else {
@@ -114,8 +121,14 @@
         text: text.value,
         date: myEntry.value.date, // Podriamos poner new Date y obrendríamos la fecha de la actualizacion
         picture: myEntry.value.picture,
+        uid: userStore.user.uid,
       })
     }
+  }
+
+  const deleteEntry = async () => {
+    await journalStore.deleteEntry(myEntry.value)
+    router.push({ name: 'daybook-no-entry' })
   }
 
   // La fecha es computada

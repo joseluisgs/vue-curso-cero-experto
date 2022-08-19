@@ -40,9 +40,11 @@ export const JournalStore = defineStore({
     // Esto que hago aquí es para seguir la dinámica de tiempo real de Firebase
     // Lo entenderás cuando lo veas implementado.
     // https://firebase.google.com/docs/firestore/query-data/listen?hl=es&authuser=0#view_changes_between_snapshots
+    // De esta manera, lo asincrono es lo remoto, y estos métodos locales es para manejar una chaché local.
 
     // CRUD: Entries
     create(entry) {
+      console.log(entry)
       this.entries.push(entry)
     },
 
@@ -60,7 +62,7 @@ export const JournalStore = defineStore({
       this.setLoading(true)
       await espera(1000)
       // Voy a ponerle una imagen por defecto por ahora hasta que la suba
-      entry.image = 'https://picsum.photos/600/600'
+      entry.picture = 'https://random.imagecdn.app/600/600'
       this.create(entry)
       this.setLoading(false)
     },
@@ -72,8 +74,11 @@ export const JournalStore = defineStore({
       this.setLoading(false)
     },
 
-    deleteEntry(entry) {
-      // TODO
+    async deleteEntry(entry) {
+      this.setLoading(true)
+      await espera(1000)
+      this.delete(entry)
+      this.setLoading(false)
     },
 
     async fetchEntries() {
