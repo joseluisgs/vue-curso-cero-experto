@@ -26,7 +26,7 @@ describe('Journal Store Tests', () => {
     expect(journalStore.entries.length).toBe(entries.length)
   })
 
-  // Getters
+  // Getters test
   test('El getter by term devuleve una entrada', () => {
     const entry = journalStore.getEntriesByTerm('sit voluptatem accusantium doloremque laudantium')
     expect(entry.length).toBe(1)
