@@ -17,6 +17,7 @@ describe('Journal Store Tests', () => {
     // creamos la store
     journalStore = JournalStore()
     // le metemos unas entradas
+    journalStore.clearData()
     journalStore.entries = entries
   })
 
@@ -47,5 +48,43 @@ describe('Journal Store Tests', () => {
   test('El getter by id no devuelve la entrada', () => {
     const entry = journalStore.getEntryById('caca-test-que-hago')
     expect(entry).toEqual(undefined)
+  })
+
+  // acciones síncronas de manejo de cache local
+  test('isLoading debe cambiar', () => {
+    expect(journalStore.isLoading).toBe(false)
+    journalStore.setLoading(true)
+    expect(journalStore.isLoading).toBe(true)
+    journalStore.setLoading(false)
+    expect(journalStore.isLoading).toBe(false)
+  })
+
+  // CRUD: Entries
+  test('create debe crear una entrada', () => {
+    const size = journalStore.entries.length
+    journalStore.create({
+      id: '4',
+      text: 'test',
+      date: '2020-01-01',
+    })
+    expect(journalStore.entries.length).toBe(size + 1)
+    expect(journalStore.entries[journalStore.entries.length - 1].text).toBe('test')
+  })
+
+  test('update debe actualizar una entrada', () => {
+    const size = journalStore.entries.length
+    journalStore.update({
+      id: '1',
+      text: 'test',
+      date: '2020-01-01',
+    })
+    expect(journalStore.entries.length).toBe(size)
+    expect(journalStore.entries[0].text).toBe('test')
+  })
+
+  test('delete debe eliminar una entrada', () => {
+    const size = journalStore.entries.length
+    journalStore.delete('1')
+    expect(journalStore.entries.length).toBe(size - 1)
   })
 })
