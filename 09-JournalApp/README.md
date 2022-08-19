@@ -10,6 +10,7 @@ Aplicación resumen de lo visto
     - [Keep Alive](#keep-alive)
     - [Alertas](#alertas)
     - [Manejo del estado](#manejo-del-estado)
+    - [Refs](#refs)
 
 ## Resumen
 
@@ -51,4 +52,6 @@ La otra opciones usando la librería [SweetAlerts2](https://sweetalert2.github.i
 ### Manejo del estado
 Verás en el manejo del estado que hay algunos métodos que parecen iguales síncronos y asíncronos. Esto es para manejoar una pequeña caché local y no tener que recargar para visualizar los cambios. Si usas sistemas como Firebase, podrás entender como escuchar cambios en tiempo real y este código puede servirte.
 
+### Refs
+Podemos acceder a elementos del DOM usando [Templete Refs](https://vuejs.org/guide/essentials/template-refs.html). De esta manera podemos usar elementos del dom o llamarlos como se ha hecho con el input de la imagen.
 
