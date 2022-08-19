@@ -4,7 +4,6 @@ import daybookRouter from '@/modules/daybook/router'
 
 describe('Router -> Daybook Router', () => {
   test('El router debe tener esta configuración', () => {
-    console.log(daybookRouter)
     expect(daybookRouter).toMatchObject({
       name: 'daybook',
       meta: { title: 'DayBook' },
