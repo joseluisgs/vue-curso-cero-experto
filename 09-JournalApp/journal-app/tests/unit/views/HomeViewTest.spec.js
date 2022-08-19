@@ -3,7 +3,7 @@ import { describe, expect, test, vi } from 'vitest'
 import HomeView from '@/views/HomeView.vue'
 import { mount, shallowMount } from '@vue/test-utils'
 
-import { useRouter } from 'vue-router'
+import { createRouterMock, injectRouterMock } from 'vue-router-mock'
 
 describe('View -> HomeView', () => {
   test('Debe hacer match con el snapshot', () => {
@@ -12,19 +12,12 @@ describe('View -> HomeView', () => {
   })
 
   test('Hacer click en el botón debe redireccionar a daybook-no-entry', async () => {
-    vi.mock('vue-router', () => ({
-      useRoute: vi.fn(),
-      useRouter: vi.fn(() => ({
-        push: () => {},
-      })),
-    }))
-
-    const push = vi.fn()
-    useRouter.mockImplementationOnce(() => ({
-      push,
-    }))
+    const router = createRouterMock()
+    injectRouterMock(router)
 
     const wrapper = mount(HomeView)
+
+    expect(wrapper.router).toBe(router)
 
     // Mock del metodo goToDayBook
     wrapper.vm.goToDaybook = vi.fn()
@@ -38,6 +31,6 @@ describe('View -> HomeView', () => {
     // Cone sto ya sabemos que lo ha llamado!!!
     expect(wrapper.vm.goToDaybook).toHaveBeenCalledTimes(1)
     // Router push ha sido llamado
-    expect(push).toHaveBeenCalled()
+    expect(wrapper.router.push).toHaveBeenCalledTimes(1)
   })
 })

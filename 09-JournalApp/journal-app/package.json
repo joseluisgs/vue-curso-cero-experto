@@ -14,7 +14,8 @@
     "sweetalert2": "^11.4.28",
     "theme-change": "^2.2.0",
     "vue": "^3.2.37",
-    "vue-router": "^4.1.2"
+    "vue-router": "^4.1.2",
+    "vue-router-mock": "^0.1.8"
   },
   "devDependencies": {
     "@iconify/vue": "^3.2.1",
