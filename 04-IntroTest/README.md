@@ -18,6 +18,7 @@ Veremos cómo crear nuestros primeros [test](https://vuejs.org/guide/scaling-up/
   - [Simular eventos](#simular-eventos)
   - [Propiedades](#propiedades)
   - [Espias: Spy](#espias-spy)
+  - [Global](#global)
 
 ## Vitest
 [Vitest](https://vitest.dev/) es una suite de test que se monta sobre Vite que tiene amplia compatibilidad con [Jest](https://jestjs.io/), Mocha, Jasmine, etc. De hecho podemos usarla como alternativa a la misma. Es rmuy rápida al ejecutarse sobre Vite.
@@ -89,3 +90,6 @@ Podemos acceder a las propiedades de un componente usando la función props. Tam
 
 ## Espias: Spy
 Podemos crear [espias](https://vitest.dev/guide/mocking.html) de métodos y propiedades de un componente usando la función [spyOn](https://vitest.dev/api/#vi-spyon). Con ellos podemos vigilar si se ha llamado a un método o propiedad.
+
+## Global
+Es importante que actives en el fichero de vite los [globals](https://vitest.dev/config/#globals) para que sea visible todo y ahorres en configuración. Por defecto Vitest no tiene los globals activos.
