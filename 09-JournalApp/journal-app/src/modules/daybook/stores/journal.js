@@ -84,7 +84,7 @@ export const JournalStore = defineStore({
     async deleteEntry(entry) {
       this.setLoading(true)
       await espera(1000)
-      // Debes borrar la imagen antes!!
+      // Debes borrar la imagen antes!! if(entry.picture) 
       // TODO: Borrar en remoto
       this.delete(entry)
       this.setLoading(false)

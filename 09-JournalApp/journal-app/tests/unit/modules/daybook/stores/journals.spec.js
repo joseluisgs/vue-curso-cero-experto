@@ -2,12 +2,15 @@
 
 import { createPinia, setActivePinia } from 'pinia'
 import { beforeEach, describe, expect, test } from 'vitest'
+// import fs from 'fs'
 
 import JournalStore from '@/modules/daybook/stores/journal'
-import entries from '../../../mocks/entries.mocks'
+import entries from './mocks/entries.mocks'
 
 describe('Journal Store Tests', () => {
   let journalStore
+  // const filePath = `${__dirname}/mocks/kaka.jpg`
+  // const file = fs.readFileSync(filePath)
 
   beforeEach(() => {
     // creates a fresh pinia and make it active so it's automatically picked
@@ -59,16 +62,22 @@ describe('Journal Store Tests', () => {
     expect(journalStore.isLoading).toBe(false)
   })
 
+  test('debe limpiar todos los datos', () => {
+    expect(journalStore.entries.length).toBe(3)
+    journalStore.clearData()
+    expect(journalStore.entries.length).toBe(0)
+  })
+
   // CRUD: Entries
   test('create debe crear una entrada', () => {
     const size = journalStore.entries.length
     journalStore.create({
-      id: '4',
+      id: 'test',
       text: 'test',
       date: '2020-01-01',
     })
     expect(journalStore.entries.length).toBe(size + 1)
-    expect(journalStore.entries[journalStore.entries.length - 1].text).toBe('test')
+    expect(journalStore.entries[size].text).toBe('test')
   })
 
   test('update debe actualizar una entrada', () => {
@@ -87,4 +96,72 @@ describe('Journal Store Tests', () => {
     journalStore.delete('1')
     expect(journalStore.entries.length).toBe(size - 1)
   })
+
+  // Acciones asincronas
+  test('fetchEntries debe cargar las entradas', async () => {
+    await journalStore.fetchEntries()
+    expect(journalStore.entries.length).toBeGreaterThan(0)
+  })
+
+  test('createEntry debe crear la entradas sin imagenes', async () => {
+    const size = journalStore.entries.length
+    await journalStore.createEntry(
+      {
+        id: 'test',
+        text: 'test',
+        date: '2020-01-01',
+      },
+      null
+    )
+    expect(journalStore.entries.length).toBe(size + 1)
+    expect(journalStore.entries[size].text).toBe('test')
+  })
+
+  test('updateEntry debe actualizar la entradas sin imagenes', async () => {
+    const size = journalStore.entries.length
+    await journalStore.updateEntry(
+      {
+        id: '1',
+        text: 'test',
+        date: '2020-01-01',
+      },
+      null
+    )
+    expect(journalStore.entries.length).toBe(size)
+    expect(journalStore.entries[0].text).toBe('test')
+  })
+
+  test('deleteEntry debe eliminar la entradas sin imagenes', async () => {
+    const size = journalStore.entries.length
+    await journalStore.deleteEntry('1')
+    expect(journalStore.entries.length).toBe(size - 1)
+  })
+
+  // test('createEntry debe crear la entradas con imagenes', async () => {
+  //   const size = journalStore.entries.length
+  //   await journalStore.createEntry(
+  //     {
+  //       id: 'test',
+  //       text: 'test',
+  //       date: '2020-01-01',
+  //     },
+  //     file
+  //   )
+  //   expect(journalStore.entries.length).toBe(size + 1)
+  //   expect(journalStore.entries[size].text).toBe('test')
+  // })
+
+  // test('updateEntry debe actualizar la entradas con imagenes', async () => {
+  //   const size = journalStore.entries.length
+  //   await journalStore.updateEntry(
+  //     {
+  //       id: '1',
+  //       text: 'test',
+  //       date: '2020-01-01',
+  //     },
+  //     file
+  //   )
+  //   expect(journalStore.entries.length).toBe(size)
+  //   expect(journalStore.entries[0].text).toBe('test')
+  // })
 })
