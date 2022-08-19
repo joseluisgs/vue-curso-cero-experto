@@ -78,6 +78,8 @@ describe('Journal Store Tests', () => {
     })
     expect(journalStore.entries.length).toBe(size + 1)
     expect(journalStore.entries[size].text).toBe('test')
+    const entry = journalStore.entries.find((e) => e.id === 'test')
+    expect(entry).toBeDefined()
   })
 
   test('update debe actualizar una entrada', () => {
@@ -115,6 +117,8 @@ describe('Journal Store Tests', () => {
     )
     expect(journalStore.entries.length).toBe(size + 1)
     expect(journalStore.entries[size].text).toBe('test')
+    const entry = journalStore.entries.find((e) => e.id === 'test')
+    expect(entry).toBeDefined()
   })
 
   test('updateEntry debe actualizar la entradas sin imagenes', async () => {
