@@ -20,6 +20,7 @@ export const UserStore = defineStore({
 
     async logIn() {
       await espera(500)
+      // TODO: Compruebas la sesión en remoto o Firebase
       this.setUser(users[0])
       // Le cargamos las entradas del usuario!!!
       const journalStore = JournalStore()
