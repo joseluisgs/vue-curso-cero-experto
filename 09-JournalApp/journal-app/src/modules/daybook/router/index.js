@@ -1,8 +1,6 @@
-import UserStore from '@/stores/users'
 // Router local
 
-// import { useRouter } from 'vue-router'
-// const router = useRouter()
+import isAuthenticatedGuard from './auth-guard'
 
 export default {
   name: 'daybook',
@@ -29,17 +27,7 @@ export default {
         // return isNaN(id) ? router.push({ name: '404' }) : { id: id }
       },
       // Protegemos localmente la ruta si no estamos logueados
-      beforeEnter(to, from, next) {
-        // console.log('beforeEnter')
-        const userStore = UserStore()
-        if (userStore.isLoggedIn) {
-          // console.log('isLoggedIn')
-          next()
-        } else {
-          // console.log('No estamos logueados')
-          next({ name: 'daybook' })
-        }
-      },
+      beforeEnter: [isAuthenticatedGuard],
     },
   ],
 }

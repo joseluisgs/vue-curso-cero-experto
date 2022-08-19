@@ -10,7 +10,7 @@
     </div>
     <div class="mx-2 mt-2 flex justify-center">
       <button
-        class="btn btn-outline btn-primary "
+        class="btn btn-outline btn-primary"
         @click="goToNewEntry()"
       >
         <Icon
