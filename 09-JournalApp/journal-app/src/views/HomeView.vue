@@ -7,12 +7,14 @@
       This is an home page
     </h1>
     <button
+      data-testid="DayButton"
       class="btn btn-primary"
       @click="goToDaybook()"
     >
       DayBook
     </button>
     <button
+      data-testid="AboutButton"
       class="btn btn-secondary"
       @click="goToAbout()"
     >
