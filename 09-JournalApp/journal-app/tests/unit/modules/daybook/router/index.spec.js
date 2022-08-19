@@ -25,4 +25,14 @@ describe('Router -> Daybook Router', () => {
       ],
     })
   })
+
+  test('El router debe retornar el id de la ruta', () => {
+    const route = {
+      params: { id: 'TEST' },
+    }
+
+    const entryRoute = daybookRouter.children.find((route) => route.name === 'daybook-entry')
+
+    expect(entryRoute.props(route)).toEqual({ id: 'TEST' })
+  })
 })
