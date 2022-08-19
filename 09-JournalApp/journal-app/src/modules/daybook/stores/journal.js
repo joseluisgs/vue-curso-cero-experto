@@ -44,7 +44,7 @@ export const JournalStore = defineStore({
 
     // CRUD: Entries
     create(entry) {
-      console.log(entry)
+      // console.log(entry)
       this.entries.push(entry)
     },
 

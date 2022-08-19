@@ -13,6 +13,11 @@
           <span class="mx-1 text-lg font-light text-base-content">{{ entryDate.dayOfWeek }}.</span>
         </div>
         <div>
+          <input
+            type="file"
+            @change="selectedPicture($event)"
+            accept="image/*"
+          />
           <button
             v-if="props.id !== 'new'"
             class="btn btn-error mx-2 gap-2"
@@ -38,14 +43,14 @@
       <hr class="border-t border-primary" />
       <div class="flex h-full flex-col px-3">
         <textarea
-          v-model.trim="text"
+          v-model.trim="textInput"
           placeholder="¿Qué sucedió hoy?"
           class="ext-base-content textarea textarea-primary my-2 h-full w-full rounded-md bg-base-100"
         ></textarea>
       </div>
       <img
-        v-if="myEntry.picture"
-        :src="myEntry.picture"
+        v-if="imgInput"
+        :src="imgInput"
         alt="imagen"
         class="fixed right-10 bottom-32 m-2 w-48 rounded-lg border-4 border-base-200 object-cover shadow-xl"
       />
@@ -80,7 +85,9 @@
   const userStore = UserStore()
 
   const myEntry = ref(null)
-  const text = ref(null)
+  const textInput = ref(null)
+  const imgInput = ref(null)
+  const file = ref(null)
 
   const loadEntry = () => {
     // console.log(props.id)
@@ -90,20 +97,33 @@
         router.push({ name: 'daybook-no-entry' })
       }
     } else {
-      text.value = ''
+      textInput.value = ''
       myEntry.value = {
         text: '',
         picture: null,
         date: new Date().toDateString(),
       }
     }
-    text.value = myEntry.value.text
+    textInput.value = myEntry.value.text
+    imgInput.value = myEntry.value.picture
   }
 
   // Y cargamos la entrada
   loadEntry()
 
   const saveEntry = async () => {
+    // No podemos dejar el campo vacío
+    if (textInput.value.trim() === '') {
+      Swal.fire({
+        title: '¡No puedes dejar el campo vacío!',
+        text: 'Por favor, escribe algo en el campo de texto.',
+        icon: 'error',
+        confirmButtonText: 'Entendido',
+      })
+      return
+    }
+
+    // Comenzamos
     new Swal({
       title: 'Espere por favor',
       allowOutsideClick: false,
@@ -114,7 +134,7 @@
       let id = String(Date.now()) // Cuidado que todo son string, para luego firebase!!!
       await journalStore.createEntry({
         id: id,
-        text: text.value,
+        text: textInput.value,
         picture: myEntry.value.picture,
         date: myEntry.value.date,
         uid: userStore.user.uid,
@@ -124,7 +144,7 @@
       // console.log('updateEntry')
       await journalStore.updateEntry({
         id: myEntry.value.id,
-        text: text.value,
+        text: textInput.value,
         date: myEntry.value.date, // Podriamos poner new Date y obrendríamos la fecha de la actualizacion
         picture: myEntry.value.picture,
         uid: userStore.user.uid,
@@ -151,6 +171,19 @@
       Swal.fire('¡Listo!', 'La entrada se ha eliminado correctamente', 'success')
     }
   }
+
+  const selectedPicture = (event) => {
+    file.value = event.target.files[0]
+    if (!file.value) {
+      imgInput.value = null
+      file.value = null
+      return
+    }
+    const reader = new FileReader()
+    reader.onload = () => (imgInput.value = reader.result)
+    reader.readAsDataURL(file)
+  }
+
 
   // La fecha es computada
   const entryDate = computed(() => {

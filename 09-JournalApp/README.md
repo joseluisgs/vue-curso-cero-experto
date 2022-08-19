@@ -9,6 +9,7 @@ Aplicación resumen de lo visto
     - [Organización de código](#organización-de-código)
     - [Keep Alive](#keep-alive)
     - [Alertas](#alertas)
+    - [Manejo del estado](#manejo-del-estado)
 
 ## Resumen
 
@@ -45,6 +46,9 @@ Con [Keep Alive](https://vuejs.org/guide/built-ins/keep-alive.html#basic-usage) 
 
 ### Alertas
 Se ha trabajado con dos alertas, una de ellas es un propio toast que se muestra en la parte superior de la pantalla.
-La otra opciónes usando la librería [SweetAlerts2](https://sweetalert2.github.io)
+La otra opciones usando la librería [SweetAlerts2](https://sweetalert2.github.io)
+
+### Manejo del estado
+Verás en el manejo del estado que hay algunos métodos que parecen iguales síncronos y asíncronos. Esto es para manejoar una pequeña caché local y no tener que recargar para visualizar los cambios. Si usas sistemas como Firebase, podrás entender como escuchar cambios en tiempo real y este código puede servirte.
 
 
