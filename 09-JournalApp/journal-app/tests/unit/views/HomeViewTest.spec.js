@@ -58,8 +58,6 @@ describe('View -> HomeView', () => {
   })
 
   test('debe hacer click en el botón debe redireccionar a daybook-no-entry', async () => {
-    // Obtenemos el router
-    const router = getRouter()
     // Trabajamos con el boton
     const dayButton = wrapper.find('[data-testid="DayButton"]')
     expect(dayButton.exists()).toBe(true)
@@ -71,8 +69,6 @@ describe('View -> HomeView', () => {
   })
 
   test('Debe hacer click en el botón debe redireccionar a about', async () => {
-    // Obtenemos el router
-    const router = getRouter()
     // Trabajamos con el boton
     const dayButton = wrapper.find('[data-testid="AboutButton"]')
     expect(dayButton.exists()).toBe(true)
