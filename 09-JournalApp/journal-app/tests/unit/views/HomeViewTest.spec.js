@@ -3,7 +3,7 @@ import { beforeEach, describe, expect, test, vi } from 'vitest'
 import HomeView from '@/views/HomeView.vue'
 import { shallowMount } from '@vue/test-utils'
 
-import { createRouterMock, getRouter, injectRouterMock } from 'vue-router-mock'
+import { createRouterMock, injectRouterMock } from 'vue-router-mock'
 
 // Vamos a usar https://github.com/posva/vue-router-mock#testing-libraries
 
