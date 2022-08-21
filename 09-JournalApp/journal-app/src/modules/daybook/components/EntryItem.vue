@@ -4,13 +4,34 @@
   >
     <!-- Titulo -->
     <div class="flex">
-      <span class="text-lg font-bold text-primary">{{ entryDate.day }}</span>
-      <span class="mx-2 text-lg font-semibold text-base-content">{{ entryDate.month }}</span>
-      <span class="mx-1 text-lg font-light text-base-content">{{ entryDate.year }}, </span>
-      <span class="mx-1 text-lg font-light text-base-content">{{ entryDate.dayOfWeek }}.</span>
+      <span
+        data-testid="entry-day"
+        class="text-lg font-bold text-primary"
+        >{{ entryDate.day }}</span
+      >
+      <span
+        data-testid="entry-month"
+        class="mx-2 text-lg font-semibold text-base-content"
+        >{{ entryDate.month }}</span
+      >
+      <span
+        data-testid="entry-year"
+        class="mx-1 text-lg font-light text-base-content"
+        >{{ entryDate.year }},
+      </span>
+      <span
+        data-testid="entry-dayofweek"
+        class="mx-1 text-lg font-light text-base-content"
+        >{{ entryDate.dayOfWeek }}.</span
+      >
     </div>
     <!-- Descripcion -->
-    <div class="text-sm text-base-content">{{ shortText }}</div>
+    <div
+      data-testid="entry-text"
+      class="text-sm text-base-content"
+    >
+      {{ shortText }}
+    </div>
   </div>
 </template>
 
