@@ -2,6 +2,7 @@
   <div class="h-[calc(88vh)] border-r border-primary">
     <div class="mr-2 px-2 pt-2">
       <input
+        data-testid="entrylist-input"
         v-model.trim="searchTerm"
         type="text"
         placeholder="Buscar entradas"
@@ -10,6 +11,7 @@
     </div>
     <div class="mx-2 mt-2 flex justify-center">
       <button
+        data-testid="entrylist-new"
         class="btn btn-outline btn-primary"
         @click="goToNewEntry()"
       >
@@ -25,6 +27,7 @@
         <!-- Animaciones -->
         <transition-group name="list-complete">
           <EntryItem
+            data-testid="entrylist-item"
             v-for="entry in entriesByTerm"
             :key="entry.id"
             :entry="entry"
