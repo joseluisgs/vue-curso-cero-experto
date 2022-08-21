@@ -9,8 +9,6 @@ import entries from './mocks/entries.mocks'
 
 describe('Journal Store Tests', () => {
   let journalStore
-  // const filePath = `${__dirname}/mocks/kaka.jpg`
-  // const file = fs.readFileSync(filePath)
 
   beforeEach(() => {
     // creates a fresh pinia and make it active so it's automatically picked
@@ -97,6 +95,22 @@ describe('Journal Store Tests', () => {
     const size = journalStore.entries.length
     journalStore.delete('1')
     expect(journalStore.entries.length).toBe(size - 1)
+  })
+})
+
+// Me llevo los test asincronos, porque luego serán con firebase para que no pare los síncronos en otra suite
+describe('Journal Store Tests Async', () => {
+  let journalStore
+  // const filePath = `${__dirname}/mocks/kaka.jpg`
+  // const file = fs.readFileSync(filePath)
+
+  beforeEach(() => {
+    setActivePinia(createPinia())
+    // creamos la store
+    journalStore = JournalStore()
+    // le metemos unas entradas
+    journalStore.clearData()
+    journalStore.entries = entries
   })
 
   // Acciones asincronas
