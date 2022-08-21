@@ -21,6 +21,7 @@
             ref="fileInput"
           />
           <button
+            data-testid="entryview-deletebutton"
             v-if="props.id !== 'new'"
             class="btn btn-error mx-2 gap-2"
             @click="deleteEntry()"
@@ -48,6 +49,7 @@
       <hr class="border-t border-primary" />
       <div class="flex h-full flex-col px-3">
         <textarea
+          data-testid="entryview-textinput"
           v-model.trim="textInput"
           placeholder="¿Qué sucedió hoy?"
           class="ext-base-content textarea textarea-primary my-2 h-full w-full rounded-md bg-base-100"
@@ -60,6 +62,7 @@
         class="fixed right-10 bottom-32 m-2 w-48 rounded-lg border-4 border-base-200 object-cover shadow-xl"
       />
       <FavButton
+        data-testid="entryview-savebutton"
         icon="fa-regular:save"
         class="fixed right-10 bottom-14 h-12 w-12 shadow-md"
         @click="saveEntry()"
@@ -117,6 +120,36 @@
   // Y cargamos la entrada
   loadEntry()
 
+  const saveNewEntry = async () => {
+    // console.log('createEntry')
+    let id = String(Date.now()) // Cuidado que todo son string, para luego firebase!!!
+    await journalStore.createEntry(
+      {
+        id: id,
+        text: textInput.value,
+        picture: myEntry.value.picture,
+        date: myEntry.value.date,
+        uid: userStore.user.uid,
+      },
+      fileImage.value
+    )
+    router.push({ name: 'daybook-entry', params: { id: id } })
+  }
+
+  const updateEntry = async () => {
+    // console.log('updateEntry')
+    await journalStore.updateEntry(
+      {
+        id: myEntry.value.id,
+        text: textInput.value,
+        date: myEntry.value.date, // Podriamos poner new Date y obrendríamos la fecha de la actualizacion
+        picture: myEntry.value.picture,
+        uid: userStore.user.uid,
+      },
+      fileImage.value
+    )
+  }
+
   const saveEntry = async () => {
     // No podemos dejar el campo vacío
     if (textInput.value.trim() === '') {
@@ -136,31 +169,9 @@
     })
     Swal.showLoading()
     if (props.id === 'new') {
-      // console.log('createEntry')
-      let id = String(Date.now()) // Cuidado que todo son string, para luego firebase!!!
-      await journalStore.createEntry(
-        {
-          id: id,
-          text: textInput.value,
-          picture: myEntry.value.picture,
-          date: myEntry.value.date,
-          uid: userStore.user.uid,
-        },
-        fileImage.value
-      )
-      router.push({ name: 'daybook-entry', params: { id: id } })
+      saveNewEntry()
     } else {
-      // console.log('updateEntry')
-      await journalStore.updateEntry(
-        {
-          id: myEntry.value.id,
-          text: textInput.value,
-          date: myEntry.value.date, // Podriamos poner new Date y obrendríamos la fecha de la actualizacion
-          picture: myEntry.value.picture,
-          uid: userStore.user.uid,
-        },
-        fileImage.value
-      )
+      updateEntry()
     }
     Swal.fire('¡Listo!', 'La entrada se ha guardado correctamente', 'success')
   }
