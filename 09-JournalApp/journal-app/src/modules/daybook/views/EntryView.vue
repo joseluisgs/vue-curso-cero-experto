@@ -98,26 +98,37 @@
   const fileImage = ref(null) // referencia al dichero de la imagen
   const fileInput = ref(null) // referencia al input file
 
-  const loadEntry = () => {
-    // console.log(props.id)
-    if (props.id !== 'new') {
-      myEntry.value = journalStore.getEntryById(props.id)
-      if (!myEntry.value) {
-        router.push({ name: 'daybook-no-entry' })
-      }
-    } else {
-      myEntry.value = {
-        text: '',
-        picture: null,
-        date: new Date().toDateString(),
-      }
+  const loadNewEntry = () => {
+    myEntry.value = {
+      text: '',
+      picture: null,
+      date: new Date().toDateString(),
     }
+  }
+
+  const checkEntry = () => {
+    myEntry.value = journalStore.getEntryById(props.id)
+    if (!myEntry.value) {
+      // console.log('no existe la entrada')
+      router.push({ name: 'daybook-no-entry' })
+    }
+  }
+
+  const initData = () => {
     textInput.value = myEntry.value.text // el texto siempre será el de la entrada
     imgUrl.value = myEntry.value.picture
     fileImage.value = null
   }
 
-  // Y cargamos la entrada
+  const loadEntry = () => {
+    // Si es new
+    if (props.id === 'new') loadNewEntry()
+    // Comprobamos que existe
+    else checkEntry()
+    // Iniciamos los datos
+    initData()
+  }
+
   loadEntry()
 
   const saveNewEntry = async () => {
@@ -137,7 +148,7 @@
   }
 
   const updateEntry = async () => {
-    // console.log('updateEntry')
+    //console.log('updateEntry')
     await journalStore.updateEntry(
       {
         id: myEntry.value.id,
@@ -177,18 +188,22 @@
   }
 
   const deleteEntry = async () => {
-    const response = await Swal.fire({
+    console.log('deleteEntry')
+    const { isConfirmed } = await Swal.fire({
       title: '¿Estás seguro?',
       text: '¡No podrás recuperar la entrada una vez borrada!',
       icon: 'warning',
       showDenyButton: true,
       confirmButtonText: 'Sí, borrar',
     })
-    if (response.isConfirmed) {
-      new Swal({
+    console.log('isConfirmed', isConfirmed)
+    if (isConfirmed) {
+      Swal.fire({
         title: 'Espere por favor',
         allowOutsideClick: false,
       })
+      Swal.showLoading()
+      console.log('A punto de eliminar')
       await journalStore.deleteEntry(myEntry.value.id)
       router.push({ name: 'daybook-no-entry' })
       Swal.fire('¡Listo!', 'La entrada se ha eliminado correctamente', 'success')

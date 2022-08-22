@@ -25,7 +25,10 @@
     <div class="scrollbar mt-1 h-[calc(88vh_-_90px)] overflow-y-auto">
       <div>
         <!-- Animaciones -->
-        <transition-group name="list-complete">
+        <transition-group
+          name="list-complete"
+          tag="EntryItem"
+        >
           <EntryItem
             data-testid="entrylist-item"
             v-for="entry in entriesByTerm"
