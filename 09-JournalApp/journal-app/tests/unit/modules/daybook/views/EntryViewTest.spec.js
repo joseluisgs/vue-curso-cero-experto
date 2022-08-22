@@ -1,8 +1,7 @@
-import { beforeEach, describe, expect, test, vi } from 'vitest'
+import { beforeEach, describe, expect, test } from 'vitest'
 
 import { createTestingPinia } from '@pinia/testing'
 import { shallowMount } from '@vue/test-utils'
-import Swal from 'sweetalert2'
 import { createRouterMock, injectRouterMock } from 'vue-router-mock'
 
 import EntryView from '@/modules/daybook/views/EntryView.vue'

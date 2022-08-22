@@ -2,6 +2,7 @@
   <div class="navbar rounded-md bg-primary text-primary-content shadow-md">
     <div class="navbar-start">
       <button
+        data-testid="navbar-button-home"
         class="btn btn-ghost text-xl normal-case"
         @click="goToHome()"
       >
@@ -15,6 +16,7 @@
     </div>
     <div class="navbar-end">
       <button
+        data-testid="navbar-button-logout"
         v-if="userStore.isLoggedIn"
         class="btn btn-primary gap-2"
         @click="logOut()"
@@ -27,6 +29,7 @@
         />
       </button>
       <button
+        data-testid="navbar-button-login"
         v-else
         class="btn btn-primary gap-2"
         @click="logIn()"
@@ -50,6 +53,7 @@
 
   const logOut = async () => {
     await userStore.logOut()
+    console.log('logOut')
   }
 
   const logIn = async () => {
