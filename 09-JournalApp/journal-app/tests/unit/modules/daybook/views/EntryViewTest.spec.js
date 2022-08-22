@@ -1,10 +1,16 @@
-import { beforeEach, describe, expect, test } from 'vitest'
+import { beforeEach, describe, expect, test, vi } from 'vitest'
 
 import { createTestingPinia } from '@pinia/testing'
 import { shallowMount } from '@vue/test-utils'
 import { createRouterMock, injectRouterMock } from 'vue-router-mock'
 
 import EntryView from '@/modules/daybook/views/EntryView.vue'
+
+import Swal from 'sweetalert2'
+
+// Para esperar las promesas pendientes tambien puedes usar: https://www.npmjs.com/package/flush-promises
+import { setImmediate } from 'timers'
+const flushPromises = () => new Promise(setImmediate)
 
 import entries from '../stores/mocks/entries.mocks'
 import users from '../stores/mocks/users.mocks'
@@ -14,6 +20,7 @@ describe('Daybook Componente -> EntryView con New', () => {
   const router = createRouterMock()
 
   beforeEach(() => {
+    vi.restoreAllMocks()
     injectRouterMock(router)
     wrapper = shallowMount(EntryView, {
       props: {
@@ -53,6 +60,7 @@ describe('Daybook Componente -> EntryView con New', () => {
     const saveButton = wrapper.find('[data-testid="entryview-savebutton"]')
     // pulsamos click
     await saveButton.trigger('click')
+    expect(wrapper.vm.journalStore.createEntry).toHaveBeenCalled()
     // Nos debe llevar a esta entrada
     expect(router.push).toHaveBeenCalledWith({
       name: 'daybook-entry',
@@ -66,6 +74,7 @@ describe('Daybook Componente -> EntryView con id', () => {
   const router = createRouterMock()
 
   beforeEach(() => {
+    vi.restoreAllMocks()
     injectRouterMock(router)
     wrapper = shallowMount(EntryView, {
       props: {
@@ -102,13 +111,35 @@ describe('Daybook Componente -> EntryView con id', () => {
     expect(deleteButton.exists()).toBe(true)
   })
 
-  // actualizar y Borrar mejor con Cypress!!!
+  test('Debe borrar la entrada si pulsamos el boton borrar', async () => {
+    const deleteButton = wrapper.find('[data-testid="entryview-deletebutton"]')
+    expect(deleteButton.exists()).toBe(true)
+    // Mockeamos el sweetalert
+    Swal.fire = vi.fn().mockImplementation(() => Promise.resolve({ isConfirmed: true }))
+    await deleteButton.trigger('click')
+    // Nos debe llevar a esta entrada
+    expect(wrapper.vm.journalStore.deleteEntry).toHaveBeenCalledWith(entries[0])
+    await flushPromises()
+    expect(router.push).toHaveBeenCalledWith({ name: 'daybook-no-entry' })
+  })
+
+  test('Debe actualizar la entrada', async () => {
+    const textinput = wrapper.find('[data-testid="entryview-textinput"]')
+    textinput.setValue('text-updated')
+    await textinput.trigger('input')
+    const saveButton = wrapper.find('[data-testid="entryview-savebutton"]')
+    // pulsamos click
+    await saveButton.trigger('click')
+    expect(wrapper.vm.journalStore.updateEntry).toHaveBeenCalled()
+    // await flushPromises()
+  })
 })
 
 describe('Daybook Componente -> EntryView con id no existe', () => {
   const router = createRouterMock()
 
   beforeEach(() => {
+    vi.restoreAllMocks()
     injectRouterMock(router)
   })
 

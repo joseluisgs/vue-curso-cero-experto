@@ -188,7 +188,6 @@
   }
 
   const deleteEntry = async () => {
-    console.log('deleteEntry')
     const { isConfirmed } = await Swal.fire({
       title: '¿Estás seguro?',
       text: '¡No podrás recuperar la entrada una vez borrada!',
@@ -196,15 +195,13 @@
       showDenyButton: true,
       confirmButtonText: 'Sí, borrar',
     })
-    console.log('isConfirmed', isConfirmed)
     if (isConfirmed) {
       Swal.fire({
         title: 'Espere por favor',
         allowOutsideClick: false,
       })
       Swal.showLoading()
-      console.log('A punto de eliminar')
-      await journalStore.deleteEntry(myEntry.value.id)
+      await journalStore.deleteEntry(myEntry.value)
       router.push({ name: 'daybook-no-entry' })
       Swal.fire('¡Listo!', 'La entrada se ha eliminado correctamente', 'success')
     }
