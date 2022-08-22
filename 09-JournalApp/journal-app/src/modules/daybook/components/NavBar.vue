@@ -53,7 +53,6 @@
 
   const logOut = async () => {
     await userStore.logOut()
-    console.log('logOut')
   }
 
   const logIn = async () => {
