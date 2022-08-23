@@ -9,8 +9,8 @@ import NavBar from '@/modules/daybook/components/NavBar.vue'
 import users from '../stores/mocks/users.mocks'
 
 // Para esperar las promesas pendientes tambien puedes usar: https://www.npmjs.com/package/flush-promises
-import { setImmediate } from 'timers'
-const flushPromises = () => new Promise(setImmediate)
+// import { setImmediate } from 'timers'
+// const flushPromises = () => new Promise(setImmediate)
 
 describe('Daybook Componente -> NavBar', () => {
   let wrapper

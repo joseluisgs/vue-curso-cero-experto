@@ -100,6 +100,7 @@ describe('Journal Store Tests', () => {
 
 // Me llevo los test asincronos, porque luego serán con firebase para que no pare los síncronos en otra suite
 describe('Journal Store Tests Async', () => {
+  // Simulo la espera....
   let journalStore
   // const filePath = `${__dirname}/mocks/kaka.jpg`
   // const file = fs.readFileSync(filePath)
