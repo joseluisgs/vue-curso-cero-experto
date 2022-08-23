@@ -11,8 +11,10 @@ Aplicación resumen de lo visto
     - [Alertas](#alertas)
     - [Manejo del estado](#manejo-del-estado)
     - [Refs](#refs)
-  - [Test](#test)
+  - [Test Unit](#test-unit)
     - [Router](#router)
+    - [Pinia y Store](#pinia-y-store)
+  - [Test E2E](#test-e2e)
 
 ## Resumen
 
@@ -45,7 +47,7 @@ Como iconos usaremos [Iconofy](https://iconify.design/).
 - No es una organización que comparta en gran medida, pero puedes organizar tu código como quieras, siempre que te deje ampliarlo y cambiarlo de manera poco traumática.
 
 ### Keep Alive
-Con [Keep Alive](https://vuejs.org/guide/built-ins/keep-alive.html#basic-usage) conseguimos cachear el componente que estamos mostrando agilizando.
+Con [Keep Alive](https://vuejs.org/guide/built-ins/keep-alive.html#basic-usage) conseguimos cachear el componente que estamos mostrando agilizando y manteniendo el estado del componente.
 
 ### Alertas
 Se ha trabajado con dos alertas, una de ellas es un propio toast que se muestra en la parte superior de la pantalla.
@@ -57,11 +59,23 @@ Verás en el manejo del estado que hay algunos métodos que parecen iguales sín
 ### Refs
 Podemos acceder a elementos del DOM usando [Templete Refs](https://vuejs.org/guide/essentials/template-refs.html). De esta manera podemos usar elementos del dom o llamarlos como se ha hecho con el input de la imagen.
 
-## Test
+## Test Unit
 
 ### Router
 Las primeras pruebas son con router. Debemos tener en cuenta que como estamo susando Composition API, vamos a hacer uso de una librería
 [Vue Router Mock](https://github.com/posva/vue-router-mock) que nos ayuda a mockear nuestro router.
 
 Si no podemos hacer uso de los consejos de Vue [Test Utils](https://test-utils.vuejs.org/guide/advanced/vue-router.html) para Composition API.
+
+### Pinia y Store
+Mockeamos los datos y la store con [Pinia Testing](https://pinia.vuejs.org/cookbook/testing.html).
+
+## Test E2E
+Vamos a realizar test e2e con nuestro ejemplo. Para ello usaremos [Cypress](https://docs.cypress.io/guides/overview/why-cypress).
+
+Con Cypress podemos testear componentes aislados de Vue, por lo que no necesitaremos VueUtils Tes si no queremos, o simular el comportamiento global E2E..
+
+Puedes seguir mis guías:
+- [testing-js-cypress](https://github.com/joseluisgs/testing-js-cypress)
+- [vue-weather-testing](https://github.com/joseluisgs/vue-weather-testing)
 

@@ -9,6 +9,7 @@ module.exports = defineConfig({
   },
 
   e2e: {
+    baseUrl: 'http://localhost:5000',
     specPattern: '**/*.cy.{js,jsx,ts,tsx}',
     setupNodeEvents(on, config) {
       // implement node event listeners here

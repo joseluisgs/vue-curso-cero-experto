@@ -1,9 +1,9 @@
 /* eslint-disable no-undef */
-import { myUrl } from '../utilities'
+// import { myUrl } from '../utilities'
 
 describe('HomePage App', () => {
   beforeEach(() => {
-    cy.visit(myUrl) // "baseUrl" definido en cypress.json
+    cy.visit('/') // "baseUrl" definido en cypress.json
   })
 
   it('Carga la Página', async () => {
