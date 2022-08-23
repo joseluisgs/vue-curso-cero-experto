@@ -7,6 +7,11 @@
     "preview": "vite preview --port 4173",
     "test": "vitest --environment jsdom",
     "test:unit": "vitest --environment jsdom",
+    "cypress": "cypress open",
+    "test:cypress": "cypress open",
+    "test:e2e": "vite --port 5000 | cypress open",
+    "test:e2e-run": "vite --port 5000 | cypress run",
+    "test:cypress-component": "npx cypress open --component",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
   },
   "dependencies": {
@@ -24,6 +29,8 @@
     "@vitejs/plugin-vue": "^3.0.1",
     "@vue/eslint-config-prettier": "^7.0.0",
     "@vue/test-utils": "^2.0.2",
+    "cypress": "^10.6.0",
+    "cypress-vite": "^1.1.1",
     "daisyui": "^2.22.0",
     "eslint": "^8.5.0",
     "eslint-plugin-vue": "^9.0.0",
