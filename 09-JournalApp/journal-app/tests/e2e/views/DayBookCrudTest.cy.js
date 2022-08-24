@@ -47,4 +47,21 @@ describe('DayBook Crud', () => {
     entries = cy.get('[data-testid="entrylist-item"]')
     entries.should('exist')
   })
+
+  it('Selecciona una entrada', () => {
+    const entryItem = cy.get('entryitem')
+    entryItem.should('have.length', 1)
+    const entries = cy.get('[data-testid="entrylist-item"]')
+    entries.should('be.visible').should('have.length.greaterThan', 0)
+    const entry = cy.get('entryitem > :nth-child(1)')
+    entry.click()
+    // Botón de borrar debe estar visible y el botón de guardar y y debe haber texto en el input
+    const area = cy.get('[data-testid="entryview-textinput"]')
+    area.should('have.length.greaterThan', 0)
+    const delButton = cy.get('[data-testid="entryview-deletebutton"]')
+    delButton.should('be.visible')
+    const fab = cy.get('[data-testid="entryview-savebutton"]')
+    fab.should('be.visible')
+  })
+  
 })
