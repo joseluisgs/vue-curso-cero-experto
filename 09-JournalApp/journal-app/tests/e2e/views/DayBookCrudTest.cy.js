@@ -89,5 +89,16 @@ describe('DayBook Crud', () => {
     entry.contains('Hola Test Cypress')
   })
 
-  it('Actualiza una entrada ', () => {})
+  it('Actualiza una entrada ', () => {
+    let entry = cy.get('entryitem > :nth-child(1)')
+    entry.click()
+    const area = cy.get('[data-testid="entryview-textinput"]')
+    area.clear()
+    area.type('Hola Test Cypress')
+    const fab = cy.get('[data-testid="entryview-savebutton"]')
+    fab.click()
+    cy.contains('entrada se ha guardado correctamente')
+    entry = cy.get('entryitem > :nth-child(1)')
+    entry.contains('Hola Test Cypress')
+  })
 })
