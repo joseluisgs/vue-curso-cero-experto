@@ -6,7 +6,7 @@ describe('HomePage App', () => {
     cy.visit('/') // "baseUrl" definido en cypress.json
   })
 
-  it('Carga la Página', async () => {
+  it('Carga la Página', () => {
     cy.contains('DayBook')
     cy.contains('About')
     cy.contains('This is an home page')
@@ -15,7 +15,7 @@ describe('HomePage App', () => {
     button.should('be.visible')
     button.contains('DayBook')
     // Pulsamos un click
-    await button.click()
+    button.click()
     // Ahora debería haber un navbar
   })
 
