@@ -101,4 +101,18 @@ describe('DayBook Crud', () => {
     entry = cy.get('entryitem > :nth-child(1)')
     entry.contains('Hola Test Cypress')
   })
+
+  it('Eliminar una entrada ', () => {
+    let entries = cy.get('[data-testid="entrylist-item"]')
+    entries.should('be.visible').should('have.length.greaterThan', 2)
+    let entry = cy.get('entryitem > :nth-child(1)')
+    entry.click()
+    const delButton = cy.get('[data-testid="entryview-deletebutton"]')
+    delButton.click()
+    // Mensaje debe aparecer
+    cy.contains('podrás recuperar la entrada una vez borrada')
+    const accept = cy.get('.swal2-confirm')
+    accept.click()
+    cy.contains('entrada se ha eliminado correctamente')
+  })
 })
