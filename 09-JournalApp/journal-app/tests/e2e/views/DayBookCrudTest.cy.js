@@ -63,5 +63,31 @@ describe('DayBook Crud', () => {
     const fab = cy.get('[data-testid="entryview-savebutton"]')
     fab.should('be.visible')
   })
-  
+
+  it('Crea una entrada', () => {
+    let button = cy.get('.flex-1 > .btn')
+    button.click()
+    // No debe estar visible borrar
+    const delButton = cy.get('[data-testid="entryview-deletebutton"]')
+    delButton.should('not.exist')
+    // El de salvar debe estar visible
+    const fab = cy.get('[data-testid="entryview-savebutton"]')
+    fab.should('be.visible')
+    // Probamos con el texto vacío
+    const area = cy.get('[data-testid="entryview-textinput"]')
+    area.type(' ')
+    // Probamos a salvar y error
+    fab.click()
+    cy.contains('campo vacío')
+    cy.get('.swal2-confirm').click()
+    area.clear()
+    area.type('Hola Test Cypress')
+    // salvamos
+    fab.click()
+    cy.contains('entrada se ha guardado correctamente')
+    const entry = cy.get('entryitem > :nth-child(4)')
+    entry.contains('Hola Test Cypress')
+  })
+
+  it('Actualiza una entrada ', () => {})
 })
