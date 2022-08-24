@@ -15,6 +15,8 @@ Aplicación resumen de lo visto
     - [Router](#router)
     - [Pinia y Store](#pinia-y-store)
   - [Test E2E](#test-e2e)
+    - [Asercciones](#asercciones)
+    - [Algunos métodos útiles de Cypress](#algunos-métodos-útiles-de-cypress)
 
 ## Resumen
 
@@ -78,4 +80,20 @@ Con Cypress podemos testear componentes aislados de Vue, por lo que no necesitar
 Puedes seguir mis guías:
 - [testing-js-cypress](https://github.com/joseluisgs/testing-js-cypress)
 - [vue-weather-testing](https://github.com/joseluisgs/vue-weather-testing)
+
+### Asercciones
+Puedes consultarlas [aquí](https://docs.cypress.io/guides/references/assertions.html). Pero se basan principalmente en [Chai](https://docs.cypress.io/guides/references/assertions.html#Chai) y [Sinon](https://docs.cypress.io/guides/references/assertions.html#Sinon-Chai).
+
+### Algunos métodos útiles de Cypress
+- visit: redirige a Chrome a la url que se le pasa por parámetro.
+- get: obtiene un elemento por el identificador que le pasemos, para realizar acciones sobre él. Como hemos explicado en el apartado anterior, todos los identificadores que pasemos será obtenidos del CSS.
+- children: nos permite obtener un elemento que pasamos por parámetro, que desciende del elemento que hemos obtenido con la función get.
+- click: realiza un click sobre el elemento que hayamos obtenido con la función get.
+- type: escribe sobre el elemento obtenido un texto que pasamos por parámetro. Por ejemplo, usamos esta función para elementos input donde queremos introducir un texto.
+submit: permite enviar el contenido del formulario.
+- contains: para indicar el contenido del elemento.
+- have.attr: para indicar que el elemento tiene un atributo en concreto.
+- include: para indicar que el atributo de un elemento incluye un texto.
+
+A todas las funciones se les puede pasar un json con el elemento timeout. Este elemento nos permite incluir un tiempo que nos ayudará a esperar a que el elemento termine de cargar en la página.
 
