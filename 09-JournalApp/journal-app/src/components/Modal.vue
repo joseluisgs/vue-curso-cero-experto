@@ -36,6 +36,8 @@
   defineEmits(['onClose'])
 
   const newTitle = computed(() => props.title?.toUpperCase())
+
+  console.log(props.title, newTitle.value)
 </script>
 
 <style scoped>
