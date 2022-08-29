@@ -1,9 +1,9 @@
 <template>
   <div
-    class="modal-background fade-in"
+    class="fade-in width-100 fixed top-0 left-0 flex h-screen w-screen items-center justify-center bg-gray-500/[.40]"
     @click.self="$emit('onClose')"
   >
-    <div class="modal-container">
+    <div class="h-45 w-1/3 rounded-md bg-gray-100 shadow-md shadow-gray-600">
       <slot name="header" />
       <slot name="body" />
       <slot name="footer" />
@@ -41,36 +41,6 @@
 </script>
 
 <style scoped>
-  .modal-background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-
-    display: flex;
-    background-color: rgba(0, 0, 0, 0.5);
-    align-items: center;
-    justify-content: center;
-  }
-
-  .modal-container {
-    width: 250px;
-    height: 250px;
-    background-color: white;
-    border-radius: 5px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-  }
-
-  .center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 250px;
-    height: 250px;
-    color: red;
-  }
-
   .fade-in {
     animation: fadeIn ease-out 0.2s;
     -webkit-animation: fadeIn ease-out 0.2s;
