@@ -3,7 +3,7 @@
     clickable
     tag="a"
     target="_blank"
-    :href="link"
+    @click="openLink()"
   >
     <q-item-section
       v-if="icon"
@@ -20,7 +20,8 @@
 </template>
 
 <script setup>
-  defineProps({
+  import { useRouter } from 'vue-router'
+  const props = defineProps({
     title: {
       type: String,
       required: true,
@@ -41,4 +42,11 @@
       default: '',
     },
   })
+
+  const router = useRouter()
+
+  const openLink = () => {
+    if (props.link.startsWith('http')) return window.open(props.link, '_blank')
+    router.push({ name: props.link })
+  }
 </script>

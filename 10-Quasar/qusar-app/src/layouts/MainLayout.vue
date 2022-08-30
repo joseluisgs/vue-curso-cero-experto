@@ -62,7 +62,7 @@
       icon: 'las la-layer-group',
       link: 'flex',
     },
-  ]
+  ] 
 
   const leftDrawerOpen = ref(false)
   const toggleLeftDrawer = () => (leftDrawerOpen.value = !leftDrawerOpen.value)
