@@ -26,7 +26,7 @@
         <q-item-label header> Essential Links </q-item-label>
 
         <EssentialLink
-          v-for="link in essentialLinks"
+          v-for="link in menuLinks"
           :key="link.title"
           v-bind="link"
         />
@@ -42,27 +42,7 @@
 <script setup>
   import EssentialLink from 'components/EssentialLink.vue'
   import { ref } from 'vue'
-
-  const essentialLinks = [
-    {
-      title: 'Docs',
-      caption: 'quasar.dev',
-      icon: 'las la-graduation-cap',
-      link: 'https://quasar.dev',
-    },
-    {
-      title: 'Typography',
-      caption: 'Tipos de letras',
-      icon: 'las la-align-left',
-      link: 'typography',
-    },
-    {
-      title: 'Flex Layout',
-      caption: 'Estilos usando flex',
-      icon: 'las la-layer-group',
-      link: 'flex',
-    },
-  ] 
+  import { menuLinks } from '../router/link-list'
 
   const leftDrawerOpen = ref(false)
   const toggleLeftDrawer = () => (leftDrawerOpen.value = !leftDrawerOpen.value)
