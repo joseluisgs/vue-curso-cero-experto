@@ -18,7 +18,7 @@
     </q-header>
 
     <q-drawer
-      v-model="menuStore.leftDrawerOpen"
+      v-model="sideMenuOpen"
       show-if-above
       bordered
     >
@@ -41,9 +41,18 @@
 
 <script setup>
   import EssentialLink from 'components/EssentialLink.vue'
-  import { ref } from 'vue'
   import { menuLinks } from '../router/link-list'
-  import MenuStore from '../stores/menu-store'
+import MenuStore from '../stores/menu-store'
+  import { computed } from 'vue';
 
   const menuStore = MenuStore()
+
+  const sideMenuOpen = computed({
+    get() {
+      return menuStore.leftDrawerOpen
+    },
+    set() {
+      menuStore.toggleLeftDrawer()
+    },
+  })
 </script>
