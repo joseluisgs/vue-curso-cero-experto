@@ -1,9 +1,9 @@
 export const menuLinks = [
   {
-    title: 'Docs',
-    caption: 'quasar.dev',
-    icon: 'las la-graduation-cap',
-    link: 'https://quasar.dev',
+    title: 'Index',
+    caption: 'Index',
+    icon: 'las la-compass',
+    link: 'index',
   },
   {
     title: 'Typography',
@@ -16,5 +16,17 @@ export const menuLinks = [
     caption: 'Estilos usando flex',
     icon: 'las la-layer-group',
     link: 'flex',
+  },
+  {
+    title: 'Dialog',
+    caption: 'Diálogos y notificaciones',
+    icon: 'las la-question-circle',
+    link: 'dialog',
+  },
+  {
+    title: 'Docs',
+    caption: 'quasar.dev',
+    icon: 'las la-graduation-cap',
+    link: 'https://quasar.dev',
   },
 ]

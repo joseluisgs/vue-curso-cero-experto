@@ -9,6 +9,7 @@ Aplicación en vue con Quasar.
       - [Ejemplo](#ejemplo)
     - [Cambiar estilos](#cambiar-estilos)
     - [Layouts](#layouts)
+    - [Plugins](#plugins)
 
 ## Quasar
 [Quasar](https://quasar.dev/) es un framework para Vue que te permite, a parte de dar estilo y ofrecer componentes de Vue, poder crear aplicaciones web, ssr, de escritorio para Windows, Mac o Linux y para móviles entre otras muchas cosas.
@@ -26,4 +27,8 @@ Un ejemplo de Quasar y vue lo puedes ver en este [TODO](https://github.com/josel
 Puedes cambiar [estilos](https://quasar.dev/style/theme-builder), [iconos](https://github.com/quasarframework/quasar/tree/dev/extras) y [tipografía](https://quasar.dev/style/typography) 
 
 ### Layouts
-Puedes usar [Grid](https://quasar.dev/layout/grid/row) a doce columnas reponsive.
+Puedes usar [Grid](https://quasar.dev/layout/grid/row) a doce columnas reponsive, asi como [Flex](https://quasar.dev/layout/grid/flexbox-patterns).
+
+### Plugins
+Quasar trae determinados plugins que nos ayuda a mejorar su productividad.
+- [Dialog](https://quasar.dev/quasar-plugins/dialog)

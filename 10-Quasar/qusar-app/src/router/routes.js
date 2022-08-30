@@ -11,6 +11,7 @@ const routes = [
         component: () => import('pages/TypographyPage.vue'),
       },
       { path: 'flex', name: 'flex', component: () => import('pages/FlexPage.vue') },
+      { path: 'dialog', name: 'dialog', component: () => import('pages/DialogPage.vue') },
     ],
   },
 
