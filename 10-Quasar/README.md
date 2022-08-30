@@ -22,4 +22,4 @@ Puedes usar el fichero quasar.config.js para configurar algunos elementos de Qua
 Un ejemplo de Quasar y vue lo puedes ver en este [TODO](https://github.com/joseluisgs/vue-quasar-todo) App.
 
 ### Cambiar estilos
-Puedes cambiar estilos, [iconos](https://github.com/quasarframework/quasar/tree/dev/extras) y tipografía 
+Puedes cambiar [estilos](https://quasar.dev/style/theme-builder), [iconos](https://github.com/quasarframework/quasar/tree/dev/extras) y [tipografía](https://quasar.dev/style/typography) 
