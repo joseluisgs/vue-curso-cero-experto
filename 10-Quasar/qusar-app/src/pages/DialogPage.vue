@@ -3,7 +3,11 @@
     <span class="text-h3">Dialog</span>
     <q-separator spaced />
 
-    <span v-if="name" class="text-h4">Nombre: {{ name }}</span>
+    <span
+      v-if="name"
+      class="text-h4"
+      >Nombre: {{ name }}</span
+    >
     <q-separator spaced />
 
     <div class="q-pa-md q-gutter-sm">
@@ -27,8 +31,8 @@
 </template>
 
 <script setup>
-  import { ref } from 'vue'
   import { useQuasar } from 'quasar'
+  import { ref } from 'vue'
   const $q = useQuasar()
   const name = ref('')
 
@@ -83,6 +87,10 @@
       .onOk((data) => {
         console.log('>>>> OK, received', data)
         name.value = data
+        $q.notify({
+          type: 'info',
+          message: `Hola ${name.value}`,
+        })
       })
       .onCancel(() => {
         console.log('>>>> Cancel')
