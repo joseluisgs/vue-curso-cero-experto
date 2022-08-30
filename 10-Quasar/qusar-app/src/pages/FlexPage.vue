@@ -1,6 +1,6 @@
 <template>
   <q-page class="flex">
-    <h1>Index</h1>
+    <h1>Flex</h1>
   </q-page>
 </template>
 
