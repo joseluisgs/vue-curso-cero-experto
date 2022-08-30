@@ -32,3 +32,5 @@ Puedes usar [Grid](https://quasar.dev/layout/grid/row) a doce columnas reponsive
 ### Plugins
 Quasar trae determinados plugins que nos ayuda a mejorar su productividad.
 - [Dialog](https://quasar.dev/quasar-plugins/dialog)
+- [Formularios](https://quasar.dev/vue-components/input)
+- [Notificaciones](https://quasar.dev/quasar-plugins/notify)

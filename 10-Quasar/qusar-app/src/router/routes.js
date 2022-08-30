@@ -12,6 +12,7 @@ const routes = [
       },
       { path: 'flex', name: 'flex', component: () => import('pages/FlexPage.vue') },
       { path: 'dialog', name: 'dialog', component: () => import('pages/DialogPage.vue') },
+      { path: 'forms', name: 'forms', component: () => import('pages/FormsPage.vue') },
     ],
   },
 
