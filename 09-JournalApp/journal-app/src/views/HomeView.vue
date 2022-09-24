@@ -20,7 +20,12 @@
     >
       About
     </button>
-    <button class="btn btn-outline btn-success">Success</button>
+    <button
+      class="btn btn-outline btn-success"
+      @click="openModal"
+    >
+      Abrir Modal
+    </button>
     <article class="prose mx-auto text-center">
       <h1>Garlic bread with cheese: What the science tells us</h1>
       <p>
@@ -36,15 +41,61 @@
       <!-- ... -->
     </article>
   </div>
+  <!-- Mi modal -->
+  <modal
+    v-if="isOpen"
+    title="Hola mundo"
+    @on-close="closeModal"
+  >
+    <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit!</p>
+        <button>Salir</button>
+        <h2>Titulo del modal</h2> -->
+    <template v-slot:body>
+      <article class="prose mx-auto my-5 px-5 text-blue-600">
+        <p class="">Lorem ipsum dolor sit amet consectetur adipisicing elit!</p>
+      </article>
+    </template>
+
+    <template v-slot:footer>
+      <div class="text-center">
+        <button
+          class="btn btn-primary"
+          @click="closeModal"
+        >
+          Salir
+        </button>
+      </div>
+    </template>
+
+    <template v-slot:header>
+      <h2 class="mx-auto my-5 px-5 text-center text-lg font-bold leading-5 text-blue-600">
+        Titulo del modal
+      </h2>
+    </template>
+
+    <template v-slot:exposed="{ newTitle }">
+      <h2 class="mx-auto my-5 px-5 text-center text-lg font-bold leading-5 text-blue-600">
+        {{ newTitle }}
+      </h2>
+    </template>
+  </modal>
 </template>
 
 <script setup>
+  import { ref } from 'vue'
   import { useRouter } from 'vue-router'
+  import Modal from '@/components/Modal.vue'
 
   const router = useRouter()
 
+  const isOpen = ref(false)
+
   const goToDaybook = () => router.push({ name: 'daybook-no-entry' })
   const goToAbout = () => router.push({ name: 'about' })
+
+  // Para el modal
+  const openModal = () => (isOpen.value = true)
+  const closeModal = () => (isOpen.value = false)
 </script>
 
 <style scooped>

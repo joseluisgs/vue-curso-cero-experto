@@ -39,6 +39,7 @@ El contenido del curso se divide en las siguientes secciones:
 - [07: Vue Router y Ciclo de Vida](07-VueRouter-CicloVida/README.md). Usaremos Vue Router para navegar por nuestra app en base a rutas, nombres, paso de parámetros, rutas anidadas y guardas de las mismas. Profundizaremos en el ciclo de vida de un componente de Vue.
 - [08: Introducción a Pinia y Store](08-IntroPiniaStore/README.md). Usaremos Pinia como store de Vue.js para compartid información entre varios componentes.
 - [09: Journal App](09-JournalApp/README.md). Aplicación resumen de lo visto en el curso hasta este punto: router y pinia.
+- [10: Quasar App](10-Quasar/README.md). Ejemplo de cómo usar Quasar como framework sobre Vue.js.
 
 ## Licencia
 

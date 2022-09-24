@@ -17,6 +17,7 @@ Aplicación resumen de lo visto
   - [Test E2E](#test-e2e)
     - [Asercciones](#asercciones)
     - [Algunos métodos útiles de Cypress](#algunos-métodos-útiles-de-cypress)
+  - [Slots](#slots)
 
 ## Resumen
 
@@ -97,3 +98,5 @@ submit: permite enviar el contenido del formulario.
 
 A todas las funciones se les puede pasar un json con el elemento timeout. Este elemento nos permite incluir un tiempo que nos ayudará a esperar a que el elemento termine de cargar en la página.
 
+## Slots
+Finalmente nos quedan los [slots](https://vuejs.org/guide/components/slots.html#slots) los cuales nos permiten pasar un template o código html a un componente. De esta manera podemos tener un componente y nosotros pasar el aspecto que quiera. Puedes verlo en el ejemplo, cuando pulso el botón success en el modal diseñado.
