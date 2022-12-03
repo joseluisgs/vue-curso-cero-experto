@@ -39,6 +39,16 @@
       center: placesStore.getCurrentLocation, // starting position [lng, lat]
       zoom: 15, // starting zoom
     })
+
+    const myLocationPopup = new Mapboxgl.Popup()
+      .setHTML('<h4 class="text-lg font-bold text-secondary-focus">Tu ubicación</h4>')
+      .setLngLat(placesStore.getCurrentLocation)
+      .addTo(map)
+
+    const myLocationMarker = new Mapboxgl.Marker()
+      .setLngLat(placesStore.getCurrentLocation)
+      .setPopup(myLocationPopup)
+      .addTo(map)
   }
 
   // watch para este lista la posición del usuario
