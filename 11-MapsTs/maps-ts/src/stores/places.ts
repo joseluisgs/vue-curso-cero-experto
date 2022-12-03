@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { ref, type Ref } from 'vue'
+import { computed, ref, type Ref } from 'vue'
 
 // Puedo definir el tipo!!!
 export interface PlacesState {
@@ -18,7 +18,7 @@ export const usePlacesStore = defineStore('places', () => {
   // Lo que exporto es lo que puedo usar en cualquier parte de la app
 
   // getters - computed
-  const isUserLocationReady = (): boolean => !!userLocation.value
+  const isUserLocationReady = computed((): boolean => !!userLocation.value)
 
   // actions y mutaciones
   // Setters para cambiare el estado
