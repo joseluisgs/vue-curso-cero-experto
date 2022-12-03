@@ -15,12 +15,14 @@
 </template>
 
 <script setup lang="ts">
+  import { useMapStore } from '@/stores/map'
   import { usePlacesStore } from '@/stores/places'
   import Mapboxgl from 'mapbox-gl'
   import { ref, watch } from 'vue'
 
   // creo la store
   const placesStore = usePlacesStore()
+  const mapStore = useMapStore()
 
   // referencia al elemento del DOM
   const mapElement = ref<HTMLDivElement | null>(null)
@@ -49,6 +51,9 @@
       .setLngLat(placesStore.getCurrentLocation)
       .setPopup(myLocationPopup)
       .addTo(map)
+
+    // guardo el mapa en la store
+    mapStore.setMap(map)
   }
 
   // watch para este lista la posición del usuario

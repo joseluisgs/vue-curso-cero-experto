@@ -11,8 +11,6 @@
   // creo la store
   const placesStore = usePlacesStore()
 
-  const mapToken = import.meta.env.VITE_MAP_TOKEN
-
   // engancho la posición actual
   if (!placesStore.isUserLocationReady) {
     console.log('Getting user location')
