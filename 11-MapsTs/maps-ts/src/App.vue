@@ -28,7 +28,7 @@
   }
 
   .logo {
-    @apply fixed right-10 bottom-10 w-10 h-10;
+    @apply fixed right-10 bottom-10 w-10 h-10 z-40;
   }
 
   nav {

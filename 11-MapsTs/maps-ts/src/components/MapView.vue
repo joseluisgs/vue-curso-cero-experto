@@ -12,10 +12,6 @@
     class="map-container"
     ref="mapElement"
   ></div>
-  <p>
-    loading: {{ placesStore.getLoading }} current pos: {{ placesStore.getCurrentLocation }} ready:
-    {{ placesStore.isUserLocationReady }}
-  </p>
 </template>
 
 <script setup lang="ts">
@@ -35,7 +31,7 @@
     if (!placesStore.getCurrentLocation) throw new Error('No se encontró la posición del usuario')
 
     // porque va muy rapido y no se ve el loading, por eso formzarlo
-    await new Promise((resolve) => setTimeout(resolve, 100))
+    await new Promise((resolve) => setTimeout(resolve, 50))
 
     const map = new Mapboxgl.Map({
       container: mapElement.value, // container ID
