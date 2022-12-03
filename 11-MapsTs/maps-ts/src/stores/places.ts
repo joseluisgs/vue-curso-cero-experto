@@ -9,7 +9,7 @@ export interface PlacesState {
 
 export const usePlacesStore = defineStore('places', () => {
   // Nuestro estado, con variables sueltas reactivas
-  const isLoading: Ref<Boolean> = ref(false) // Puedo dejar que infiera o definirle el tipo
+  const isLoading: Ref<boolean> = ref(false) // Puedo dejar que infiera o definirle el tipo
   const userLocation: Ref<[number, number] | undefined> = ref(undefined) // Puedo definir el tipo!!!
 
   // otra forma es
@@ -19,6 +19,8 @@ export const usePlacesStore = defineStore('places', () => {
 
   // getters - computed
   const isUserLocationReady = computed((): boolean => !!userLocation.value)
+  const getCurrentLocation = computed((): [number, number] | undefined => userLocation.value)
+  const getLoading = computed((): boolean => isLoading.value)
 
   // actions y mutaciones
   // Setters para cambiare el estado
@@ -39,5 +41,5 @@ export const usePlacesStore = defineStore('places', () => {
     )
   }
   // Exportamos lo que queremos usar en cualquier parte de la app
-  return { isLoading, userLocation, isUserLocationReady, getInitialLocation }
+  return { isUserLocationReady, getInitialLocation, getCurrentLocation, getLoading }
 })
