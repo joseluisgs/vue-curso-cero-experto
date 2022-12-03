@@ -1,10 +1,6 @@
 <template>
   <main>
     <MapView />
-    <p>
-      loading: {{ placesStore.getLoading }} current pos: {{ placesStore.getCurrentLocation }} ready:
-      {{ placesStore.isUserLocationReady }}
-    </p>
   </main>
 </template>
 
@@ -22,4 +18,4 @@
   }
 </script>
 
-<style></style>
+<style scoped></style>
