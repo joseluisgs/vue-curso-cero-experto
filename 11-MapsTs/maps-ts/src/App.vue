@@ -1,7 +1,3 @@
-<script setup lang="ts">
-  import { RouterLink, RouterView } from 'vue-router'
-</script>
-
 <template>
   <header>
     <img
@@ -22,6 +18,16 @@
 
   <RouterView />
 </template>
+
+<script setup lang="ts">
+  import { usePlacesStore } from '@/stores/places';
+import { RouterLink, RouterView } from 'vue-router';
+
+  // creo la store
+const placesStore = usePlacesStore()
+  // engancho la posición actual
+  placesStore.getInitialLocation()
+</script>
 
 <style scoped>
   header {
