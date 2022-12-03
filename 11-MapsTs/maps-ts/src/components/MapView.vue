@@ -43,7 +43,7 @@
     })
 
     const myLocationPopup = new Mapboxgl.Popup()
-      .setHTML('<h4 class="text-lg font-bold text-secondary-focus">Tu ubicación</h4>')
+      .setHTML('<h4 class="text-lg font-bold text-secondary-focus">Mi ubicación</h4>')
       .setLngLat(placesStore.getCurrentLocation)
       .addTo(map)
 

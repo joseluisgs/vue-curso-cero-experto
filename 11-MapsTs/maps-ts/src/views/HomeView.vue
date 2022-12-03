@@ -1,11 +1,13 @@
 <template>
   <main>
+    <MyLocationBoton />
     <MapView />
   </main>
 </template>
 
 <script setup lang="ts">
   import MapView from '@/components/MapView.vue'
+  import MyLocationBoton from '@/components/MyLocationBoton.vue'
   import { usePlacesStore } from '@/stores/places'
 
   // creo la store

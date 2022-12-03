@@ -11,6 +11,7 @@ export const useMapStore = defineStore('map', () => {
 
   // Getters son mis computed
   const isMapReady = computed(() => !!map.value)
+  const getMap = computed(() => map.value)
 
   // Actions y mutaciones
   const setMap = (otherMap: mapboxgl.Map) => {
@@ -18,5 +19,5 @@ export const useMapStore = defineStore('map', () => {
   }
 
   // Exportamos lo que queremos usar en cualquier parte de la app
-  return { map, markers, distance, duration, setMap, isMapReady }
+  return { markers, distance, duration, setMap, isMapReady, getMap }
 })

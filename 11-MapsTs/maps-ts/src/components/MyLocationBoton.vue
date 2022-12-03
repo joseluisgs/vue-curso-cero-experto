@@ -1,0 +1,38 @@
+<template>
+  <button
+    v-if="isBotonReady"
+    class="btn-primary btn-square btn fixed top-10 right-10 z-50"
+    @click="goToMyPosition"
+  >
+    <Icon
+      class="h-6 w-6"
+      icon="material-symbols:my-location-rounded"
+    />
+  </button>
+</template>
+
+<script setup lang="ts">
+  import { useMapStore } from '@/stores/map'
+  import { usePlacesStore } from '@/stores/places'
+  import { Icon } from '@iconify/vue'
+  import { computed } from 'vue'
+
+  // creo la store
+  const placesStore = usePlacesStore()
+  const mapStore = useMapStore()
+
+  const isBotonReady = computed(() => {
+    return placesStore.isUserLocationReady && mapStore.isMapReady
+  })
+
+  const goToMyPosition = () => {
+    console.log('goToMyPosition')
+
+    mapStore.getMap?.flyTo({
+      center: placesStore.getCurrentLocation,
+      zoom: 15,
+    })
+  }
+</script>
+
+<style scoped></style>
