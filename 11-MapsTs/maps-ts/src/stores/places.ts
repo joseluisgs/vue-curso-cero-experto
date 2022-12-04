@@ -1,5 +1,8 @@
+import { searchApi } from '@/apis'
+import type { PlacesResponse } from '@/interfaces/PlacesResponse'
 import { defineStore } from 'pinia'
 import { computed, ref, type Ref } from 'vue'
+import type { Feature } from '../interfaces/PlacesResponse'
 
 // Puedo definir el tipo!!!
 export interface PlacesState {
@@ -11,6 +14,7 @@ export const usePlacesStore = defineStore('places', () => {
   // Nuestro estado, con variables sueltas reactivas
   const isLoading: Ref<boolean> = ref(false) // Puedo dejar que infiera o definirle el tipo
   const userLocation: Ref<[number, number] | undefined> = ref(undefined) // Puedo definir el tipo!!!
+  const places: Ref<Feature[]> = ref([])
 
   // otra forma es
   // const isLoading = ref<boolean>(false) // oponerle as Ref<Boolean>
@@ -21,6 +25,7 @@ export const usePlacesStore = defineStore('places', () => {
   const isUserLocationReady = computed((): boolean => !!userLocation.value)
   const getCurrentLocation = computed((): [number, number] | undefined => userLocation.value)
   const getLoading = computed((): boolean => isLoading.value)
+  const getPlaces = computed((): Feature[] => places.value)
 
   // actions y mutaciones
   // Setters para cambiare el estado
@@ -41,11 +46,33 @@ export const usePlacesStore = defineStore('places', () => {
     )
   }
 
+  const setPlaces = (otherPlaces: Feature[]) => {
+    places.value = otherPlaces
+    console.log('places', places.value)
+  }
+
+  const searchPlacesByTerm = async (searchText: string) => {
+    isLoading.value = true
+    if (searchText.length > 0 && userLocation.value) {
+      const response = await searchApi.get<PlacesResponse>(`/${searchText}.json`, {
+        params: {
+          proximity: userLocation.value?.join(','),
+        },
+      })
+      setPlaces(response.data.features)
+    } else {
+      setPlaces([])
+    }
+    isLoading.value = false
+  }
+
   // Exportamos lo que queremos usar en cualquier parte de la app
   return {
     isUserLocationReady,
     getInitialLocation,
     getCurrentLocation,
     getLoading,
+    searchPlacesByTerm,
+    getPlaces,
   }
 })

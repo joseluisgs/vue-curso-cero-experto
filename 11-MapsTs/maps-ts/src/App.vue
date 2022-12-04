@@ -22,35 +22,7 @@
 </script>
 
 <style scoped>
-  header {
-    line-height: 1.5;
-    max-height: 100vh;
-  }
-
   .logo {
-    @apply fixed right-10 bottom-10 z-40 h-10 w-10;
-  }
-
-  nav {
-    width: 100%;
-    text-align: center;
-    margin-top: 2rem;
-  }
-
-  nav a.router-link-exact-active {
-    @apply text-primary;
-  }
-
-  nav a.router-link-exact-active:hover {
-    @apply text-primary;
-  }
-
-  nav a {
-    display: inline-block;
-    padding: 0 1rem;
-  }
-
-  nav a:first-of-type {
-    border: 0;
+    @apply fixed right-5 bottom-5 z-40 h-10 w-10;
   }
 </style>

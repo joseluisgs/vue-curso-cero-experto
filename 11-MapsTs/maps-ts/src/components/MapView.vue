@@ -70,6 +70,6 @@
     @apply fixed top-0 z-40 flex h-screen w-screen items-center justify-center bg-indigo-50/50 backdrop-blur-sm backdrop-filter;
   }
   .map-container {
-    @apply fixed top-0 z-0 h-screen w-screen;
+    @apply fixed top-0 left-0 z-0 h-screen w-screen;
   }
 </style>

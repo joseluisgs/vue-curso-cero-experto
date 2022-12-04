@@ -19,5 +19,5 @@ export const useMapStore = defineStore('map', () => {
   }
 
   // Exportamos lo que queremos usar en cualquier parte de la app
-  return { markers, distance, duration, setMap, isMapReady, getMap }
+  return { setMap, isMapReady, getMap }
 })
