@@ -6,8 +6,8 @@
       type="text"
       placeholder="Buscar"
       class="input-bordered input-primary input max-w-xs bg-primary-content"
-      @input.prevent="inputText"
       v-model.trim="searchText"
+      @input="searchItem"
     />
     <SearchResults />
   </div>
@@ -22,11 +22,31 @@
   const placesStore = usePlacesStore()
 
   const searchText = ref('')
-  const inputText = debounce(async () => {
-    //console.log('searchText:', searchText.value)
+  const searchTimeout = ref()
+
+  // Con lodash/debounce
+  const searchItem = debounce(async (value) => {
+    // console.log('inputText:', value.target.value)
+    searchText.value = value.target.value
     await placesStore.searchPlacesByTerm(searchText.value)
-    console.log('places', placesStore.getPlaces)
   }, 500)
+
+  // O manual
+
+  // const searchItem = computed({
+  //   get() {
+  //     return searchText.value
+  //   },
+  //   set(value: string) {
+  //     if (searchTimeout.value) clearTimeout(searchTimeout.value)
+
+  //     searchTimeout.value = setTimeout(async () => {
+  //       searchText.value = value
+  //       console.log('searchText:', searchText.value)
+  //       await placesStore.searchPlacesByTerm(searchText.value)
+  //     }, 500)
+  //   },
+  // })
 </script>
 
 <style scoped>

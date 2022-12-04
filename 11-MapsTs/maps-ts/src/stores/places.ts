@@ -49,9 +49,11 @@ export const usePlacesStore = defineStore('places', () => {
   const setPlaces = (otherPlaces: Feature[]) => {
     places.value = otherPlaces
     console.log('places', places.value)
+    isLoading.value = false
   }
 
   const searchPlacesByTerm = async (searchText: string) => {
+    console.log('searchPlacesByTerm', searchText)
     isLoading.value = true
     if (searchText.length > 0 && userLocation.value) {
       const response = await searchApi.get<PlacesResponse>(`/${searchText}.json`, {
@@ -63,10 +65,9 @@ export const usePlacesStore = defineStore('places', () => {
     } else {
       setPlaces([])
     }
-    isLoading.value = false
   }
 
-  // Exportamos lo que queremos usar en cualquier parte de la app
+  // Exportamos lo que queremos usar en cualquier parte de la app, es dcir lo que queremos que sea publico
   return {
     isUserLocationReady,
     getInitialLocation,
