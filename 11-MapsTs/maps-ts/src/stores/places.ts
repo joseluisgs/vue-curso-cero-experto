@@ -40,6 +40,12 @@ export const usePlacesStore = defineStore('places', () => {
       }
     )
   }
+
   // Exportamos lo que queremos usar en cualquier parte de la app
-  return { isUserLocationReady, getInitialLocation, getCurrentLocation, getLoading }
+  return {
+    isUserLocationReady,
+    getInitialLocation,
+    getCurrentLocation,
+    getLoading,
+  }
 })
