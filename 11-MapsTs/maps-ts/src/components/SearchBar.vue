@@ -6,8 +6,8 @@
       type="text"
       placeholder="Buscar"
       class="input-bordered input-primary input max-w-xs bg-primary-content"
+      @input="inputText"
       v-model="searchText"
-      @input="search"
     />
     <SearchResults />
   </div>
@@ -15,13 +15,11 @@
 
 <script setup lang="ts">
   import SearchResults from '@/components/SearchResults.vue'
+  import debounce from 'lodash/debounce'
   import { ref } from 'vue'
 
   const searchText = ref('')
-
-  const search = () => {
-    console.log(searchText.value)
-  }
+  const inputText = debounce(() => console.log('searchText:', searchText.value), 500)
 </script>
 
 <style scoped>
