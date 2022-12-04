@@ -1,7 +1,7 @@
 <template>
   <button
     v-if="isBotonReady"
-    class="btn-primary btn-square btn fixed top-5 right-5 z-50 bg-primary-content text-primary shadow-lg hover:text-primary-content"
+    class="btn-primary btn-square btn fixed top-11 right-6 z-50 bg-primary-content text-primary shadow-lg hover:text-primary-content"
     @click="goToMyPosition"
   >
     <Icon

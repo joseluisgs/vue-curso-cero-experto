@@ -52,7 +52,6 @@ module.exports = {
       'night', // Al ponerlo es elk tema por
       'dark',
       'light',
-      'lemonade',
       {
         // Un tema personalizado con daisyui
         // https://daisyui.com/theme-generator/

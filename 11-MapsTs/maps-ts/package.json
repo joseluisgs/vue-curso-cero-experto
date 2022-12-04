@@ -16,6 +16,7 @@
     "lodash": "^4.17.21",
     "mapbox-gl": "^2.11.0",
     "pinia": "^2.0.26",
+    "theme-change": "^2.2.0",
     "vue": "^3.2.45",
     "vue-router": "^4.1.6"
   },
