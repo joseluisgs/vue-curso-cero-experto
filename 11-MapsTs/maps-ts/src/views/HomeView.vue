@@ -1,5 +1,6 @@
 <template>
   <main>
+    <SearchBar />
     <MyLocationBoton />
     <MapView />
   </main>
@@ -8,6 +9,7 @@
 <script setup lang="ts">
   import MapView from '@/components/MapView.vue'
   import MyLocationBoton from '@/components/MyLocationBoton.vue'
+  import SearchBar from '@/components/SearchBar.vue'
   import { usePlacesStore } from '@/stores/places'
 
   // creo la store

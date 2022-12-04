@@ -47,7 +47,7 @@
       .setLngLat(placesStore.getCurrentLocation)
       .addTo(map)
 
-    const myLocationMarker = new Mapboxgl.Marker()
+    new Mapboxgl.Marker()
       .setLngLat(placesStore.getCurrentLocation)
       .setPopup(myLocationPopup)
       .addTo(map)
