@@ -33,7 +33,7 @@
   import { useMapStore } from '@/stores/map'
   import { usePlacesStore } from '@/stores/places'
   import { Icon } from '@iconify/vue'
-  import { ref } from 'vue'
+  import { ref, watch } from 'vue'
 
   const placesStore = usePlacesStore()
   const mapStore = useMapStore()
@@ -48,6 +48,15 @@
       zoom: 15,
     })
   }
+
+  // Cada vez que haya un cambio en places, lo metemos en markers del mapa
+  watch(
+    () => placesStore.getPlaces,
+    (newPlaces) => {
+      activePlace.value = ''
+      mapStore.setMarkers(newPlaces)
+    }
+  )
 </script>
 
 <style scoped>
