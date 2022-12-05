@@ -44,6 +44,14 @@ export const useMapStore = defineStore('map', () => {
 
       markers.value.push(marker)
     })
+
+    // Clear polyline
+    if (map.value.getLayer('RouteString')) {
+      map.value.removeLayer('RouteString')
+      map.value.removeSource('RouteString')
+      distance.value = undefined
+      duration.value = undefined
+    }
   }
 
   const setDistance = (otherDistance: number) => {
@@ -87,6 +95,12 @@ export const useMapStore = defineStore('map', () => {
           },
         ],
       },
+    }
+
+    // Clear polyline
+    if (map.value.getLayer('RouteString')) {
+      map.value.removeLayer('RouteString')
+      map.value.removeSource('RouteString')
     }
 
     console.log(sourceData)
