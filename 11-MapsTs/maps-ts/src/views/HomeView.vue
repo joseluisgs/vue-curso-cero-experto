@@ -3,6 +3,7 @@
     <SearchBar />
     <MyLocationBoton />
     <MapView />
+    <TripDetails />
   </main>
 </template>
 
@@ -10,6 +11,7 @@
   import MapView from '@/components/MapView.vue'
   import MyLocationBoton from '@/components/MyLocationBoton.vue'
   import SearchBar from '@/components/SearchBar.vue'
+  import TripDetails from '@/components/TripDetails.vue'
   import { usePlacesStore } from '@/stores/places'
 
   // creo la store

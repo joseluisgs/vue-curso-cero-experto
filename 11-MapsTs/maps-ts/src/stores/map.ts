@@ -55,11 +55,11 @@ export const useMapStore = defineStore('map', () => {
   }
 
   const setDistance = (otherDistance: number) => {
-    distance.value = otherDistance
+    distance.value = Math.round((otherDistance / 1000) * 100) / 100 // Redondeo a 2 decimales kilometros
   }
 
   const setDuration = (otherDuration: number) => {
-    duration.value = otherDuration
+    duration.value = Math.floor(otherDuration / 60) // Redondeo a minutos
   }
 
   const setRoutePolyline = (coords: number[][]) => {
@@ -129,5 +129,7 @@ export const useMapStore = defineStore('map', () => {
     setDistance,
     setDuration,
     setRoutePolyline,
+    getDistance,
+    getDuration,
   }
 })
