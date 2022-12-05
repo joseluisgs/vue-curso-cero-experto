@@ -20,20 +20,39 @@
       :key="place.id"
       class="lista-item"
       :class="{ active: place.id === activePlace }"
-      @click="onePlaceClick(place)"
     >
-      <h5 class="font-medium">{{ place.text_es }}</h5>
-      <p class="text-xs">{{ place.place_name_es }}</p>
+      <div class="flex flex-row items-center">
+        <div
+          class="flex grow flex-col"
+          @click="onePlaceClick(place)"
+        >
+          <h5 class="font-medium">{{ place.text_es }}</h5>
+          <p class="text-xs">{{ place.place_name_es }}</p>
+        </div>
+        <div class="pl-2">
+          <button
+            class="btn-outline btn-circle btn"
+            @click="onPlaceDirection(place)"
+          >
+            <Icon
+              icon="material-symbols:assistant-direction"
+              class="flex h-10 w-10 text-emerald-300 hover:text-emerald-500"
+            />
+          </button>
+        </div>
+      </div>
     </li>
   </ul>
 </template>
 
 <script setup lang="ts">
+  import { directionsApi } from '@/apis'
   import type { Feature } from '@/interfaces/PlacesResponse'
   import { useMapStore } from '@/stores/map'
   import { usePlacesStore } from '@/stores/places'
   import { Icon } from '@iconify/vue'
   import { ref, watch } from 'vue'
+  import type { DirectionsResponse } from '../interfaces/DirectionsResponse'
 
   const placesStore = usePlacesStore()
   const mapStore = useMapStore()
@@ -45,6 +64,36 @@
     const [lng, lat] = place.center
     mapStore.getMap?.flyTo({
       center: [lng, lat],
+      zoom: 15,
+    })
+  }
+
+  const onPlaceDirection = async (place: Feature) => {
+    if (!placesStore.getCurrentLocation) return
+
+    activePlace.value = place.id
+    const [destLng, destLat] = place.center
+    const [originLng, originLat] = placesStore.getCurrentLocation
+
+    const origen: [number, number] = [originLng, originLat]
+    const destino: [number, number] = [destLng, destLat]
+
+    //console.log('origen', origen)
+    //console.log('dest', destino)
+
+    const resp = await directionsApi.get<DirectionsResponse>(
+      `/${origen.join(',')};${destino.join(',')}`
+    )
+
+    console.log(resp.data.routes[0].geometry)
+    console.log(resp.data.routes[0].distance)
+    console.log(resp.data.routes[0].duration)
+
+    mapStore.setDistance(resp.data.routes[0].distance)
+    mapStore.setDuration(resp.data.routes[0].duration)
+
+    mapStore.getMap?.flyTo({
+      center: destino,
       zoom: 15,
     })
   }

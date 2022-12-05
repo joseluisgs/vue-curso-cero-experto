@@ -1,7 +1,11 @@
+import { directionsApi } from '@/apis'
+import type { DirectionsResponse } from '@/interfaces/DirectionsResponse'
 import type { Feature } from '@/interfaces/PlacesResponse'
 import Mapboxgl from 'mapbox-gl'
 import { defineStore } from 'pinia'
 import { computed, ref, type Ref } from 'vue'
+
+export type LngLat = [number, number] // Me creo un tipo, y uno una interfaz porque es sencillo, pero si fuera más complejo, mejor interfaz
 
 // Puedo definir el tipo!!!
 export const useMapStore = defineStore('map', () => {
@@ -15,6 +19,8 @@ export const useMapStore = defineStore('map', () => {
   const isMapReady = computed(() => !!map.value)
   const getMap = computed(() => map.value)
   const getMarkers = computed(() => markers.value)
+  const getDistance = computed(() => distance.value)
+  const getDuration = computed(() => duration.value)
 
   // Actions y mutaciones
   const setMap = (otherMap: mapboxgl.Map) => {
@@ -42,6 +48,22 @@ export const useMapStore = defineStore('map', () => {
     })
   }
 
+  const setDistance = (otherDistance: number) => {
+    distance.value = otherDistance
+  }
+
+  const setDuration = (otherDuration: number) => {
+    duration.value = otherDuration
+  }
+
   // Exportamos lo que queremos usar en cualquier parte de la app
-  return { setMap, isMapReady, getMap, setMarkers, getMarkers }
+  return {
+    setMap,
+    isMapReady,
+    getMap,
+    setMarkers,
+    getMarkers,
+    setDistance,
+    setDuration,
+  }
 })
