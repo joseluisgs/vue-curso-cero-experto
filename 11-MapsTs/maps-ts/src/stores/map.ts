@@ -1,5 +1,3 @@
-import { directionsApi } from '@/apis'
-import type { DirectionsResponse } from '@/interfaces/DirectionsResponse'
 import type { Feature } from '@/interfaces/PlacesResponse'
 import Mapboxgl from 'mapbox-gl'
 import { defineStore } from 'pinia'
@@ -56,6 +54,57 @@ export const useMapStore = defineStore('map', () => {
     duration.value = otherDuration
   }
 
+  const setRoutePolyline = (coords: number[][]) => {
+    if (!map.value) return
+
+    const origen = coords[0]
+    const destino = coords[coords.length - 1]
+
+    // Definir los bounds
+    const bounds = new Mapboxgl.LngLatBounds([origen[0], origen[1]], [destino[0], destino[1]])
+
+    coords.forEach((coord) => {
+      const newCoord: [number, number] = [coord[0], coord[1]]
+      bounds.extend(newCoord)
+    })
+
+    // el mapa debe mostrar los bounds
+    map.value.fitBounds(bounds, { padding: 300 })
+
+    // polyline
+    const sourceData: Mapboxgl.AnySourceData = {
+      type: 'geojson',
+      data: {
+        type: 'FeatureCollection',
+        features: [
+          {
+            type: 'Feature',
+            properties: {},
+            geometry: {
+              type: 'LineString',
+              coordinates: coords,
+            },
+          },
+        ],
+      },
+    }
+
+    console.log(sourceData)
+    map.value.addLayer({
+      id: 'RouteString',
+      type: 'line',
+      source: sourceData,
+      layout: {
+        'line-join': 'round',
+        'line-cap': 'round',
+      },
+      paint: {
+        'line-color': '#6241f2',
+        'line-width': 3,
+      },
+    })
+  }
+
   // Exportamos lo que queremos usar en cualquier parte de la app
   return {
     setMap,
@@ -65,5 +114,6 @@ export const useMapStore = defineStore('map', () => {
     getMarkers,
     setDistance,
     setDuration,
+    setRoutePolyline,
   }
 })

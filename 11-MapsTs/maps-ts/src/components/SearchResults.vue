@@ -96,6 +96,8 @@
       center: destino,
       zoom: 15,
     })
+
+    mapStore.setRoutePolyline(resp.data.routes[0].geometry.coordinates)
   }
 
   // Cada vez que haya un cambio en places, lo metemos en markers del mapa
